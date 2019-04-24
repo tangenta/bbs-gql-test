@@ -1,3 +1,8 @@
+const currentUser = (auth) => sendGQL({
+  query: CURRENT_USER,
+  auth: auth
+});
+
 const hots = (first, skip) => sendGQL({
   query: HOTS,
   variables: {
@@ -16,9 +21,7 @@ const latests = (first, skip) => sendGQL({
 
 const news = () => sendGQL({
   query: NEWS,
-  variables: {
 
-  }
 });
 
 const newsInfo = (newsId) => sendGQL({
@@ -55,16 +58,13 @@ const schoolHeatInfo = (id, first, skip) => sendGQL({
   }
 });
 
-const schoolHeatsOfAuthor = (first, skip, authorId, auth) => sendGQL({
+const schoolHeatsOfAuthor = (first, skip, authorId) => sendGQL({
   query: SCHOOL_HEATS_OF_AUTHOR,
   variables: {
     first: first,
     skip: skip,
     authorId: authorId
-  },
-  
-auth: auth
-
+  }
 });
 
 const searchSchoolHeats = (title, first, skip) => sendGQL({
@@ -124,9 +124,7 @@ const allLearningResource = (sortedBy, course, first, skip) => sendGQL({
 
 const allCourses = () => sendGQL({
   query: ALL_COURSES,
-  variables: {
 
-  }
 });
 
 const learningResourceInfo = (id, first, skip) => sendGQL({
@@ -224,237 +222,335 @@ const searchLectures = (first, skip, title) => sendGQL({
   }
 });
 
-const createNews = (newsInput) => sendGQL({
+const personInfo = (id) => sendGQL({
+  query: PERSON_INFO,
+  variables: {
+    id: id
+  }
+});
+
+const allMajors = () => sendGQL({
+  query: ALL_MAJORS,
+
+});
+
+const allAcademies = () => sendGQL({
+  query: ALL_ACADEMIES,
+
+});
+
+const majorsIn = (academy) => sendGQL({
+  query: MAJORS_IN,
+  variables: {
+    academy: academy
+  }
+});
+
+const signup = (signup) => sendGQL({
+  query: SIGNUP,
+  variables: {
+    signup: signup
+  }
+});
+
+const login = (loginInput) => sendGQL({
+  query: LOGIN,
+  variables: {
+    loginInput: loginInput
+  }
+});
+
+const logout = (auth) => sendGQL({
+  query: LOGOUT,
+  auth: auth
+});
+
+const createNews = (newsInput, auth) => sendGQL({
   query: CREATE_NEWS,
   variables: {
     newsInput: newsInput
-  }
+  },
+  auth: auth
 });
 
-const deleteNews = (newsId) => sendGQL({
+const deleteNews = (newsId, auth) => sendGQL({
   query: DELETE_NEWS,
   variables: {
     newsId: newsId
-  }
+  },
+  auth: auth
 });
 
-const editNews = (newsInput, newsId) => sendGQL({
+const editNews = (newsInput, newsId, auth) => sendGQL({
   query: EDIT_NEWS,
   variables: {
     newsInput: newsInput,
     newsId: newsId
-  }
+  },
+  auth: auth
 });
 
-const createSchoolHeat = (schoolHeatInput, first, skip) => sendGQL({
+const createSchoolHeat = (schoolHeatInput, first, skip, auth) => sendGQL({
   query: CREATE_SCHOOL_HEAT,
   variables: {
     schoolHeatInput: schoolHeatInput,
     first: first,
     skip: skip
-  }
+  },
+  auth: auth
 });
 
-const deleteSchoolHeat = (id, first, skip) => sendGQL({
+const deleteSchoolHeat = (id, first, skip, auth) => sendGQL({
   query: DELETE_SCHOOL_HEAT,
   variables: {
     id: id,
     first: first,
     skip: skip
-  }
+  },
+  auth: auth
 });
 
-const createSchoolHeatComment = (schoolHeatCommentInput) => sendGQL({
+const createSchoolHeatComment = (schoolHeatCommentInput, auth) => sendGQL({
   query: CREATE_SCHOOL_HEAT_COMMENT,
   variables: {
     schoolHeatCommentInput: schoolHeatCommentInput
-  }
+  },
+  auth: auth
 });
 
-const deleteSchoolHeatComment = (cmmtId, shId) => sendGQL({
+const deleteSchoolHeatComment = (cmmtId, shId, auth) => sendGQL({
   query: DELETE_SCHOOL_HEAT_COMMENT,
   variables: {
     cmmtId: cmmtId,
     shId: shId
-  }
+  },
+  auth: auth
 });
 
-const createSchoolHeatCommentReply = (schoolHeatReplyInput) => sendGQL({
+const createSchoolHeatCommentReply = (schoolHeatReplyInput, auth) => sendGQL({
   query: CREATE_SCHOOL_HEAT_COMMENT_REPLY,
   variables: {
     schoolHeatReplyInput: schoolHeatReplyInput
-  }
+  },
+  auth: auth
 });
 
-const deleteSchoolHeatCommentReply = (rpyId, cmmtId, shId) => sendGQL({
+const deleteSchoolHeatCommentReply = (rpyId, cmmtId, shId, auth) => sendGQL({
   query: DELETE_SCHOOL_HEAT_COMMENT_REPLY,
   variables: {
     rpyId: rpyId,
     cmmtId: cmmtId,
     shId: shId
-  }
+  },
+  auth: auth
 });
 
-const createEntertainment = (entertainmentInput, first, skip) => sendGQL({
+const createEntertainment = (entertainmentInput, first, skip, auth) => sendGQL({
   query: CREATE_ENTERTAINMENT,
   variables: {
     entertainmentInput: entertainmentInput,
     first: first,
     skip: skip
-  }
+  },
+  auth: auth
 });
 
-const deleteEntertainment = (id, first, skip) => sendGQL({
+const deleteEntertainment = (id, first, skip, auth) => sendGQL({
   query: DELETE_ENTERTAINMENT,
   variables: {
     id: id,
     first: first,
     skip: skip
-  }
+  },
+  auth: auth
 });
 
-const createEntertainmentComment = (entertainmentCommentInput) => sendGQL({
+const createEntertainmentComment = (entertainmentCommentInput, auth) => sendGQL({
   query: CREATE_ENTERTAINMENT_COMMENT,
   variables: {
     entertainmentCommentInput: entertainmentCommentInput
-  }
+  },
+  auth: auth
 });
 
-const deleteEntertainmentComment = (cmmtId, etmtId) => sendGQL({
+const deleteEntertainmentComment = (cmmtId, etmtId, auth) => sendGQL({
   query: DELETE_ENTERTAINMENT_COMMENT,
   variables: {
     cmmtId: cmmtId,
     etmtId: etmtId
-  }
+  },
+  auth: auth
 });
 
-const createEntertainmentCommentReply = (entertainmentReplyInput) => sendGQL({
+const createEntertainmentCommentReply = (entertainmentReplyInput, auth) => sendGQL({
   query: CREATE_ENTERTAINMENT_COMMENT_REPLY,
   variables: {
     entertainmentReplyInput: entertainmentReplyInput
-  }
+  },
+  auth: auth
 });
 
-const deleteEntertainmentCommentReply = (rpyId, cmmtId, etmtId) => sendGQL({
+const deleteEntertainmentCommentReply = (rpyId, cmmtId, etmtId, auth) => sendGQL({
   query: DELETE_ENTERTAINMENT_COMMENT_REPLY,
   variables: {
     rpyId: rpyId,
     cmmtId: cmmtId,
     etmtId: etmtId
-  }
+  },
+  auth: auth
 });
 
-const createLearningResource = (learningResourceInput, first, skip) => sendGQL({
+const createLearningResource = (learningResourceInput, first, skip, auth) => sendGQL({
   query: CREATE_LEARNING_RESOURCE,
   variables: {
     learningResourceInput: learningResourceInput,
     first: first,
     skip: skip
-  }
+  },
+  auth: auth
 });
 
-const deleteLearningResource = (id, first, skip) => sendGQL({
+const deleteLearningResource = (id, first, skip, auth) => sendGQL({
   query: DELETE_LEARNING_RESOURCE,
   variables: {
     id: id,
     first: first,
     skip: skip
-  }
+  },
+  auth: auth
 });
 
-const createLearningResourceComment = (learningResourceCommentInput) => sendGQL({
+const createLearningResourceComment = (learningResourceCommentInput, auth) => sendGQL({
   query: CREATE_LEARNING_RESOURCE_COMMENT,
   variables: {
     learningResourceCommentInput: learningResourceCommentInput
-  }
+  },
+  auth: auth
 });
 
-const deleteLearningResourceComment = (cmmtId, lrId) => sendGQL({
+const deleteLearningResourceComment = (cmmtId, lrId, auth) => sendGQL({
   query: DELETE_LEARNING_RESOURCE_COMMENT,
   variables: {
     cmmtId: cmmtId,
     lrId: lrId
-  }
+  },
+  auth: auth
 });
 
-const createLearningResourceCommentReply = (learningResourceReplyInput) => sendGQL({
+const createLearningResourceCommentReply = (learningResourceReplyInput, auth) => sendGQL({
   query: CREATE_LEARNING_RESOURCE_COMMENT_REPLY,
   variables: {
     learningResourceReplyInput: learningResourceReplyInput
-  }
+  },
+  auth: auth
 });
 
-const deleteLearningResourceCommentReply = (rpyId, cmmtId, lrId) => sendGQL({
+const deleteLearningResourceCommentReply = (rpyId, cmmtId, lrId, auth) => sendGQL({
   query: DELETE_LEARNING_RESOURCE_COMMENT_REPLY,
   variables: {
     rpyId: rpyId,
     cmmtId: cmmtId,
     lrId: lrId
-  }
+  },
+  auth: auth
 });
 
-const createFound = (foundInput) => sendGQL({
+const createFound = (foundInput, auth) => sendGQL({
   query: CREATE_FOUND,
   variables: {
     foundInput: foundInput
-  }
+  },
+  auth: auth
 });
 
-const deleteFound = (id) => sendGQL({
+const deleteFound = (id, auth) => sendGQL({
   query: DELETE_FOUND,
   variables: {
     id: id
-  }
+  },
+  auth: auth
 });
 
-const claimFound = (userId, foundId) => sendGQL({
+const claimFound = (userId, foundId, auth) => sendGQL({
   query: CLAIM_FOUND,
   variables: {
     userId: userId,
     foundId: foundId
-  }
+  },
+  auth: auth
 });
 
-const createLost = (lostInput) => sendGQL({
+const createLost = (lostInput, auth) => sendGQL({
   query: CREATE_LOST,
   variables: {
     lostInput: lostInput
-  }
+  },
+  auth: auth
 });
 
-const deleteLost = (id) => sendGQL({
+const deleteLost = (id, auth) => sendGQL({
   query: DELETE_LOST,
   variables: {
     id: id
-  }
+  },
+  auth: auth
 });
 
-const claimLost = (userId, lostId) => sendGQL({
+const claimLost = (userId, lostId, auth) => sendGQL({
   query: CLAIM_LOST,
   variables: {
     userId: userId,
     lostId: lostId
-  }
+  },
+  auth: auth
 });
 
-const createLecture = (lectureInput) => sendGQL({
+const createLecture = (lectureInput, auth) => sendGQL({
   query: CREATE_LECTURE,
   variables: {
     lectureInput: lectureInput
-  }
+  },
+  auth: auth
 });
 
-const editLecture = (lectureInput, id) => sendGQL({
+const editLecture = (lectureInput, id, auth) => sendGQL({
   query: EDIT_LECTURE,
   variables: {
     lectureInput: lectureInput,
     id: id
-  }
+  },
+  auth: auth
 });
 
-const deleteLecture = (id) => sendGQL({
+const deleteLecture = (id, auth) => sendGQL({
   query: DELETE_LECTURE,
   variables: {
     id: id
-  }
+  },
+  auth: auth
+});
+
+const editPersonInfo = (personInfoInput, auth) => sendGQL({
+  query: EDIT_PERSON_INFO,
+  variables: {
+    personInfoInput: personInfoInput
+  },
+  auth: auth
+});
+
+const confirmPassword = (comfirmInput, auth) => sendGQL({
+  query: CONFIRM_PASSWORD,
+  variables: {
+    comfirmInput: comfirmInput
+  },
+  auth: auth
+});
+
+const changePassword = (newPassword, resetToken, auth) => sendGQL({
+  query: CHANGE_PASSWORD,
+  variables: {
+    newPassword: newPassword,
+    resetToken: resetToken
+  },
+  auth: auth
 });

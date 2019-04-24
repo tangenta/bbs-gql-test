@@ -1,0 +1,469 @@
+# 注册登录
++@query currentUser: CurrentUserResult!
+@mutation signup(signup: SignupInput!): SignupResult!
+@mutation login(loginInput: LoginInput!): LoginResult!
++@mutation logout: LogoutResult!
+
+input SignupInput {
+    username: String!
+    password: String!
+    nickname: String!
+}
+
+input LoginInput {
+    username: String!
+    password: String!
+}
+
+union CurrentUserResult = BError | PersonalInfo
+union SignupResult = BError | PersonalInfo
+union LoginResult = BError | PersonalInfo
+union LogoutResult = BError | Ok
+
+
+
+# 最热讨论
+@query hots: HotsResult! # 依赖于日期，每日更新，缓存
+
+union HotsResult = BError | Hots
+type Hots {
+    hots: [HotItem!]!
+}
+union HotItem = SchoolHeatInfo | EntertainmentInfo | LearningResourceInfo
+
+
+# 最新动态
+@query latests: LatestsResult! # 时刻不同，考虑按窗口缓存
+
+union LatestsResult = BError | Latests
+type Latests {
+    latests: [LatestItem!]!
+}
+union LatestItem = SchoolHeatInfo | EntertainmentInfo | LearningResourceInfo
+
+
+
+# 今日头条
+@query news: NewsResult! # 依赖于日子，每日/周/月更新，缓存
+@query newsInfo(newsId: String!): NewsItem
++@mutation createNews(newsInput: NewsInput!): CreateNewsResult!
++@mutation deleteNews(newsId: String!): DeleteNewsResult!
++@mutation editNews(newsId: String!, newsInput: NewsInput!): EditNewsResult!
+
+union NewsResult = BError | Newss
+type Newss {
+    newss: [NewsItem!]!
+}
+type NewsItem {
+    id: ID!
+    title: String!
+    content: Content!
+    posterId: String!
+    postTime: Time!
+    editTime: Time!
+    pictureURL: String!
+}
+input NewsInput {
+    title: String
+    content: Content
+    pictureBase64: String
+}
+union CreateNewsResult = BError | NewsItem
+union DeleteNewsResult = BError | NewsItem
+union EditNewsResult   = BError | NewsItem
+
+
+
+# 总搜索
+@query search(content: String!, skip: Long, first: Long): SearchsResult!
+
+union SearchsResult = BError | Searchs
+type Searchs {
+    searchs: [SearchsItem!]!
+}
+union SearchsItem = SchoolHeatInfo | EntertainmentInfo | PersonalInfo #| ... | ... | ... | ...
+
+
+
+# 校园热点
+@query allSchoolHeats(skip: Long, first: Long, sortedBy: SortedBy): AllSchoolHeatsResult!
+@query schoolHeatInfo(id: ID!): SchoolHeatInfoResult!
+@query schoolHeatsOfAuthor(authorId: ID!, skip: Long, first: Long): SchoolHeatsOfAuthorResult!
+@query searchSchoolHeats(title: String!): SearchSchoolHeatsResult!
++@mutation createSchoolHeat(schoolHeatInput: SchoolHeatInput!): CreateSchoolHeatResult!
++@mutation deleteSchoolHeat(id: ID!): DeleteSchoolHeatResult!
++@mutation createSchoolHeatComment(schoolHeatCommentInput: SchoolHeatCommentInput!): CreateSchoolHeatCommentResult!
++@mutation deleteSchoolHeatComment(shId: ID!, cmmtId: ID!): DeleteSchoolHeatCommentResult!
++@mutation createSchoolHeatCommentReply(schoolHeatReplyInput: SchoolHeatReplyInput): CreateSchoolHeatCommentReplyResult!
++@mutation deleteSchoolHeatCommentReply(shId: ID!, cmmtId: ID!, rpyId: ID!): DeleteSchoolHeatCommentReplyResult!
+
+type SchoolHeatInfo {
+    id: ID!
+    title: String!
+    content: Content!
+    author: PersonalInfo!
+    latestCommenter: PersonalInfo
+    latestActiveTime: Long!
+    createTime: Long!
+    heat: Int!
+    allComments(skip: Long, first: Long): AllComments!
+}
+type MultiSchoolHeats {
+    totalCount: Long!
+    schoolHeats: [SchoolHeatInfo!]!
+}
+union SchoolHeatInfoResult = BError | SchoolHeatInfo
+union CreateSchoolHeatResult = BError | SchoolHeatInfo
+union DeleteSchoolHeatResult = BError | SchoolHeatInfo
+union AllSchoolHeatsResult = BError | MultiSchoolHeats
+union SearchSchoolHeatsResult = BError | MultiSchoolHeats
+union SchoolHeatsOfAuthorResult = BError | MultiSchoolHeats
+
+input SchoolHeatInput {
+    title: String!
+    content: Content!
+}
+input SchoolHeatCommentInput {
+    postIdCommenting: ID!
+    content: Content!
+}
+input SchoolHeatReplyInput {
+    commentIdReplying: ID!
+    content: Content!
+    replyTo: ID
+}
+
+
+
+# 休闲娱乐
+@query allEntertainments(skip: Long, first: Long, sortedBy: SortedBy): AllEntertainmentsResult!
+@query entertainmentInfo(id: ID!): EntertainmentInfoResult!
+@query entertainmentsOfAuthor(authorId: ID!, skip: Long, first: Long): EntertainmentsOfAuthorResult!
+@query searchEntertainments(title: String!): SearchEntertainmentsResult!
++@mutation createEntertainment(entertainmentInput: EntertainmentInput!): CreateEntertainmentResult!
++@mutation deleteEntertainment(id: ID!): DeleteEntertainmentResult!
++@mutation createEntertainmentComment(entertainmentCommentInput: EntertainmentCommentInput!): CreateEntertainmentCommentResult!
++@mutation deleteEntertainmentComment(etmtId: ID!, cmmtId: ID!): DeleteEntertainmentCommentResult!
++@mutation createEntertainmentCommentReply(entertainmentReplyInput: EntertainmentReplyInput): CreateEntertainmentCommentReplyResult!
++@mutation deleteEntertainmentCommentReply(etmtId: ID!, cmmtId: ID!, rpyId: ID!): DeleteEntertainmentCommentReplyResult!
+
+type EntertainmentInfo {
+    id: ID!
+    title: String!
+    content: Content!
+    author: PersonalInfo!
+    latestCommenter: PersonalInfo
+    latestActiveTime: Long!
+    createTime: Long!
+    heat: Int!
+    allComments(skip: Long, first: Long): AllComments!
+}
+type MultiEntertainments {
+    totalCount: Long!
+    Entertainments: [EntertainmentInfo!]!
+}
+union EntertainmentInfoResult = BError | EntertainmentInfo
+union CreateEntertainmentResult = BError | EntertainmentInfo
+union DeleteEntertainmentResult = BError | EntertainmentInfo
+union AllEntertainmentsResult = BError | MultiEntertainments
+union SearchEntertainmentsResult = BError | MultiEntertainments
+union EntertainmentsOfAuthorResult = BError | MultiEntertainments
+
+input EntertainmentInput {
+    title: String!
+    content: Content!
+}
+input EntertainmentCommentInput {
+    postIdCommenting: ID!
+    content: Content!
+}
+input EntertainmentReplyInput {
+    commentIdReplying: ID!
+    content: Content!
+    replyTo: ID
+}
+
+
+
+# 学习资料
+@query allLearningResource(skip: Long, first: Long, course: String, sortedBy: SortedBy): AllLearningResourceResult!
+@query allCourses: [String!]! # course还需要去找
+@query learningResourceInfo(id: ID!): LearningResourceInfoResult!
+@query learningResourcesOfAuthor(authorId: ID!, skip: Long, first: Long): LearningResourcesOfAuthorResult!
+@query searchLearningResources(title: String!): SearchLearningResourcesResult!
++@mutation createLearningResource(learningResourceInput: LearningResourceInput): CreateLearningResourceResult!
++@mutation deleteLearningResource(id: ID!): DeleteLearningResourceResult!
++@mutation createLearningResourceComment(learningResourceCommentInput: LearningResourceCommentInput!): CreateLearningResourceCommentResult!
++@mutation deleteLearningResourceComment(lrId: ID!, cmmtId: ID!): DeleteLearningResourceCommentResult!
++@mutation createLearningResourceCommentReply(learningResourceReplyInput: LearningResourceReplyInput): CreateLearningResourceCommentReplyResult!
++@mutation deleteLearningResourceCommentReply(lrId: ID!, cmmtId: ID!, rpyId: ID!): DeleteLearningResourceCommentReplyResult!
+
+type LearningResourceInfo {
+    id: ID!
+    author: PersonalInfo!
+    title: String!
+    content: Content!
+    course: String!
+    attachedFileURL: String!
+    latestCommenter: PersonalInfo
+    latestActiveTime: Long!
+    createTime: Long!
+    allComments(skip: Long, first: Long): AllComments!
+}
+type MultiLearningResources {
+    totalCount: Long!
+    learningResources: [LearningResourceInfo!]!
+}
+union LearningResourceInfoResult = BError | LearningResourceInfo
+union CreateLearningResourceResult = BError | LearningResourceInfo
+union DeleteLearningResourceResult = BError | LearningResourceInfo
+union AllLearningResourceResult = BError | MultiLearningResources
+union LearningResourcesOfAuthorResult = BError | MultiLearningResources
+union SearchLearningResourcesResult = BError | MultiLearningResources
+
+input LearningResourceInput {
+    title: String!
+    content: Content!
+    course: String!
+    base64AttachedFile: String!
+}
+input LearningResourceCommentInput {
+    postIdCommenting: ID!
+    content: Content!
+}
+input LearningResourceReplyInput {
+    commentIdReplying: ID!
+    content: Content!
+    replyTo: ID
+}
+
+
+
+# 复用评论和回复
+type AllComments {
+    totalCount: Long!
+    comments: [CommentInfo!]!
+}
+type CommentInfo {
+    id: ID!
+    content: Content!
+    author: PersonalInfo!
+    allReplies: [ReplyInfo!]!
+}
+type ReplyInfo {
+    id: ID!
+    content: Content!
+    author: PersonalInfo!
+    replyTo: PersonalInfo!
+}
+
+union CreateSchoolHeatCommentResult = BError | CommentInfo
+union DeleteSchoolHeatCommentResult = BError | CommentInfo
+union CreateSchoolHeatCommentReplyResult = BError | ReplyInfo
+union DeleteSchoolHeatCommentReplyResult = BError | ReplyInfo
+union CreateEntertainmentCommentResult = BError | CommentInfo
+union DeleteEntertainmentCommentResult = BError | CommentInfo
+union CreateEntertainmentCommentReplyResult = BError | ReplyInfo
+union DeleteEntertainmentCommentReplyResult = BError | ReplyInfo
+union CreateLearningResourceCommentResult = BError | CommentInfo
+union DeleteLearningResourceCommentResult = BError | CommentInfo
+union CreateLearningResourceCommentReplyResult = BError | ReplyInfo
+union DeleteLearningResourceCommentReplyResult = BError | ReplyInfo
+
+
+
+# 失物招领
+@query allFounds(skip: Long, first: Long): AllFoundsResult!
+@query foundInfo(id: ID!): FoundInfoResult!
+@query searchFounds(object: String!): SearchFoundsResult!
++@mutation createFound(foundInput: FoundInput!): CreateFoundResult!
++@mutation deleteFound(id: ID!): DeleteFoundResult!
++@mutation claimFound(foundId: ID!, userId: ID!): ClaimFoundResult!
+
+type FoundInfo {
+    id: ID!
+    publisher: PersonalInfo!
+    name: String!
+    description: String!
+    position: String!
+    pictureUrl: String!
+    createTime: Long!
+    contact: String!
+    foundTime: Long!
+}
+
+type MultiFoundInfos {
+    totalCount: Long!
+    founds: [FoundInfo!]!
+}
+
+union FoundInfoResult = BError | FoundInfo
+union CreateFoundResult = BError | FoundInfo
+union DeleteFoundResult = BError | FoundInfo
+union ClaimFoundResult = BError | FoundInfo
+union AllFoundsResult = BError | MultiFoundInfos
+union SearchFoundsResult = BError | MultiFoundInfos
+
+@query allLosts(skip: Long, first: Long): AllLostsResult!
+@query lostInfo(id: ID!): LostInfoResult!
+@query searchLosts(object: String!): SearchLostsResult!
++@mutation createLost(lostInput: LostInput!): CreateLostResult!
++@mutation deleteLost(id: ID!): DeleteLostResult!
++@mutation claimLost(lostId: ID!, userId: ID!): ClaimLostResult!
+
+type LostInfo {
+    id: ID!
+    publisher: PersonalInfo!
+    name: String!
+    description: String!
+    position: String!
+    pictureUrl: String!
+    createTime: Long!
+    contact: String!
+    lostTime: Long!
+}
+
+type MultiLostInfos {
+    totalCount: Long!
+    losts: [LostInfo!]!
+}
+
+union LostInfoResult = BError | LostInfo
+union CreateLostResult = BError | LostInfo
+union DeleteLostResult = BError | LostInfo
+union ClaimLostResult = BError | LostInfo
+union AllLostsResult = BError | MultiLostInfos
+union SearchLostsResult = BError | MultiLostInfos
+
+input FoundInput {
+    itemName: String!
+    description: String!
+    position: String
+    pictureBase64: String
+    contact: String
+}
+
+input LostInput {
+    itemName: String!
+    description: String!
+    position: String
+    pictureBase64: String
+    contact: String
+}
+
+
+
+
+# 讲座信息
+@query allLectures(skip: Long, first: Long): AllLecturesResult! # 按讲座时间降序
+@query lectureInfo(id: ID!): LectureInfoResult!
+@query searchLectures(title: String!, skip: Long, first: Long): SearchLecturesResult!
++@mutation createLecture(lectureInput: LectureInput!): CreateLectureResult!
++@mutation editLecture(id: ID!, lectureInput: LectureInput!): EditLectureResult!
++@mutation deleteLecture(id: ID!): DeleteLectureResult!
+
+type LectureInfo {
+    id: ID!
+    title: String!
+    content: String!
+    position: String!
+    time: Long!
+    lecturer: String!
+    note: String! # 备注
+}
+type MultiLectures {
+    totalCount: Long!
+    lectures: [LectureInfo!]!
+}
+
+union LectureInfoResult = BError | LectureInfo
+union CreateLectureResult = BError | LectureInfo
+union EditLectureResult = BError | LectureInfo
+union DeleteLectureResult = BError | LectureInfo
+union AllLecturesResult = BError | MultiLectures
+union SearchLecturesResult = BError | MultiLectures
+
+input LectureInput {
+    title: String!
+    content: Content!
+    position: String!
+    time: Long!
+    lecturer: String!
+    note: String! # 备注
+}
+
+
+
+# 个人信息
+@query personInfo(id: ID!): PersonInfoResult!
+@query allMajors: [String!]!
+@query allAcademies: [String!]!
+@query majorsIn(academy: String!): [String!]!
++@mutation editPersonInfo(personInfoInput: PersonInfoInput!): EditPersonInfoResult!
+
+input PersonInfoInput {
+    username: String
+    gender: String
+    grade: String
+    school: String
+    major: String
+    introduction: String
+    pictureBase64: String
+}
+
+type PersonalInfo {
+    userId: String!
+    pictureUrl: String!
+    username: String!
+    gender: String!
+    grade: String!
+    school: String!
+    major: String!
+    introduction: String!
+}
+
+union PersonInfoResult = BError | PersonalInfo
+union EditPersonInfoResult = BError | PersonalInfo
+
+
+
+# 账号密码
++@mutation confirmPassword(comfirmInput: LoginInput!): ConfirmPasswordResult!
++@mutation changePassword(resetToken: String!, newPassword: String!): ChangePasswordResult!
+
+type ResetToken {
+    resetToken: String!
+}
+
+union ConfirmPasswordResult = BError | ResetToken
+union ChangePasswordResult = BError | Ok
+
+
+
+# 杂项
+enum SortedBy {
+    TimeAsc
+    TimeDes
+    HeatAsc
+    HeatDes
+}
+
+type BError {
+    errCode: Int!
+}
+
+type Ok {
+    ok: Boolean!
+}
+
+type Content {
+    items: List[ContentItem!]!
+}
+
+union ContentItem = Picture | Paragraph
+type Picture {
+    url: String!
+}
+type Paragraph {
+    text: String!
+}
