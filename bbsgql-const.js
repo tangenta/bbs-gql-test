@@ -49,6 +49,12 @@ const HOTS = `
                   }
                   content {
                     items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
                   id
@@ -65,6 +71,12 @@ const HOTS = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -87,6 +99,12 @@ const HOTS = `
             course
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             title
@@ -128,6 +146,12 @@ const HOTS = `
                   }
                   content {
                     items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
                   id
@@ -144,6 +168,12 @@ const HOTS = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -175,6 +205,12 @@ const HOTS = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             title
@@ -206,6 +242,12 @@ const HOTS = `
                   }
                   content {
                     items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
                   id
@@ -222,6 +264,12 @@ const HOTS = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -253,6 +301,12 @@ const HOTS = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             title
@@ -298,6 +352,12 @@ const LATESTS = `
                   }
                   content {
                     items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
                   id
@@ -314,6 +374,12 @@ const LATESTS = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -336,6 +402,12 @@ const LATESTS = `
             course
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             title
@@ -377,6 +449,12 @@ const LATESTS = `
                   }
                   content {
                     items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
                   id
@@ -393,6 +471,12 @@ const LATESTS = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -424,6 +508,12 @@ const LATESTS = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             title
@@ -455,6 +545,12 @@ const LATESTS = `
                   }
                   content {
                     items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
                   id
@@ -471,6 +567,12 @@ const LATESTS = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -502,6 +604,12 @@ const LATESTS = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             title
@@ -529,6 +637,12 @@ const NEWS = `
           posterId
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           title
@@ -553,6 +667,12 @@ const NEWS_INFO = `
       posterId
       content {
         items {
+          ... on Paragraph {
+            text
+          }
+          ... on Picture {
+            url
+          }
         }
       }
       title
@@ -602,6 +722,12 @@ const SEARCH = `
                   }
                   content {
                     items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
                   id
@@ -618,6 +744,12 @@ const SEARCH = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -649,6 +781,12 @@ const SEARCH = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             title
@@ -680,6 +818,12 @@ const SEARCH = `
                   }
                   content {
                     items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
                   id
@@ -696,6 +840,12 @@ const SEARCH = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -727,6 +877,12 @@ const SEARCH = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             title
@@ -771,6 +927,12 @@ const ALL_SCHOOL_HEATS = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -787,6 +949,12 @@ const ALL_SCHOOL_HEATS = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -818,6 +986,12 @@ const ALL_SCHOOL_HEATS = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           title
@@ -861,6 +1035,12 @@ const SCHOOL_HEAT_INFO = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -877,6 +1057,12 @@ const SCHOOL_HEAT_INFO = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             id
@@ -908,6 +1094,12 @@ const SCHOOL_HEAT_INFO = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -950,6 +1142,12 @@ const SCHOOL_HEATS_OF_AUTHOR = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -966,6 +1164,12 @@ const SCHOOL_HEATS_OF_AUTHOR = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -997,6 +1201,12 @@ const SCHOOL_HEATS_OF_AUTHOR = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           title
@@ -1041,6 +1251,12 @@ const SEARCH_SCHOOL_HEATS = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -1057,6 +1273,12 @@ const SEARCH_SCHOOL_HEATS = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -1088,6 +1310,12 @@ const SEARCH_SCHOOL_HEATS = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           title
@@ -1132,6 +1360,12 @@ const ALL_ENTERTAINMENTS = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -1148,6 +1382,12 @@ const ALL_ENTERTAINMENTS = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -1179,6 +1419,12 @@ const ALL_ENTERTAINMENTS = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           title
@@ -1222,6 +1468,12 @@ const ENTERTAINMENT_INFO = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -1238,6 +1490,12 @@ const ENTERTAINMENT_INFO = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             id
@@ -1269,6 +1527,12 @@ const ENTERTAINMENT_INFO = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -1311,6 +1575,12 @@ const ENTERTAINMENTS_OF_AUTHOR = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -1327,6 +1597,12 @@ const ENTERTAINMENTS_OF_AUTHOR = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -1358,6 +1634,12 @@ const ENTERTAINMENTS_OF_AUTHOR = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           title
@@ -1402,6 +1684,12 @@ const SEARCH_ENTERTAINMENTS = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -1418,6 +1706,12 @@ const SEARCH_ENTERTAINMENTS = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -1449,6 +1743,12 @@ const SEARCH_ENTERTAINMENTS = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           title
@@ -1493,6 +1793,12 @@ const ALL_LEARNING_RESOURCE = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -1509,6 +1815,12 @@ const ALL_LEARNING_RESOURCE = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -1531,6 +1843,12 @@ const ALL_LEARNING_RESOURCE = `
           course
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           title
@@ -1591,6 +1909,12 @@ const LEARNING_RESOURCE_INFO = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -1607,6 +1931,12 @@ const LEARNING_RESOURCE_INFO = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             id
@@ -1629,6 +1959,12 @@ const LEARNING_RESOURCE_INFO = `
         course
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -1681,6 +2017,12 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -1697,6 +2039,12 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -1719,6 +2067,12 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
           course
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           title
@@ -1773,6 +2127,12 @@ const SEARCH_LEARNING_RESOURCES = `
                 }
                 content {
                   items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
                 id
@@ -1789,6 +2149,12 @@ const SEARCH_LEARNING_RESOURCES = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -1811,6 +2177,12 @@ const SEARCH_LEARNING_RESOURCES = `
           course
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           title
@@ -2197,6 +2569,12 @@ const CREATE_NEWS = `
         posterId
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -2221,6 +2599,12 @@ const DELETE_NEWS = `
         posterId
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -2245,6 +2629,12 @@ const EDIT_NEWS = `
         posterId
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -2286,6 +2676,12 @@ const CREATE_SCHOOL_HEAT = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -2302,6 +2698,12 @@ const CREATE_SCHOOL_HEAT = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             id
@@ -2333,6 +2735,12 @@ const CREATE_SCHOOL_HEAT = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -2374,6 +2782,12 @@ const DELETE_SCHOOL_HEAT = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -2390,6 +2804,12 @@ const DELETE_SCHOOL_HEAT = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             id
@@ -2421,6 +2841,12 @@ const DELETE_SCHOOL_HEAT = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -2460,6 +2886,12 @@ const CREATE_SCHOOL_HEAT_COMMENT = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           id
@@ -2476,6 +2908,12 @@ const CREATE_SCHOOL_HEAT_COMMENT = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
@@ -2514,6 +2952,12 @@ const DELETE_SCHOOL_HEAT_COMMENT = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           id
@@ -2530,6 +2974,12 @@ const DELETE_SCHOOL_HEAT_COMMENT = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
@@ -2567,6 +3017,12 @@ const CREATE_SCHOOL_HEAT_COMMENT_REPLY = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
@@ -2604,6 +3060,12 @@ const DELETE_SCHOOL_HEAT_COMMENT_REPLY = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
@@ -2644,6 +3106,12 @@ const CREATE_ENTERTAINMENT = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -2660,6 +3128,12 @@ const CREATE_ENTERTAINMENT = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             id
@@ -2691,6 +3165,12 @@ const CREATE_ENTERTAINMENT = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -2732,6 +3212,12 @@ const DELETE_ENTERTAINMENT = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -2748,6 +3234,12 @@ const DELETE_ENTERTAINMENT = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             id
@@ -2779,6 +3271,12 @@ const DELETE_ENTERTAINMENT = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -2818,6 +3316,12 @@ const CREATE_ENTERTAINMENT_COMMENT = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           id
@@ -2834,6 +3338,12 @@ const CREATE_ENTERTAINMENT_COMMENT = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
@@ -2872,6 +3382,12 @@ const DELETE_ENTERTAINMENT_COMMENT = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           id
@@ -2888,6 +3404,12 @@ const DELETE_ENTERTAINMENT_COMMENT = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
@@ -2925,6 +3447,12 @@ const CREATE_ENTERTAINMENT_COMMENT_REPLY = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
@@ -2962,6 +3490,12 @@ const DELETE_ENTERTAINMENT_COMMENT_REPLY = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
@@ -3002,6 +3536,12 @@ const CREATE_LEARNING_RESOURCE = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -3018,6 +3558,12 @@ const CREATE_LEARNING_RESOURCE = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             id
@@ -3040,6 +3586,12 @@ const CREATE_LEARNING_RESOURCE = `
         course
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -3091,6 +3643,12 @@ const DELETE_LEARNING_RESOURCE = `
               }
               content {
                 items {
+                  ... on Paragraph {
+                    text
+                  }
+                  ... on Picture {
+                    url
+                  }
                 }
               }
               id
@@ -3107,6 +3665,12 @@ const DELETE_LEARNING_RESOURCE = `
             }
             content {
               items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
             id
@@ -3129,6 +3693,12 @@ const DELETE_LEARNING_RESOURCE = `
         course
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         title
@@ -3178,6 +3748,12 @@ const CREATE_LEARNING_RESOURCE_COMMENT = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           id
@@ -3194,6 +3770,12 @@ const CREATE_LEARNING_RESOURCE_COMMENT = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
@@ -3232,6 +3814,12 @@ const DELETE_LEARNING_RESOURCE_COMMENT = `
           }
           content {
             items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
             }
           }
           id
@@ -3248,6 +3836,12 @@ const DELETE_LEARNING_RESOURCE_COMMENT = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
@@ -3285,6 +3879,12 @@ const CREATE_LEARNING_RESOURCE_COMMENT_REPLY = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
@@ -3322,6 +3922,12 @@ const DELETE_LEARNING_RESOURCE_COMMENT_REPLY = `
         }
         content {
           items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
         id
