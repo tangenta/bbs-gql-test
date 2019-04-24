@@ -44,23 +44,21 @@ union LatestItem = SchoolHeatInfo | EntertainmentInfo | LearningResourceInfo
 
 
 # 今日头条
-@query news: NewsResult! # 依赖于日子，每日/周/月更新，缓存
-@query newsInfo(newsId: String!): NewsItem
+@query news: MultiNewsInfos! # 依赖于日子，每日/周/月更新，缓存
+@query newsInfo(newsId: String!): NewsInfoResult!
 +@mutation createNews(newsInput: NewsInput!): CreateNewsResult!
 +@mutation deleteNews(newsId: String!): DeleteNewsResult!
 +@mutation editNews(newsId: String!, newsInput: NewsInput!): EditNewsResult!
 
-union NewsResult = BError | Newss
-type Newss {
-    newss: [NewsItem!]!
+type MultiNewsInfos {
+    newss: [NewsInfo!]!
 }
-type NewsItem {
+type NewsInfo {
     id: ID!
     title: String!
     content: Content!
-    posterId: String!
-    postTime: Time!
-    editTime: Time!
+    postTime: Long!
+    editTime: Long!
     pictureURL: String!
 }
 input NewsInput {
@@ -68,9 +66,11 @@ input NewsInput {
     content: Content
     pictureBase64: String
 }
-union CreateNewsResult = BError | NewsItem
-union DeleteNewsResult = BError | NewsItem
-union EditNewsResult   = BError | NewsItem
+union NewsInfoResult   = BError | NewsInfo
+union CreateNewsResult = BError | NewsInfo
+union DeleteNewsResult = BError | NewsInfo
+union EditNewsResult   = BError | NewsInfo
+
 
 
 
@@ -248,13 +248,17 @@ type CommentInfo {
     id: ID!
     content: Content!
     author: PersonalInfo!
-    allReplies: [ReplyInfo!]!
+    allReplies: AllReplies!
+}
+type AllReplies {
+    totalCount: Long!
+    replies: [ReplyInfo!]!
 }
 type ReplyInfo {
     id: ID!
     content: Content!
     author: PersonalInfo!
-    replyTo: PersonalInfo!
+    replyTo: PersonalInfo
 }
 
 union CreateSchoolHeatCommentResult = BError | CommentInfo
@@ -397,8 +401,8 @@ input LectureInput {
 # 个人信息
 @query personInfo(id: ID!): PersonInfoResult!
 @query allMajors: [String!]!
-@query allSchools: [String!]!
-@query majorsIn(school: String!): [String!]!
+@query allAcademies: [String!]!
+@query majorsIn(academy: String!): [String!]!
 +@mutation editPersonInfo(personInfoInput: PersonInfoInput!): EditPersonInfoResult!
 
 input PersonInfoInput {
