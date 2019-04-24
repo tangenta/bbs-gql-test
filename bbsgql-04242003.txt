@@ -397,8 +397,8 @@ input LectureInput {
 # 个人信息
 @query personInfo(id: ID!): PersonInfoResult!
 @query allMajors: [String!]!
-@query allAcademies: [String!]!
-@query majorsIn(academy: String!): [String!]!
+@query allSchools: [String!]!
+@query majorsIn(school: String!): [String!]!
 +@mutation editPersonInfo(personInfoInput: PersonInfoInput!): EditPersonInfoResult!
 
 input PersonInfoInput {
