@@ -6,13 +6,18 @@ unit_test("confirmPassword", () =>
     )
 );
 
-unit_test_only("changePassword", () => 
+unit_test("changePassword", () => 
     after_signUp((auth, username, password) =>
         confirmPassword({username, password}, auth).then(res => {
             const resetToken = res.resetToken;
-            return changePassword(password + "newPass", resetToken, auth).then(res =>
-                assert(res.ok)
-            );
+            changePassword(password + "newPass", resetToken, auth).then(res => {
+                login({username, password: password + "newPass"}).then(t => {
+                    assertNonEmpty(t);
+                    login({username, password}).then(t2 =>
+                        assertNonEmpty(t2.errCode)
+                    )
+                })
+            })
         })
     )
-);
+);  
