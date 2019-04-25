@@ -294,10 +294,11 @@ type FoundInfo {
     name: String!
     description: String!
     position: String!
-    pictureUrl: String!
+    pictureURL: String!
     createTime: Long!
     contact: String!
     foundTime: Long!
+    claimer: PersonalInfo
 }
 
 type MultiFoundInfos {
@@ -329,6 +330,7 @@ type LostInfo {
     createTime: Long!
     contact: String!
     lostTime: Long!
+    claimer: PersonalInfo
 }
 
 type MultiLostInfos {

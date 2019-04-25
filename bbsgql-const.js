@@ -2282,10 +2282,20 @@ const ALL_FOUNDS = `
     allFounds(first: $first, skip: $skip) {
       ... on MultiFoundInfos {
         founds {
+          claimer {
+            introduction
+            major
+            school
+            grade
+            gender
+            username
+            pictureUrl
+            userId
+          }
           foundTime
           contact
           createTime
-          pictureUrl
+          pictureURL
           position
           description
           name
@@ -2315,10 +2325,20 @@ const FOUND_INFO = `
   query FoundInfo($id: ID!) {
     foundInfo(id: $id) {
       ... on FoundInfo {
+        claimer {
+          introduction
+          major
+          school
+          grade
+          gender
+          username
+          pictureUrl
+          userId
+        }
         foundTime
         contact
         createTime
-        pictureUrl
+        pictureURL
         position
         description
         name
@@ -2347,10 +2367,20 @@ const SEARCH_FOUNDS = `
     searchFounds(object: $object) {
       ... on MultiFoundInfos {
         founds {
+          claimer {
+            introduction
+            major
+            school
+            grade
+            gender
+            username
+            pictureUrl
+            userId
+          }
           foundTime
           contact
           createTime
-          pictureUrl
+          pictureURL
           position
           description
           name
@@ -2381,6 +2411,16 @@ const ALL_LOSTS = `
     allLosts(first: $first, skip: $skip) {
       ... on MultiLostInfos {
         losts {
+          claimer {
+            introduction
+            major
+            school
+            grade
+            gender
+            username
+            pictureUrl
+            userId
+          }
           lostTime
           contact
           createTime
@@ -2414,6 +2454,16 @@ const LOST_INFO = `
   query LostInfo($id: ID!) {
     lostInfo(id: $id) {
       ... on LostInfo {
+        claimer {
+          introduction
+          major
+          school
+          grade
+          gender
+          username
+          pictureUrl
+          userId
+        }
         lostTime
         contact
         createTime
@@ -2446,6 +2496,16 @@ const SEARCH_LOSTS = `
     searchLosts(object: $object) {
       ... on MultiLostInfos {
         losts {
+          claimer {
+            introduction
+            major
+            school
+            grade
+            gender
+            username
+            pictureUrl
+            userId
+          }
           lostTime
           contact
           createTime
@@ -3495,10 +3555,20 @@ const CREATE_FOUND = `
   mutation CreateFound($foundInput: FoundInput!) {
     createFound(foundInput: $foundInput) {
       ... on FoundInfo {
+        claimer {
+          introduction
+          major
+          school
+          grade
+          gender
+          username
+          pictureUrl
+          userId
+        }
         foundTime
         contact
         createTime
-        pictureUrl
+        pictureURL
         position
         description
         name
@@ -3540,10 +3610,20 @@ const CLAIM_FOUND = `
   mutation ClaimFound($userId: ID!, $foundId: ID!) {
     claimFound(userId: $userId, foundId: $foundId) {
       ... on FoundInfo {
+        claimer {
+          introduction
+          major
+          school
+          grade
+          gender
+          username
+          pictureUrl
+          userId
+        }
         foundTime
         contact
         createTime
-        pictureUrl
+        pictureURL
         position
         description
         name
@@ -3571,6 +3651,16 @@ const CREATE_LOST = `
   mutation CreateLost($lostInput: LostInput!) {
     createLost(lostInput: $lostInput) {
       ... on LostInfo {
+        claimer {
+          introduction
+          major
+          school
+          grade
+          gender
+          username
+          pictureUrl
+          userId
+        }
         lostTime
         contact
         createTime
@@ -3616,6 +3706,16 @@ const CLAIM_LOST = `
   mutation ClaimLost($userId: ID!, $lostId: ID!) {
     claimLost(userId: $userId, lostId: $lostId) {
       ... on LostInfo {
+        claimer {
+          introduction
+          major
+          school
+          grade
+          gender
+          username
+          pictureUrl
+          userId
+        }
         lostTime
         contact
         createTime
