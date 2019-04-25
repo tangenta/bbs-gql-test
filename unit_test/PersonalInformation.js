@@ -29,8 +29,15 @@ unit_test("allSchools", () =>
     )
 );
 
+unit_test("allCourses", () =>
+    allCourses().then(res =>
+        assertEq(res.length, 70)    
+    )
+);
+
 unit_test("majorsIn", () => 
     majorsIn("生物科学与工程学院").then(res => 
         assertEq(res.length, 3)
     )
 );
+
