@@ -294,11 +294,11 @@ type FoundInfo {
     publisher: PersonalInfo!
     name: String!
     description: String!
-    position: String!
-    pictureURL: String!
+    position: String
+    pictureURL: String
     createTime: Long!
-    contact: String!
-    foundTime: Long!
+    contact: String
+    foundTime: Long
     claimer: PersonalInfo
 }
 
@@ -328,11 +328,11 @@ type LostInfo {
     publisher: PersonalInfo!
     name: String!
     description: String!
-    position: String!
-    pictureUrl: String!
+    position: String
+    pictureUrl: String
     createTime: Long!
-    contact: String!
-    lostTime: Long!
+    contact: String
+    lostTime: Long
     claimer: PersonalInfo
 }
 

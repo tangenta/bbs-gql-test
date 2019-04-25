@@ -1,18 +1,22 @@
-unit_test_only("createFound", () =>
+unit_test("createFound", () =>
     after_signUp(auth => {
         const foundItem = {
             itemName: "testItem",
             description: "this is description",
             position: "position",
-            pictureBase64: getBase64Image(document.getElementById("test-img")),
+            pictureBase64: "aGVsbG93b3JsZCE=",
             contact: "12345678"
         };
         return createFound(foundItem, auth).then(res =>
-            console.log(res) && assertEq(res.name, foundItem.itemName)
+            assertEq(res.name, foundItem.itemName)
         )
     })
 );
 
-// unit_test("allFounds" , () => 
-
-// )
+unit_test("allFounds" , () => 
+    after_n_lost_or_found_publish("found", 5, () =>
+        allFounds(10, 2).then(res => 
+            assertEq(res.totalCount, 5)
+        )
+    )
+)

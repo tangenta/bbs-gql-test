@@ -75,7 +75,7 @@ const after_publishFound = (func) =>
 			imageBase64: "aGVsbG93b3JsZCE=",
 			time: Date.now(),
 		};
-		return publishFound(testObj, auth).then(result =>
+		return createFound(testObj, auth).then(result =>
 			func(auth, result.id, testObj)
 		)
 	});
@@ -91,7 +91,7 @@ const after_publishLost = (func) =>
 			imageBase64: "aGVsbG93b3JsZCE=",
 			time: Date.now(),
 		};
-		return publishLost(testObj, auth).then(result =>
+		return createLost(testObj, auth).then(result =>
 			func(auth, result.id, testObj)
 		)
 	});
@@ -113,11 +113,13 @@ const after_n_lost_or_found_publish = (foundOrLostStr, nTimes, func) => {
 				description: "qwerty" + i,
 				position: "qwertyu" + i,
 				contact: "1121234567" + i,
-				imageBase64: "aGVsbG93b3JsZCE=",
-				time: Date.now(),
+				pictureBase64: "aGVsbG93b3JsZCE=",
 			};
+			if (isFound) item.foundTime = Date.now();
+			else item.lostTime = Date.now();
+
 			pubItems.push(item);
-			chain = chain.then(() => isFound ? publishFound(item, auth) : publishLost(item, auth)
+			chain = chain.then(() => isFound ? createFound(item, auth) : createLost(item, auth)
 				.then(result => pubItemIds.push(result.itemId)));
 		}
 
@@ -188,7 +190,7 @@ const fire_tests = async (kind, tests) => {
 				return console.log("SUCCESS # " + kind + ": " + f.name)
 			})
 			.then(() => new Promise(resolve => setTimeout(resolve, 10)))  // visual enjoyment
-			// .then(() => cleanUpRoutine())
+			.then(() => cleanUpRoutine())
 			.then(() => new Promise(resolve => setTimeout(resolve, 10)))
 			.catch(error => {
 				console.error("=== (" + f.name + ") " + kind + " FAILED ===");
@@ -199,21 +201,13 @@ const fire_tests = async (kind, tests) => {
 }
 
 const cleanUpRoutine = () => {
-	const resetLostFound = `
+	const reset = `
 		mutation {
-			resetLostFound
+			reset
 		}
 	`;
 	sendGQL({
-		query: resetLostFound,
-	})
-	const resetPost = `
-		mutation {
-			resetPost
-		}
-	`;
-	sendGQL({
-		query: resetPost,
+		query: reset,
 	})
 }
 
