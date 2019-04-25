@@ -439,11 +439,11 @@ union EditPersonInfoResult = Error | PersonalInfo
 +@mutation confirmPassword(comfirmInput: LoginInput!): ConfirmPasswordResult!
 +@mutation changePassword(resetToken: String!, newPassword: String!): ChangePasswordResult!
 
-type ResetToken {
+type ResetPassToken {
     resetToken: String!
 }
 
-union ConfirmPasswordResult = Error | ResetToken
+union ConfirmPasswordResult = Error | ResetPassToken
 union ChangePasswordResult = Error | Ok
 
 

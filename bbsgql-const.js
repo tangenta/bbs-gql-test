@@ -3721,7 +3721,7 @@ const EDIT_PERSON_INFO = `
 const CONFIRM_PASSWORD = `
   mutation ConfirmPassword($comfirmInput: LoginInput!) {
     confirmPassword(comfirmInput: $comfirmInput) {
-      ... on ResetToken {
+      ... on ResetPassToken {
         resetToken
       }
       ... on Error {
