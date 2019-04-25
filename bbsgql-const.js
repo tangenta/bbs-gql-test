@@ -3593,8 +3593,8 @@ const CREATE_FOUND = `
 `;
 
 const DELETE_FOUND = `
-  mutation DeleteFound($id: ID!) {
-    deleteFound(id: $id) {
+  mutation DeleteFound($foundId: ID!) {
+    deleteFound(foundId: $foundId) {
       ... on Ok {
         ok
       }
@@ -3607,37 +3607,24 @@ const DELETE_FOUND = `
 `;
 
 const CLAIM_FOUND = `
-  mutation ClaimFound($userId: ID!, $foundId: ID!) {
-    claimFound(userId: $userId, foundId: $foundId) {
-      ... on FoundInfo {
-        claimer {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        foundTime
-        contact
-        createTime
-        pictureURL
-        position
-        description
-        name
-        publisher {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        id
+  mutation ClaimFound($foundId: ID!) {
+    claimFound(foundId: $foundId) {
+      ... on Ok {
+        ok
+      }
+      ... on Error {
+        msg
+        errCode
+      }
+    }
+  }
+`;
+
+const CANCEL_CLAIM_FOUND = `
+  mutation CancelClaimFound($foundId: ID!) {
+    cancelClaimFound(foundId: $foundId) {
+      ... on Ok {
+        ok
       }
       ... on Error {
         msg
@@ -3705,35 +3692,22 @@ const DELETE_LOST = `
 const CLAIM_LOST = `
   mutation ClaimLost($userId: ID!, $lostId: ID!) {
     claimLost(userId: $userId, lostId: $lostId) {
-      ... on LostInfo {
-        claimer {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        lostTime
-        contact
-        createTime
-        pictureUrl
-        position
-        description
-        name
-        publisher {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        id
+      ... on Ok {
+        ok
+      }
+      ... on Error {
+        msg
+        errCode
+      }
+    }
+  }
+`;
+
+const CANCEL_CLAIM_LOST = `
+  mutation CancelClaimLost($foundId: ID!) {
+    cancelClaimLost(foundId: $foundId) {
+      ... on Ok {
+        ok
       }
       ... on Error {
         msg

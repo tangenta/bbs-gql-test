@@ -285,8 +285,9 @@ union DeleteLearningResourceCommentReplyResult = Error | Ok
 @query foundInfo(id: ID!): FoundInfoResult!
 @query searchFounds(object: String!): SearchFoundsResult!
 +@mutation createFound(foundInput: FoundInput!): CreateFoundResult!
-+@mutation deleteFound(id: ID!): DeleteFoundResult!
-+@mutation claimFound(foundId: ID!, userId: ID!): ClaimFoundResult!
++@mutation deleteFound(foundId: ID!): DeleteFoundResult!
++@mutation claimFound(foundId: ID!): ClaimFoundResult!
++@mutation cancelClaimFound(foundId: ID!): CancelClaimFoundResult!
 
 type FoundInfo {
     id: ID!
@@ -309,7 +310,8 @@ type MultiFoundInfos {
 union FoundInfoResult = Error | FoundInfo
 union CreateFoundResult = Error | FoundInfo
 union DeleteFoundResult = Error | Ok
-union ClaimFoundResult = Error | FoundInfo
+union ClaimFoundResult = Error | Ok
+union CancelClaimFoundResult = Error | Ok
 union AllFoundsResult = Error | MultiFoundInfos
 union SearchFoundsResult = Error | MultiFoundInfos
 
@@ -319,6 +321,7 @@ union SearchFoundsResult = Error | MultiFoundInfos
 +@mutation createLost(lostInput: LostInput!): CreateLostResult!
 +@mutation deleteLost(id: ID!): DeleteLostResult!
 +@mutation claimLost(lostId: ID!, userId: ID!): ClaimLostResult!
++@mutation cancelClaimLost(foundId: ID!): CancelClaimLostResult!
 
 type LostInfo {
     id: ID!
@@ -341,7 +344,8 @@ type MultiLostInfos {
 union LostInfoResult = Error | LostInfo
 union CreateLostResult = Error | LostInfo
 union DeleteLostResult = Error | Ok
-union ClaimLostResult = Error | LostInfo
+union ClaimLostResult = Error | Ok
+union CancelClaimLostResult = Error | Ok
 union AllLostsResult = Error | MultiLostInfos
 union SearchLostsResult = Error | MultiLostInfos
 
@@ -351,6 +355,7 @@ input FoundInput {
     position: String
     pictureBase64: String
     contact: String
+    foundTime: Long
 }
 
 input LostInput {
@@ -359,6 +364,7 @@ input LostInput {
     position: String
     pictureBase64: String
     contact: String
+    lostTime: Long
 }
 
 

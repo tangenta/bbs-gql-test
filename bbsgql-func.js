@@ -457,18 +457,25 @@ const createFound = (foundInput, auth) => sendGQL({
   auth: auth
 });
 
-const deleteFound = (id, auth) => sendGQL({
+const deleteFound = (foundId, auth) => sendGQL({
   query: DELETE_FOUND,
   variables: {
-    id: id
+    foundId: foundId
   },
   auth: auth
 });
 
-const claimFound = (userId, foundId, auth) => sendGQL({
+const claimFound = (foundId, auth) => sendGQL({
   query: CLAIM_FOUND,
   variables: {
-    userId: userId,
+    foundId: foundId
+  },
+  auth: auth
+});
+
+const cancelClaimFound = (foundId, auth) => sendGQL({
+  query: CANCEL_CLAIM_FOUND,
+  variables: {
     foundId: foundId
   },
   auth: auth
@@ -495,6 +502,14 @@ const claimLost = (userId, lostId, auth) => sendGQL({
   variables: {
     userId: userId,
     lostId: lostId
+  },
+  auth: auth
+});
+
+const cancelClaimLost = (foundId, auth) => sendGQL({
+  query: CANCEL_CLAIM_LOST,
+  variables: {
+    foundId: foundId
   },
   auth: auth
 });
