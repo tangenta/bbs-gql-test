@@ -11,7 +11,8 @@ const CURRENT_USER = `
         pictureUrl
         userId
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -27,37 +28,40 @@ const HOTS = `
             allComments(first: first, skip: skip) {
               comments {
                 allReplies {
-                  replyTo {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  author {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  content {
-                    items {
-                      ... on Paragraph {
-                        text
-                      }
-                      ... on Picture {
-                        url
+                  replies {
+                    replyTo {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    author {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    content {
+                      items {
+                        ... on Paragraph {
+                          text
+                        }
+                        ... on Picture {
+                          url
+                        }
                       }
                     }
+                    id
                   }
-                  id
+                  totalCount
                 }
                 author {
                   introduction
@@ -124,37 +128,40 @@ const HOTS = `
             allComments(first: first, skip: skip) {
               comments {
                 allReplies {
-                  replyTo {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  author {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  content {
-                    items {
-                      ... on Paragraph {
-                        text
-                      }
-                      ... on Picture {
-                        url
+                  replies {
+                    replyTo {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    author {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    content {
+                      items {
+                        ... on Paragraph {
+                          text
+                        }
+                        ... on Picture {
+                          url
+                        }
                       }
                     }
+                    id
                   }
-                  id
+                  totalCount
                 }
                 author {
                   introduction
@@ -220,37 +227,40 @@ const HOTS = `
             allComments(first: first, skip: skip) {
               comments {
                 allReplies {
-                  replyTo {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  author {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  content {
-                    items {
-                      ... on Paragraph {
-                        text
-                      }
-                      ... on Picture {
-                        url
+                  replies {
+                    replyTo {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    author {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    content {
+                      items {
+                        ... on Paragraph {
+                          text
+                        }
+                        ... on Picture {
+                          url
+                        }
                       }
                     }
+                    id
                   }
-                  id
+                  totalCount
                 }
                 author {
                   introduction
@@ -314,7 +324,8 @@ const HOTS = `
           }
         }
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -330,37 +341,40 @@ const LATESTS = `
             allComments(first: first, skip: skip) {
               comments {
                 allReplies {
-                  replyTo {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  author {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  content {
-                    items {
-                      ... on Paragraph {
-                        text
-                      }
-                      ... on Picture {
-                        url
+                  replies {
+                    replyTo {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    author {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    content {
+                      items {
+                        ... on Paragraph {
+                          text
+                        }
+                        ... on Picture {
+                          url
+                        }
                       }
                     }
+                    id
                   }
-                  id
+                  totalCount
                 }
                 author {
                   introduction
@@ -427,37 +441,40 @@ const LATESTS = `
             allComments(first: first, skip: skip) {
               comments {
                 allReplies {
-                  replyTo {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  author {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  content {
-                    items {
-                      ... on Paragraph {
-                        text
-                      }
-                      ... on Picture {
-                        url
+                  replies {
+                    replyTo {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    author {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    content {
+                      items {
+                        ... on Paragraph {
+                          text
+                        }
+                        ... on Picture {
+                          url
+                        }
                       }
                     }
+                    id
                   }
-                  id
+                  totalCount
                 }
                 author {
                   introduction
@@ -523,37 +540,40 @@ const LATESTS = `
             allComments(first: first, skip: skip) {
               comments {
                 allReplies {
-                  replyTo {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  author {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  content {
-                    items {
-                      ... on Paragraph {
-                        text
-                      }
-                      ... on Picture {
-                        url
+                  replies {
+                    replyTo {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    author {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    content {
+                      items {
+                        ... on Paragraph {
+                          text
+                        }
+                        ... on Picture {
+                          url
+                        }
                       }
                     }
+                    id
                   }
-                  id
+                  totalCount
                 }
                 author {
                   introduction
@@ -617,7 +637,8 @@ const LATESTS = `
           }
         }
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -627,30 +648,22 @@ const LATESTS = `
 const NEWS = `
   query News {
     news {
-      ... on Newss {
-        newss {
-          pictureURL
-          editTime {
-          }
-          postTime {
-          }
-          posterId
-          content {
-            items {
-              ... on Paragraph {
-                text
-              }
-              ... on Picture {
-                url
-              }
+      newss {
+        pictureURL
+        editTime
+        postTime
+        content {
+          items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
             }
           }
-          title
-          id
         }
-      }
-      ... on BError {
-        errCode
+        title
+        id
       }
     }
   }
@@ -659,24 +672,27 @@ const NEWS = `
 const NEWS_INFO = `
   query NewsInfo($newsId: String!) {
     newsInfo(newsId: $newsId) {
-      pictureURL
-      editTime {
-      }
-      postTime {
-      }
-      posterId
-      content {
-        items {
-          ... on Paragraph {
-            text
-          }
-          ... on Picture {
-            url
+      ... on NewsInfo {
+        pictureURL
+        editTime
+        postTime
+        content {
+          items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
           }
         }
+        title
+        id
       }
-      title
-      id
+      ... on Error {
+        msg
+        errCode
+      }
     }
   }
 `;
@@ -700,37 +716,40 @@ const SEARCH = `
             allComments(first: first, skip: skip) {
               comments {
                 allReplies {
-                  replyTo {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  author {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  content {
-                    items {
-                      ... on Paragraph {
-                        text
-                      }
-                      ... on Picture {
-                        url
+                  replies {
+                    replyTo {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    author {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    content {
+                      items {
+                        ... on Paragraph {
+                          text
+                        }
+                        ... on Picture {
+                          url
+                        }
                       }
                     }
+                    id
                   }
-                  id
+                  totalCount
                 }
                 author {
                   introduction
@@ -796,37 +815,40 @@ const SEARCH = `
             allComments(first: first, skip: skip) {
               comments {
                 allReplies {
-                  replyTo {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  author {
-                    introduction
-                    major
-                    school
-                    grade
-                    gender
-                    username
-                    pictureUrl
-                    userId
-                  }
-                  content {
-                    items {
-                      ... on Paragraph {
-                        text
-                      }
-                      ... on Picture {
-                        url
+                  replies {
+                    replyTo {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    author {
+                      introduction
+                      major
+                      school
+                      grade
+                      gender
+                      username
+                      pictureUrl
+                      userId
+                    }
+                    content {
+                      items {
+                        ... on Paragraph {
+                          text
+                        }
+                        ... on Picture {
+                          url
+                        }
                       }
                     }
+                    id
                   }
-                  id
+                  totalCount
                 }
                 author {
                   introduction
@@ -890,7 +912,8 @@ const SEARCH = `
           }
         }
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -905,37 +928,40 @@ const ALL_SCHOOL_HEATS = `
           allComments(first: first, skip: skip) {
             comments {
               allReplies {
-                replyTo {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                author {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                content {
-                  items {
-                    ... on Paragraph {
-                      text
-                    }
-                    ... on Picture {
-                      url
+                replies {
+                  replyTo {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  author {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  content {
+                    items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
+                  id
                 }
-                id
+                totalCount
               }
               author {
                 introduction
@@ -999,7 +1025,8 @@ const ALL_SCHOOL_HEATS = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -1013,37 +1040,40 @@ const SCHOOL_HEAT_INFO = `
         allComments(first: first, skip: skip) {
           comments {
             allReplies {
-              replyTo {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              author {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              content {
-                items {
-                  ... on Paragraph {
-                    text
-                  }
-                  ... on Picture {
-                    url
+              replies {
+                replyTo {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                author {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                content {
+                  items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
+                id
               }
-              id
+              totalCount
             }
             author {
               introduction
@@ -1105,7 +1135,8 @@ const SCHOOL_HEAT_INFO = `
         title
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -1120,37 +1151,40 @@ const SCHOOL_HEATS_OF_AUTHOR = `
           allComments(first: first, skip: skip) {
             comments {
               allReplies {
-                replyTo {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                author {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                content {
-                  items {
-                    ... on Paragraph {
-                      text
-                    }
-                    ... on Picture {
-                      url
+                replies {
+                  replyTo {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  author {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  content {
+                    items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
+                  id
                 }
-                id
+                totalCount
               }
               author {
                 introduction
@@ -1214,7 +1248,8 @@ const SCHOOL_HEATS_OF_AUTHOR = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -1229,37 +1264,40 @@ const SEARCH_SCHOOL_HEATS = `
           allComments(first: first, skip: skip) {
             comments {
               allReplies {
-                replyTo {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                author {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                content {
-                  items {
-                    ... on Paragraph {
-                      text
-                    }
-                    ... on Picture {
-                      url
+                replies {
+                  replyTo {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  author {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  content {
+                    items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
+                  id
                 }
-                id
+                totalCount
               }
               author {
                 introduction
@@ -1323,7 +1361,8 @@ const SEARCH_SCHOOL_HEATS = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -1338,37 +1377,40 @@ const ALL_ENTERTAINMENTS = `
           allComments(first: first, skip: skip) {
             comments {
               allReplies {
-                replyTo {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                author {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                content {
-                  items {
-                    ... on Paragraph {
-                      text
-                    }
-                    ... on Picture {
-                      url
+                replies {
+                  replyTo {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  author {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  content {
+                    items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
+                  id
                 }
-                id
+                totalCount
               }
               author {
                 introduction
@@ -1432,7 +1474,8 @@ const ALL_ENTERTAINMENTS = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -1446,37 +1489,40 @@ const ENTERTAINMENT_INFO = `
         allComments(first: first, skip: skip) {
           comments {
             allReplies {
-              replyTo {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              author {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              content {
-                items {
-                  ... on Paragraph {
-                    text
-                  }
-                  ... on Picture {
-                    url
+              replies {
+                replyTo {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                author {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                content {
+                  items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
+                id
               }
-              id
+              totalCount
             }
             author {
               introduction
@@ -1538,7 +1584,8 @@ const ENTERTAINMENT_INFO = `
         title
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -1553,37 +1600,40 @@ const ENTERTAINMENTS_OF_AUTHOR = `
           allComments(first: first, skip: skip) {
             comments {
               allReplies {
-                replyTo {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                author {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                content {
-                  items {
-                    ... on Paragraph {
-                      text
-                    }
-                    ... on Picture {
-                      url
+                replies {
+                  replyTo {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  author {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  content {
+                    items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
+                  id
                 }
-                id
+                totalCount
               }
               author {
                 introduction
@@ -1647,7 +1697,8 @@ const ENTERTAINMENTS_OF_AUTHOR = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -1662,37 +1713,40 @@ const SEARCH_ENTERTAINMENTS = `
           allComments(first: first, skip: skip) {
             comments {
               allReplies {
-                replyTo {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                author {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                content {
-                  items {
-                    ... on Paragraph {
-                      text
-                    }
-                    ... on Picture {
-                      url
+                replies {
+                  replyTo {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  author {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  content {
+                    items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
+                  id
                 }
-                id
+                totalCount
               }
               author {
                 introduction
@@ -1756,7 +1810,8 @@ const SEARCH_ENTERTAINMENTS = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -1771,37 +1826,40 @@ const ALL_LEARNING_RESOURCE = `
           allComments(first: first, skip: skip) {
             comments {
               allReplies {
-                replyTo {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                author {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                content {
-                  items {
-                    ... on Paragraph {
-                      text
-                    }
-                    ... on Picture {
-                      url
+                replies {
+                  replyTo {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  author {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  content {
+                    items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
+                  id
                 }
-                id
+                totalCount
               }
               author {
                 introduction
@@ -1866,7 +1924,8 @@ const ALL_LEARNING_RESOURCE = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -1875,8 +1934,7 @@ const ALL_LEARNING_RESOURCE = `
 
 const ALL_COURSES = `
   query AllCourses {
-    allCourses {
-    }
+    allCourses
   }
 `;
 
@@ -1887,37 +1945,40 @@ const LEARNING_RESOURCE_INFO = `
         allComments(first: first, skip: skip) {
           comments {
             allReplies {
-              replyTo {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              author {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              content {
-                items {
-                  ... on Paragraph {
-                    text
-                  }
-                  ... on Picture {
-                    url
+              replies {
+                replyTo {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                author {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                content {
+                  items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
+                id
               }
-              id
+              totalCount
             }
             author {
               introduction
@@ -1980,7 +2041,8 @@ const LEARNING_RESOURCE_INFO = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -1995,37 +2057,40 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
           allComments(first: first, skip: skip) {
             comments {
               allReplies {
-                replyTo {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                author {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                content {
-                  items {
-                    ... on Paragraph {
-                      text
-                    }
-                    ... on Picture {
-                      url
+                replies {
+                  replyTo {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  author {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  content {
+                    items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
+                  id
                 }
-                id
+                totalCount
               }
               author {
                 introduction
@@ -2090,7 +2155,8 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2105,37 +2171,40 @@ const SEARCH_LEARNING_RESOURCES = `
           allComments(first: first, skip: skip) {
             comments {
               allReplies {
-                replyTo {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                author {
-                  introduction
-                  major
-                  school
-                  grade
-                  gender
-                  username
-                  pictureUrl
-                  userId
-                }
-                content {
-                  items {
-                    ... on Paragraph {
-                      text
-                    }
-                    ... on Picture {
-                      url
+                replies {
+                  replyTo {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  author {
+                    introduction
+                    major
+                    school
+                    grade
+                    gender
+                    username
+                    pictureUrl
+                    userId
+                  }
+                  content {
+                    items {
+                      ... on Paragraph {
+                        text
+                      }
+                      ... on Picture {
+                        url
+                      }
                     }
                   }
+                  id
                 }
-                id
+                totalCount
               }
               author {
                 introduction
@@ -2200,7 +2269,8 @@ const SEARCH_LEARNING_RESOURCES = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2233,7 +2303,8 @@ const ALL_FOUNDS = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2263,7 +2334,8 @@ const FOUND_INFO = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2296,7 +2368,8 @@ const SEARCH_FOUNDS = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2329,7 +2402,8 @@ const ALL_LOSTS = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2359,7 +2433,8 @@ const LOST_INFO = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2392,7 +2467,8 @@ const SEARCH_LOSTS = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2414,7 +2490,8 @@ const ALL_LECTURES = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2433,7 +2510,8 @@ const LECTURE_INFO = `
         title
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2455,7 +2533,8 @@ const SEARCH_LECTURES = `
         }
         totalCount
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2475,7 +2554,8 @@ const PERSON_INFO = `
         pictureUrl
         userId
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2484,39 +2564,30 @@ const PERSON_INFO = `
 
 const ALL_MAJORS = `
   query AllMajors {
-    allMajors {
-    }
+    allMajors
   }
 `;
 
-const ALL_ACADEMIES = `
-  query AllAcademies {
-    allAcademies {
-    }
+const ALL_SCHOOLS = `
+  query AllSchools {
+    allSchools
   }
 `;
 
 const MAJORS_IN = `
-  query MajorsIn($academy: String!) {
-    majorsIn(academy: $academy) {
-    }
+  query MajorsIn($school: String!) {
+    majorsIn(school: $school)
   }
 `;
 
 const SIGNUP = `
   mutation Signup($signup: SignupInput!) {
     signup(signup: $signup) {
-      ... on PersonalInfo {
-        introduction
-        major
-        school
-        grade
-        gender
-        username
-        pictureUrl
-        userId
+      ... on LoggedInToken {
+        token
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2526,17 +2597,11 @@ const SIGNUP = `
 const LOGIN = `
   mutation Login($loginInput: LoginInput!) {
     login(loginInput: $loginInput) {
-      ... on PersonalInfo {
-        introduction
-        major
-        school
-        grade
-        gender
-        username
-        pictureUrl
-        userId
+      ... on LoggedInToken {
+        token
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2547,10 +2612,10 @@ const LOGOUT = `
   mutation Logout {
     logout {
       ... on Ok {
-        ok {
-        }
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2560,13 +2625,10 @@ const LOGOUT = `
 const CREATE_NEWS = `
   mutation CreateNews($newsInput: NewsInput!) {
     createNews(newsInput: $newsInput) {
-      ... on NewsItem {
+      ... on NewsInfo {
         pictureURL
-        editTime {
-        }
-        postTime {
-        }
-        posterId
+        editTime
+        postTime
         content {
           items {
             ... on Paragraph {
@@ -2580,7 +2642,8 @@ const CREATE_NEWS = `
         title
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2590,27 +2653,11 @@ const CREATE_NEWS = `
 const DELETE_NEWS = `
   mutation DeleteNews($newsId: String!) {
     deleteNews(newsId: $newsId) {
-      ... on NewsItem {
-        pictureURL
-        editTime {
-        }
-        postTime {
-        }
-        posterId
-        content {
-          items {
-            ... on Paragraph {
-              text
-            }
-            ... on Picture {
-              url
-            }
-          }
-        }
-        title
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2620,13 +2667,10 @@ const DELETE_NEWS = `
 const EDIT_NEWS = `
   mutation EditNews($newsInput: NewsInput!, $newsId: String!) {
     editNews(newsInput: $newsInput, newsId: $newsId) {
-      ... on NewsItem {
+      ... on NewsInfo {
         pictureURL
-        editTime {
-        }
-        postTime {
-        }
-        posterId
+        editTime
+        postTime
         content {
           items {
             ... on Paragraph {
@@ -2640,7 +2684,8 @@ const EDIT_NEWS = `
         title
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2654,37 +2699,40 @@ const CREATE_SCHOOL_HEAT = `
         allComments(first: first, skip: skip) {
           comments {
             allReplies {
-              replyTo {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              author {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              content {
-                items {
-                  ... on Paragraph {
-                    text
-                  }
-                  ... on Picture {
-                    url
+              replies {
+                replyTo {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                author {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                content {
+                  items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
+                id
               }
-              id
+              totalCount
             }
             author {
               introduction
@@ -2746,7 +2794,8 @@ const CREATE_SCHOOL_HEAT = `
         title
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2754,105 +2803,13 @@ const CREATE_SCHOOL_HEAT = `
 `;
 
 const DELETE_SCHOOL_HEAT = `
-  mutation DeleteSchoolHeat($id: ID!, $first: Long, $skip: Long) {
+  mutation DeleteSchoolHeat($id: ID!) {
     deleteSchoolHeat(id: $id) {
-      ... on SchoolHeatInfo {
-        allComments(first: first, skip: skip) {
-          comments {
-            allReplies {
-              replyTo {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              author {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              content {
-                items {
-                  ... on Paragraph {
-                    text
-                  }
-                  ... on Picture {
-                    url
-                  }
-                }
-              }
-              id
-            }
-            author {
-              introduction
-              major
-              school
-              grade
-              gender
-              username
-              pictureUrl
-              userId
-            }
-            content {
-              items {
-                ... on Paragraph {
-                  text
-                }
-                ... on Picture {
-                  url
-                }
-              }
-            }
-            id
-          }
-          totalCount
-        }
-        heat
-        createTime
-        latestActiveTime
-        latestCommenter {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        author {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        content {
-          items {
-            ... on Paragraph {
-              text
-            }
-            ... on Picture {
-              url
-            }
-          }
-        }
-        title
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2864,37 +2821,40 @@ const CREATE_SCHOOL_HEAT_COMMENT = `
     createSchoolHeatComment(schoolHeatCommentInput: $schoolHeatCommentInput) {
       ... on CommentInfo {
         allReplies {
-          replyTo {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          author {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          content {
-            items {
-              ... on Paragraph {
-                text
-              }
-              ... on Picture {
-                url
+          replies {
+            replyTo {
+              introduction
+              major
+              school
+              grade
+              gender
+              username
+              pictureUrl
+              userId
+            }
+            author {
+              introduction
+              major
+              school
+              grade
+              gender
+              username
+              pictureUrl
+              userId
+            }
+            content {
+              items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
+            id
           }
-          id
+          totalCount
         }
         author {
           introduction
@@ -2918,7 +2878,8 @@ const CREATE_SCHOOL_HEAT_COMMENT = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -2928,63 +2889,11 @@ const CREATE_SCHOOL_HEAT_COMMENT = `
 const DELETE_SCHOOL_HEAT_COMMENT = `
   mutation DeleteSchoolHeatComment($cmmtId: ID!, $shId: ID!) {
     deleteSchoolHeatComment(cmmtId: $cmmtId, shId: $shId) {
-      ... on CommentInfo {
-        allReplies {
-          replyTo {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          author {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          content {
-            items {
-              ... on Paragraph {
-                text
-              }
-              ... on Picture {
-                url
-              }
-            }
-          }
-          id
-        }
-        author {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        content {
-          items {
-            ... on Paragraph {
-              text
-            }
-            ... on Picture {
-              url
-            }
-          }
-        }
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3027,7 +2936,8 @@ const CREATE_SCHOOL_HEAT_COMMENT_REPLY = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3037,40 +2947,11 @@ const CREATE_SCHOOL_HEAT_COMMENT_REPLY = `
 const DELETE_SCHOOL_HEAT_COMMENT_REPLY = `
   mutation DeleteSchoolHeatCommentReply($rpyId: ID!, $cmmtId: ID!, $shId: ID!) {
     deleteSchoolHeatCommentReply(rpyId: $rpyId, cmmtId: $cmmtId, shId: $shId) {
-      ... on ReplyInfo {
-        replyTo {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        author {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        content {
-          items {
-            ... on Paragraph {
-              text
-            }
-            ... on Picture {
-              url
-            }
-          }
-        }
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3084,37 +2965,40 @@ const CREATE_ENTERTAINMENT = `
         allComments(first: first, skip: skip) {
           comments {
             allReplies {
-              replyTo {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              author {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              content {
-                items {
-                  ... on Paragraph {
-                    text
-                  }
-                  ... on Picture {
-                    url
+              replies {
+                replyTo {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                author {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                content {
+                  items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
+                id
               }
-              id
+              totalCount
             }
             author {
               introduction
@@ -3176,7 +3060,8 @@ const CREATE_ENTERTAINMENT = `
         title
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3184,105 +3069,13 @@ const CREATE_ENTERTAINMENT = `
 `;
 
 const DELETE_ENTERTAINMENT = `
-  mutation DeleteEntertainment($id: ID!, $first: Long, $skip: Long) {
+  mutation DeleteEntertainment($id: ID!) {
     deleteEntertainment(id: $id) {
-      ... on EntertainmentInfo {
-        allComments(first: first, skip: skip) {
-          comments {
-            allReplies {
-              replyTo {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              author {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              content {
-                items {
-                  ... on Paragraph {
-                    text
-                  }
-                  ... on Picture {
-                    url
-                  }
-                }
-              }
-              id
-            }
-            author {
-              introduction
-              major
-              school
-              grade
-              gender
-              username
-              pictureUrl
-              userId
-            }
-            content {
-              items {
-                ... on Paragraph {
-                  text
-                }
-                ... on Picture {
-                  url
-                }
-              }
-            }
-            id
-          }
-          totalCount
-        }
-        heat
-        createTime
-        latestActiveTime
-        latestCommenter {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        author {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        content {
-          items {
-            ... on Paragraph {
-              text
-            }
-            ... on Picture {
-              url
-            }
-          }
-        }
-        title
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3294,37 +3087,40 @@ const CREATE_ENTERTAINMENT_COMMENT = `
     createEntertainmentComment(entertainmentCommentInput: $entertainmentCommentInput) {
       ... on CommentInfo {
         allReplies {
-          replyTo {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          author {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          content {
-            items {
-              ... on Paragraph {
-                text
-              }
-              ... on Picture {
-                url
+          replies {
+            replyTo {
+              introduction
+              major
+              school
+              grade
+              gender
+              username
+              pictureUrl
+              userId
+            }
+            author {
+              introduction
+              major
+              school
+              grade
+              gender
+              username
+              pictureUrl
+              userId
+            }
+            content {
+              items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
+            id
           }
-          id
+          totalCount
         }
         author {
           introduction
@@ -3348,7 +3144,8 @@ const CREATE_ENTERTAINMENT_COMMENT = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3358,63 +3155,11 @@ const CREATE_ENTERTAINMENT_COMMENT = `
 const DELETE_ENTERTAINMENT_COMMENT = `
   mutation DeleteEntertainmentComment($cmmtId: ID!, $etmtId: ID!) {
     deleteEntertainmentComment(cmmtId: $cmmtId, etmtId: $etmtId) {
-      ... on CommentInfo {
-        allReplies {
-          replyTo {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          author {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          content {
-            items {
-              ... on Paragraph {
-                text
-              }
-              ... on Picture {
-                url
-              }
-            }
-          }
-          id
-        }
-        author {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        content {
-          items {
-            ... on Paragraph {
-              text
-            }
-            ... on Picture {
-              url
-            }
-          }
-        }
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3457,7 +3202,8 @@ const CREATE_ENTERTAINMENT_COMMENT_REPLY = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3467,40 +3213,11 @@ const CREATE_ENTERTAINMENT_COMMENT_REPLY = `
 const DELETE_ENTERTAINMENT_COMMENT_REPLY = `
   mutation DeleteEntertainmentCommentReply($rpyId: ID!, $cmmtId: ID!, $etmtId: ID!) {
     deleteEntertainmentCommentReply(rpyId: $rpyId, cmmtId: $cmmtId, etmtId: $etmtId) {
-      ... on ReplyInfo {
-        replyTo {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        author {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        content {
-          items {
-            ... on Paragraph {
-              text
-            }
-            ... on Picture {
-              url
-            }
-          }
-        }
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3514,37 +3231,40 @@ const CREATE_LEARNING_RESOURCE = `
         allComments(first: first, skip: skip) {
           comments {
             allReplies {
-              replyTo {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              author {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              content {
-                items {
-                  ... on Paragraph {
-                    text
-                  }
-                  ... on Picture {
-                    url
+              replies {
+                replyTo {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                author {
+                  introduction
+                  major
+                  school
+                  grade
+                  gender
+                  username
+                  pictureUrl
+                  userId
+                }
+                content {
+                  items {
+                    ... on Paragraph {
+                      text
+                    }
+                    ... on Picture {
+                      url
+                    }
                   }
                 }
+                id
               }
-              id
+              totalCount
             }
             author {
               introduction
@@ -3607,7 +3327,8 @@ const CREATE_LEARNING_RESOURCE = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3615,106 +3336,13 @@ const CREATE_LEARNING_RESOURCE = `
 `;
 
 const DELETE_LEARNING_RESOURCE = `
-  mutation DeleteLearningResource($id: ID!, $first: Long, $skip: Long) {
+  mutation DeleteLearningResource($id: ID!) {
     deleteLearningResource(id: $id) {
-      ... on LearningResourceInfo {
-        allComments(first: first, skip: skip) {
-          comments {
-            allReplies {
-              replyTo {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              author {
-                introduction
-                major
-                school
-                grade
-                gender
-                username
-                pictureUrl
-                userId
-              }
-              content {
-                items {
-                  ... on Paragraph {
-                    text
-                  }
-                  ... on Picture {
-                    url
-                  }
-                }
-              }
-              id
-            }
-            author {
-              introduction
-              major
-              school
-              grade
-              gender
-              username
-              pictureUrl
-              userId
-            }
-            content {
-              items {
-                ... on Paragraph {
-                  text
-                }
-                ... on Picture {
-                  url
-                }
-              }
-            }
-            id
-          }
-          totalCount
-        }
-        createTime
-        latestActiveTime
-        latestCommenter {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        attachedFileURL
-        course
-        content {
-          items {
-            ... on Paragraph {
-              text
-            }
-            ... on Picture {
-              url
-            }
-          }
-        }
-        title
-        author {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3726,37 +3354,40 @@ const CREATE_LEARNING_RESOURCE_COMMENT = `
     createLearningResourceComment(learningResourceCommentInput: $learningResourceCommentInput) {
       ... on CommentInfo {
         allReplies {
-          replyTo {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          author {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          content {
-            items {
-              ... on Paragraph {
-                text
-              }
-              ... on Picture {
-                url
+          replies {
+            replyTo {
+              introduction
+              major
+              school
+              grade
+              gender
+              username
+              pictureUrl
+              userId
+            }
+            author {
+              introduction
+              major
+              school
+              grade
+              gender
+              username
+              pictureUrl
+              userId
+            }
+            content {
+              items {
+                ... on Paragraph {
+                  text
+                }
+                ... on Picture {
+                  url
+                }
               }
             }
+            id
           }
-          id
+          totalCount
         }
         author {
           introduction
@@ -3780,7 +3411,8 @@ const CREATE_LEARNING_RESOURCE_COMMENT = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3790,63 +3422,11 @@ const CREATE_LEARNING_RESOURCE_COMMENT = `
 const DELETE_LEARNING_RESOURCE_COMMENT = `
   mutation DeleteLearningResourceComment($cmmtId: ID!, $lrId: ID!) {
     deleteLearningResourceComment(cmmtId: $cmmtId, lrId: $lrId) {
-      ... on CommentInfo {
-        allReplies {
-          replyTo {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          author {
-            introduction
-            major
-            school
-            grade
-            gender
-            username
-            pictureUrl
-            userId
-          }
-          content {
-            items {
-              ... on Paragraph {
-                text
-              }
-              ... on Picture {
-                url
-              }
-            }
-          }
-          id
-        }
-        author {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        content {
-          items {
-            ... on Paragraph {
-              text
-            }
-            ... on Picture {
-              url
-            }
-          }
-        }
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3889,7 +3469,8 @@ const CREATE_LEARNING_RESOURCE_COMMENT_REPLY = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3899,40 +3480,11 @@ const CREATE_LEARNING_RESOURCE_COMMENT_REPLY = `
 const DELETE_LEARNING_RESOURCE_COMMENT_REPLY = `
   mutation DeleteLearningResourceCommentReply($rpyId: ID!, $cmmtId: ID!, $lrId: ID!) {
     deleteLearningResourceCommentReply(rpyId: $rpyId, cmmtId: $cmmtId, lrId: $lrId) {
-      ... on ReplyInfo {
-        replyTo {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        author {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        content {
-          items {
-            ... on Paragraph {
-              text
-            }
-            ... on Picture {
-              url
-            }
-          }
-        }
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3962,7 +3514,8 @@ const CREATE_FOUND = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -3972,27 +3525,11 @@ const CREATE_FOUND = `
 const DELETE_FOUND = `
   mutation DeleteFound($id: ID!) {
     deleteFound(id: $id) {
-      ... on FoundInfo {
-        foundTime
-        contact
-        createTime
-        pictureUrl
-        position
-        description
-        name
-        publisher {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -4022,7 +3559,8 @@ const CLAIM_FOUND = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -4052,7 +3590,8 @@ const CREATE_LOST = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -4062,27 +3601,11 @@ const CREATE_LOST = `
 const DELETE_LOST = `
   mutation DeleteLost($id: ID!) {
     deleteLost(id: $id) {
-      ... on LostInfo {
-        lostTime
-        contact
-        createTime
-        pictureUrl
-        position
-        description
-        name
-        publisher {
-          introduction
-          major
-          school
-          grade
-          gender
-          username
-          pictureUrl
-          userId
-        }
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -4112,7 +3635,8 @@ const CLAIM_LOST = `
         }
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -4131,7 +3655,8 @@ const CREATE_LECTURE = `
         title
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -4150,7 +3675,8 @@ const EDIT_LECTURE = `
         title
         id
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -4160,16 +3686,11 @@ const EDIT_LECTURE = `
 const DELETE_LECTURE = `
   mutation DeleteLecture($id: ID!) {
     deleteLecture(id: $id) {
-      ... on LectureInfo {
-        note
-        lecturer
-        time
-        position
-        content
-        title
-        id
+      ... on Ok {
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -4189,7 +3710,8 @@ const EDIT_PERSON_INFO = `
         pictureUrl
         userId
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -4202,7 +3724,8 @@ const CONFIRM_PASSWORD = `
       ... on ResetToken {
         resetToken
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }
@@ -4213,10 +3736,10 @@ const CHANGE_PASSWORD = `
   mutation ChangePassword($newPassword: String!, $resetToken: String!) {
     changePassword(newPassword: $newPassword, resetToken: $resetToken) {
       ... on Ok {
-        ok {
-        }
+        ok
       }
-      ... on BError {
+      ... on Error {
+        msg
         errCode
       }
     }

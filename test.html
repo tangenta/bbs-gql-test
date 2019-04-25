@@ -26,7 +26,10 @@
             }
         }
 
-        load(['basic.js', 'bbsgql-const.js', 'bbsgql-func.js', 'unit-test.js'], fire);
+        load(['basic.js', 'bbsgql-const.js', 'bbsgql-func.js', 
+            'unit_test/Authentication.js',
+            'unit_test/PersonalInformation.js'
+        ], fire);
 
         function fire() {
             fire_all_tests();

@@ -46,17 +46,17 @@ const generateEmailPassAndNickname = () => {
 
 // ---------convenient func---------
 
-// [dependencies: signUp]
+// [dependencies: signup]
 const after_signUp = (func) => {
 	[username, password, nickname] = generateEmailPassAndNickname();
-	return signUp(username, password, nickname)
+	return signup({username, password, nickname})
 		.then(signUpResult => {
 			const auth = signUpResult.token;
 			return func(auth, username, password, nickname);
 		});
 };
 
-// [dependencies: signUp, loggedId]
+// [dependencies: signup, loggedId]
 const provided_userId = (func) =>
 	after_signUp((auth, username, password, nickname) =>
 		loggedId(auth).then(result =>
@@ -64,7 +64,7 @@ const provided_userId = (func) =>
 		)
 	);
 
-// [dependencies: signUp, publishFound]
+// [dependencies: signup, publishFound]
 const after_publishFound = (func) =>
 	after_signUp(auth => {
 		const testObj = {
@@ -80,7 +80,7 @@ const after_publishFound = (func) =>
 		)
 	});
 
-// [dependencies: signUp, publishLost]
+// [dependencies: signup, publishLost]
 const after_publishLost = (func) =>
 	after_signUp(auth => {
 		const testObj = {
@@ -96,7 +96,7 @@ const after_publishLost = (func) =>
 		)
 	});
 
-// [dependencies: signUp, publishLost | publishFound]
+// [dependencies: signup, publishLost | publishFound]
 const after_n_lost_or_found_publish = (foundOrLostStr, nTimes, func) => {
 	let isFound = false;
 	if (foundOrLostStr === "lost") isFound = false;
@@ -125,7 +125,7 @@ const after_n_lost_or_found_publish = (foundOrLostStr, nTimes, func) => {
 	})
 };
 
-// [dependencies: signUp, createPosts, deletePosts]
+// [dependencies: signup, createPosts, deletePosts]
 const after_n_post_create = (nTimes, func) => {
 	return after_signUp(auth => {
 		let chain = Promise.resolve();
@@ -188,7 +188,7 @@ const fire_tests = async (kind, tests) => {
 				return console.log("SUCCESS # " + kind + ": " + f.name)
 			})
 			.then(() => new Promise(resolve => setTimeout(resolve, 10)))  // visual enjoyment
-			.then(() => cleanUpRoutine())
+			// .then(() => cleanUpRoutine())
 			.then(() => new Promise(resolve => setTimeout(resolve, 10)))
 			.catch(error => {
 				console.error("=== (" + f.name + ") " + kind + " FAILED ===");

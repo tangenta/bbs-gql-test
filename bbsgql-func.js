@@ -234,15 +234,15 @@ const allMajors = () => sendGQL({
 
 });
 
-const allAcademies = () => sendGQL({
-  query: ALL_ACADEMIES,
+const allSchools = () => sendGQL({
+  query: ALL_SCHOOLS,
 
 });
 
-const majorsIn = (academy) => sendGQL({
+const majorsIn = (school) => sendGQL({
   query: MAJORS_IN,
   variables: {
-    academy: academy
+    school: school
   }
 });
 
@@ -300,12 +300,10 @@ const createSchoolHeat = (schoolHeatInput, first, skip, auth) => sendGQL({
   auth: auth
 });
 
-const deleteSchoolHeat = (id, first, skip, auth) => sendGQL({
+const deleteSchoolHeat = (id, auth) => sendGQL({
   query: DELETE_SCHOOL_HEAT,
   variables: {
-    id: id,
-    first: first,
-    skip: skip
+    id: id
   },
   auth: auth
 });
@@ -355,12 +353,10 @@ const createEntertainment = (entertainmentInput, first, skip, auth) => sendGQL({
   auth: auth
 });
 
-const deleteEntertainment = (id, first, skip, auth) => sendGQL({
+const deleteEntertainment = (id, auth) => sendGQL({
   query: DELETE_ENTERTAINMENT,
   variables: {
-    id: id,
-    first: first,
-    skip: skip
+    id: id
   },
   auth: auth
 });
@@ -410,12 +406,10 @@ const createLearningResource = (learningResourceInput, first, skip, auth) => sen
   auth: auth
 });
 
-const deleteLearningResource = (id, first, skip, auth) => sendGQL({
+const deleteLearningResource = (id, auth) => sendGQL({
   query: DELETE_LEARNING_RESOURCE,
   variables: {
-    id: id,
-    first: first,
-    skip: skip
+    id: id
   },
   auth: auth
 });

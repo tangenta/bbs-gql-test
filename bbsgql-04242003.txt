@@ -15,17 +15,21 @@ input LoginInput {
     password: String!
 }
 
-union CurrentUserResult = BError | PersonalInfo
-union SignupResult = BError | PersonalInfo
-union LoginResult = BError | PersonalInfo
-union LogoutResult = BError | Ok
+type LoggedInToken {
+    token: String!
+}
+
+union CurrentUserResult = Error | PersonalInfo
+union SignupResult = Error | LoggedInToken
+union LoginResult = Error | LoggedInToken
+union LogoutResult = Error | Ok
 
 
 
 # 最热讨论
 @query hots: HotsResult! # 依赖于日期，每日更新，缓存
 
-union HotsResult = BError | Hots
+union HotsResult = Error | Hots
 type Hots {
     hots: [HotItem!]!
 }
@@ -35,7 +39,7 @@ union HotItem = SchoolHeatInfo | EntertainmentInfo | LearningResourceInfo
 # 最新动态
 @query latests: LatestsResult! # 时刻不同，考虑按窗口缓存
 
-union LatestsResult = BError | Latests
+union LatestsResult = Error | Latests
 type Latests {
     latests: [LatestItem!]!
 }
@@ -66,10 +70,10 @@ input NewsInput {
     content: Content
     pictureBase64: String
 }
-union NewsInfoResult   = BError | NewsInfo
-union CreateNewsResult = BError | NewsInfo
-union DeleteNewsResult = BError | NewsInfo
-union EditNewsResult   = BError | NewsInfo
+union NewsInfoResult   = Error | NewsInfo
+union CreateNewsResult = Error | NewsInfo
+union DeleteNewsResult = Error | Ok
+union EditNewsResult   = Error | NewsInfo
 
 
 
@@ -77,7 +81,7 @@ union EditNewsResult   = BError | NewsInfo
 # 总搜索
 @query search(content: String!, skip: Long, first: Long): SearchsResult!
 
-union SearchsResult = BError | Searchs
+union SearchsResult = Error | Searchs
 type Searchs {
     searchs: [SearchsItem!]!
 }
@@ -112,12 +116,12 @@ type MultiSchoolHeats {
     totalCount: Long!
     schoolHeats: [SchoolHeatInfo!]!
 }
-union SchoolHeatInfoResult = BError | SchoolHeatInfo
-union CreateSchoolHeatResult = BError | SchoolHeatInfo
-union DeleteSchoolHeatResult = BError | SchoolHeatInfo
-union AllSchoolHeatsResult = BError | MultiSchoolHeats
-union SearchSchoolHeatsResult = BError | MultiSchoolHeats
-union SchoolHeatsOfAuthorResult = BError | MultiSchoolHeats
+union SchoolHeatInfoResult = Error | SchoolHeatInfo
+union CreateSchoolHeatResult = Error | SchoolHeatInfo
+union DeleteSchoolHeatResult = Error | Ok
+union AllSchoolHeatsResult = Error | MultiSchoolHeats
+union SearchSchoolHeatsResult = Error | MultiSchoolHeats
+union SchoolHeatsOfAuthorResult = Error | MultiSchoolHeats
 
 input SchoolHeatInput {
     title: String!
@@ -162,12 +166,12 @@ type MultiEntertainments {
     totalCount: Long!
     Entertainments: [EntertainmentInfo!]!
 }
-union EntertainmentInfoResult = BError | EntertainmentInfo
-union CreateEntertainmentResult = BError | EntertainmentInfo
-union DeleteEntertainmentResult = BError | EntertainmentInfo
-union AllEntertainmentsResult = BError | MultiEntertainments
-union SearchEntertainmentsResult = BError | MultiEntertainments
-union EntertainmentsOfAuthorResult = BError | MultiEntertainments
+union EntertainmentInfoResult = Error | EntertainmentInfo
+union CreateEntertainmentResult = Error | EntertainmentInfo
+union DeleteEntertainmentResult = Error | Ok
+union AllEntertainmentsResult = Error | MultiEntertainments
+union SearchEntertainmentsResult = Error | MultiEntertainments
+union EntertainmentsOfAuthorResult = Error | MultiEntertainments
 
 input EntertainmentInput {
     title: String!
@@ -214,12 +218,12 @@ type MultiLearningResources {
     totalCount: Long!
     learningResources: [LearningResourceInfo!]!
 }
-union LearningResourceInfoResult = BError | LearningResourceInfo
-union CreateLearningResourceResult = BError | LearningResourceInfo
-union DeleteLearningResourceResult = BError | LearningResourceInfo
-union AllLearningResourceResult = BError | MultiLearningResources
-union LearningResourcesOfAuthorResult = BError | MultiLearningResources
-union SearchLearningResourcesResult = BError | MultiLearningResources
+union LearningResourceInfoResult = Error | LearningResourceInfo
+union CreateLearningResourceResult = Error | LearningResourceInfo
+union DeleteLearningResourceResult = Error | Ok
+union AllLearningResourceResult = Error | MultiLearningResources
+union LearningResourcesOfAuthorResult = Error | MultiLearningResources
+union SearchLearningResourcesResult = Error | MultiLearningResources
 
 input LearningResourceInput {
     title: String!
@@ -261,18 +265,18 @@ type ReplyInfo {
     replyTo: PersonalInfo
 }
 
-union CreateSchoolHeatCommentResult = BError | CommentInfo
-union DeleteSchoolHeatCommentResult = BError | CommentInfo
-union CreateSchoolHeatCommentReplyResult = BError | ReplyInfo
-union DeleteSchoolHeatCommentReplyResult = BError | ReplyInfo
-union CreateEntertainmentCommentResult = BError | CommentInfo
-union DeleteEntertainmentCommentResult = BError | CommentInfo
-union CreateEntertainmentCommentReplyResult = BError | ReplyInfo
-union DeleteEntertainmentCommentReplyResult = BError | ReplyInfo
-union CreateLearningResourceCommentResult = BError | CommentInfo
-union DeleteLearningResourceCommentResult = BError | CommentInfo
-union CreateLearningResourceCommentReplyResult = BError | ReplyInfo
-union DeleteLearningResourceCommentReplyResult = BError | ReplyInfo
+union CreateSchoolHeatCommentResult = Error | CommentInfo
+union DeleteSchoolHeatCommentResult = Error | Ok
+union CreateSchoolHeatCommentReplyResult = Error | ReplyInfo
+union DeleteSchoolHeatCommentReplyResult = Error | Ok
+union CreateEntertainmentCommentResult = Error | CommentInfo
+union DeleteEntertainmentCommentResult = Error | Ok
+union CreateEntertainmentCommentReplyResult = Error | ReplyInfo
+union DeleteEntertainmentCommentReplyResult = Error | Ok
+union CreateLearningResourceCommentResult = Error | CommentInfo
+union DeleteLearningResourceCommentResult = Error | Ok
+union CreateLearningResourceCommentReplyResult = Error | ReplyInfo
+union DeleteLearningResourceCommentReplyResult = Error | Ok
 
 
 
@@ -301,12 +305,12 @@ type MultiFoundInfos {
     founds: [FoundInfo!]!
 }
 
-union FoundInfoResult = BError | FoundInfo
-union CreateFoundResult = BError | FoundInfo
-union DeleteFoundResult = BError | FoundInfo
-union ClaimFoundResult = BError | FoundInfo
-union AllFoundsResult = BError | MultiFoundInfos
-union SearchFoundsResult = BError | MultiFoundInfos
+union FoundInfoResult = Error | FoundInfo
+union CreateFoundResult = Error | FoundInfo
+union DeleteFoundResult = Error | Ok
+union ClaimFoundResult = Error | FoundInfo
+union AllFoundsResult = Error | MultiFoundInfos
+union SearchFoundsResult = Error | MultiFoundInfos
 
 @query allLosts(skip: Long, first: Long): AllLostsResult!
 @query lostInfo(id: ID!): LostInfoResult!
@@ -332,12 +336,12 @@ type MultiLostInfos {
     losts: [LostInfo!]!
 }
 
-union LostInfoResult = BError | LostInfo
-union CreateLostResult = BError | LostInfo
-union DeleteLostResult = BError | LostInfo
-union ClaimLostResult = BError | LostInfo
-union AllLostsResult = BError | MultiLostInfos
-union SearchLostsResult = BError | MultiLostInfos
+union LostInfoResult = Error | LostInfo
+union CreateLostResult = Error | LostInfo
+union DeleteLostResult = Error | Ok
+union ClaimLostResult = Error | LostInfo
+union AllLostsResult = Error | MultiLostInfos
+union SearchLostsResult = Error | MultiLostInfos
 
 input FoundInput {
     itemName: String!
@@ -380,12 +384,12 @@ type MultiLectures {
     lectures: [LectureInfo!]!
 }
 
-union LectureInfoResult = BError | LectureInfo
-union CreateLectureResult = BError | LectureInfo
-union EditLectureResult = BError | LectureInfo
-union DeleteLectureResult = BError | LectureInfo
-union AllLecturesResult = BError | MultiLectures
-union SearchLecturesResult = BError | MultiLectures
+union LectureInfoResult = Error | LectureInfo
+union CreateLectureResult = Error | LectureInfo
+union EditLectureResult = Error | LectureInfo
+union DeleteLectureResult = Error | Ok
+union AllLecturesResult = Error | MultiLectures
+union SearchLecturesResult = Error | MultiLectures
 
 input LectureInput {
     title: String!
@@ -401,8 +405,8 @@ input LectureInput {
 # 个人信息
 @query personInfo(id: ID!): PersonInfoResult!
 @query allMajors: [String!]!
-@query allAcademies: [String!]!
-@query majorsIn(academy: String!): [String!]!
+@query allSchools: [String!]!
+@query majorsIn(school: String!): [String!]!
 +@mutation editPersonInfo(personInfoInput: PersonInfoInput!): EditPersonInfoResult!
 
 input PersonInfoInput {
@@ -417,17 +421,17 @@ input PersonInfoInput {
 
 type PersonalInfo {
     userId: String!
-    pictureUrl: String!
+    pictureUrl: String
     username: String!
-    gender: String!
-    grade: String!
-    school: String!
-    major: String!
-    introduction: String!
+    gender: String
+    grade: String
+    school: String
+    major: String
+    introduction: String
 }
 
-union PersonInfoResult = BError | PersonalInfo
-union EditPersonInfoResult = BError | PersonalInfo
+union PersonInfoResult = Error | PersonalInfo
+union EditPersonInfoResult = Error | PersonalInfo
 
 
 
@@ -439,8 +443,8 @@ type ResetToken {
     resetToken: String!
 }
 
-union ConfirmPasswordResult = BError | ResetToken
-union ChangePasswordResult = BError | Ok
+union ConfirmPasswordResult = Error | ResetToken
+union ChangePasswordResult = Error | Ok
 
 
 
@@ -452,8 +456,9 @@ enum SortedBy {
     HeatDes
 }
 
-type BError {
+type Error {
     errCode: Int!
+    msg: String
 }
 
 type Ok {
