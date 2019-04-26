@@ -42,9 +42,10 @@ unit_test("SchoolHeatInfo", () =>
 unit_test("SchoolHeatsOfAuthor", () =>
   after_n_schoolheat_publisth(10, (auth, __, ids) =>
     currentUser(auth).then(userid =>
-      schoolHeatsOfAuthor(userid.userId).then(res => {
-          assert(eqSet(new Set(ids), new Set(res.schoolHeats.map(i => i.id))));
+      schoolHeatsOfAuthor(userid.userId, 2, 4).then(res => {
+          assert(eqSet(new Set(ids.reverse().slice(2, 6)), new Set(res.schoolHeats.map(i => i.id))));
           assertEq(res.totalCount, 10);
+          assertEq(res.schoolHeats.length, 4);
         }
       )
     )
