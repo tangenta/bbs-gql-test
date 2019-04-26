@@ -8,7 +8,7 @@ const CURRENT_USER = `
         grade
         gender
         username
-        pictureUrl
+        pictureURL
         userId
       }
       ... on Error {
@@ -36,7 +36,7 @@ const HOTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     author {
@@ -46,7 +46,7 @@ const HOTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     content {
@@ -70,7 +70,7 @@ const HOTS = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -96,7 +96,7 @@ const HOTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             attachedFileURL
@@ -119,7 +119,7 @@ const HOTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             id
@@ -136,7 +136,7 @@ const HOTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     author {
@@ -146,7 +146,7 @@ const HOTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     content {
@@ -170,7 +170,7 @@ const HOTS = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -197,7 +197,7 @@ const HOTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             author {
@@ -207,7 +207,7 @@ const HOTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -235,7 +235,7 @@ const HOTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     author {
@@ -245,7 +245,7 @@ const HOTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     content {
@@ -269,7 +269,7 @@ const HOTS = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -296,7 +296,7 @@ const HOTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             author {
@@ -306,7 +306,7 @@ const HOTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -349,7 +349,7 @@ const LATESTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     author {
@@ -359,7 +359,7 @@ const LATESTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     content {
@@ -383,7 +383,7 @@ const LATESTS = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -409,7 +409,7 @@ const LATESTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             attachedFileURL
@@ -432,7 +432,7 @@ const LATESTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             id
@@ -449,7 +449,7 @@ const LATESTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     author {
@@ -459,7 +459,7 @@ const LATESTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     content {
@@ -483,7 +483,7 @@ const LATESTS = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -510,7 +510,7 @@ const LATESTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             author {
@@ -520,7 +520,7 @@ const LATESTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -548,7 +548,7 @@ const LATESTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     author {
@@ -558,7 +558,7 @@ const LATESTS = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     content {
@@ -582,7 +582,7 @@ const LATESTS = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -609,7 +609,7 @@ const LATESTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             author {
@@ -619,7 +619,7 @@ const LATESTS = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -709,7 +709,7 @@ const SEARCH = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           ... on EntertainmentInfo {
@@ -724,7 +724,7 @@ const SEARCH = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     author {
@@ -734,7 +734,7 @@ const SEARCH = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     content {
@@ -758,7 +758,7 @@ const SEARCH = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -785,7 +785,7 @@ const SEARCH = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             author {
@@ -795,7 +795,7 @@ const SEARCH = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -823,7 +823,7 @@ const SEARCH = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     author {
@@ -833,7 +833,7 @@ const SEARCH = `
                       grade
                       gender
                       username
-                      pictureUrl
+                      pictureURL
                       userId
                     }
                     content {
@@ -857,7 +857,7 @@ const SEARCH = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -884,7 +884,7 @@ const SEARCH = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             author {
@@ -894,7 +894,7 @@ const SEARCH = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -936,7 +936,7 @@ const ALL_SCHOOL_HEATS = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   author {
@@ -946,7 +946,7 @@ const ALL_SCHOOL_HEATS = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   content {
@@ -970,7 +970,7 @@ const ALL_SCHOOL_HEATS = `
                 grade
                 gender
                 username
-                pictureUrl
+                pictureURL
                 userId
               }
               content {
@@ -997,7 +997,7 @@ const ALL_SCHOOL_HEATS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           author {
@@ -1007,7 +1007,7 @@ const ALL_SCHOOL_HEATS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           content {
@@ -1048,7 +1048,7 @@ const SCHOOL_HEAT_INFO = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 author {
@@ -1058,7 +1058,7 @@ const SCHOOL_HEAT_INFO = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -1082,7 +1082,7 @@ const SCHOOL_HEAT_INFO = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -1109,7 +1109,7 @@ const SCHOOL_HEAT_INFO = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         author {
@@ -1119,7 +1119,7 @@ const SCHOOL_HEAT_INFO = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         content {
@@ -1159,7 +1159,7 @@ const SCHOOL_HEATS_OF_AUTHOR = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   author {
@@ -1169,7 +1169,7 @@ const SCHOOL_HEATS_OF_AUTHOR = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   content {
@@ -1193,7 +1193,7 @@ const SCHOOL_HEATS_OF_AUTHOR = `
                 grade
                 gender
                 username
-                pictureUrl
+                pictureURL
                 userId
               }
               content {
@@ -1220,7 +1220,7 @@ const SCHOOL_HEATS_OF_AUTHOR = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           author {
@@ -1230,7 +1230,7 @@ const SCHOOL_HEATS_OF_AUTHOR = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           content {
@@ -1272,7 +1272,7 @@ const SEARCH_SCHOOL_HEATS = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   author {
@@ -1282,7 +1282,7 @@ const SEARCH_SCHOOL_HEATS = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   content {
@@ -1306,7 +1306,7 @@ const SEARCH_SCHOOL_HEATS = `
                 grade
                 gender
                 username
-                pictureUrl
+                pictureURL
                 userId
               }
               content {
@@ -1333,7 +1333,7 @@ const SEARCH_SCHOOL_HEATS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           author {
@@ -1343,7 +1343,7 @@ const SEARCH_SCHOOL_HEATS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           content {
@@ -1385,7 +1385,7 @@ const ALL_ENTERTAINMENTS = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   author {
@@ -1395,7 +1395,7 @@ const ALL_ENTERTAINMENTS = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   content {
@@ -1419,7 +1419,7 @@ const ALL_ENTERTAINMENTS = `
                 grade
                 gender
                 username
-                pictureUrl
+                pictureURL
                 userId
               }
               content {
@@ -1446,7 +1446,7 @@ const ALL_ENTERTAINMENTS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           author {
@@ -1456,7 +1456,7 @@ const ALL_ENTERTAINMENTS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           content {
@@ -1497,7 +1497,7 @@ const ENTERTAINMENT_INFO = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 author {
@@ -1507,7 +1507,7 @@ const ENTERTAINMENT_INFO = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -1531,7 +1531,7 @@ const ENTERTAINMENT_INFO = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -1558,7 +1558,7 @@ const ENTERTAINMENT_INFO = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         author {
@@ -1568,7 +1568,7 @@ const ENTERTAINMENT_INFO = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         content {
@@ -1608,7 +1608,7 @@ const ENTERTAINMENTS_OF_AUTHOR = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   author {
@@ -1618,7 +1618,7 @@ const ENTERTAINMENTS_OF_AUTHOR = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   content {
@@ -1642,7 +1642,7 @@ const ENTERTAINMENTS_OF_AUTHOR = `
                 grade
                 gender
                 username
-                pictureUrl
+                pictureURL
                 userId
               }
               content {
@@ -1669,7 +1669,7 @@ const ENTERTAINMENTS_OF_AUTHOR = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           author {
@@ -1679,7 +1679,7 @@ const ENTERTAINMENTS_OF_AUTHOR = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           content {
@@ -1721,7 +1721,7 @@ const SEARCH_ENTERTAINMENTS = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   author {
@@ -1731,7 +1731,7 @@ const SEARCH_ENTERTAINMENTS = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   content {
@@ -1755,7 +1755,7 @@ const SEARCH_ENTERTAINMENTS = `
                 grade
                 gender
                 username
-                pictureUrl
+                pictureURL
                 userId
               }
               content {
@@ -1782,7 +1782,7 @@ const SEARCH_ENTERTAINMENTS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           author {
@@ -1792,7 +1792,7 @@ const SEARCH_ENTERTAINMENTS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           content {
@@ -1834,7 +1834,7 @@ const ALL_LEARNING_RESOURCE = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   author {
@@ -1844,7 +1844,7 @@ const ALL_LEARNING_RESOURCE = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   content {
@@ -1868,7 +1868,7 @@ const ALL_LEARNING_RESOURCE = `
                 grade
                 gender
                 username
-                pictureUrl
+                pictureURL
                 userId
               }
               content {
@@ -1894,7 +1894,7 @@ const ALL_LEARNING_RESOURCE = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           attachedFileURL
@@ -1917,7 +1917,7 @@ const ALL_LEARNING_RESOURCE = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           id
@@ -1953,7 +1953,7 @@ const LEARNING_RESOURCE_INFO = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 author {
@@ -1963,7 +1963,7 @@ const LEARNING_RESOURCE_INFO = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -1987,7 +1987,7 @@ const LEARNING_RESOURCE_INFO = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -2013,7 +2013,7 @@ const LEARNING_RESOURCE_INFO = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         attachedFileURL
@@ -2036,7 +2036,7 @@ const LEARNING_RESOURCE_INFO = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         id
@@ -2065,7 +2065,7 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   author {
@@ -2075,7 +2075,7 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   content {
@@ -2099,7 +2099,7 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
                 grade
                 gender
                 username
-                pictureUrl
+                pictureURL
                 userId
               }
               content {
@@ -2125,7 +2125,7 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           attachedFileURL
@@ -2148,7 +2148,7 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           id
@@ -2179,7 +2179,7 @@ const SEARCH_LEARNING_RESOURCES = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   author {
@@ -2189,7 +2189,7 @@ const SEARCH_LEARNING_RESOURCES = `
                     grade
                     gender
                     username
-                    pictureUrl
+                    pictureURL
                     userId
                   }
                   content {
@@ -2213,7 +2213,7 @@ const SEARCH_LEARNING_RESOURCES = `
                 grade
                 gender
                 username
-                pictureUrl
+                pictureURL
                 userId
               }
               content {
@@ -2239,7 +2239,7 @@ const SEARCH_LEARNING_RESOURCES = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           attachedFileURL
@@ -2262,7 +2262,7 @@ const SEARCH_LEARNING_RESOURCES = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           id
@@ -2289,7 +2289,7 @@ const ALL_FOUNDS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           foundTime
@@ -2306,7 +2306,7 @@ const ALL_FOUNDS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           id
@@ -2332,7 +2332,7 @@ const FOUND_INFO = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         foundTime
@@ -2349,7 +2349,7 @@ const FOUND_INFO = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         id
@@ -2374,7 +2374,7 @@ const SEARCH_FOUNDS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           foundTime
@@ -2391,7 +2391,7 @@ const SEARCH_FOUNDS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           id
@@ -2418,13 +2418,13 @@ const ALL_LOSTS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           lostTime
           contact
           createTime
-          pictureUrl
+          pictureURL
           position
           description
           name
@@ -2435,7 +2435,7 @@ const ALL_LOSTS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           id
@@ -2461,13 +2461,13 @@ const LOST_INFO = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         lostTime
         contact
         createTime
-        pictureUrl
+        pictureURL
         position
         description
         name
@@ -2478,7 +2478,7 @@ const LOST_INFO = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         id
@@ -2503,13 +2503,13 @@ const SEARCH_LOSTS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           lostTime
           contact
           createTime
-          pictureUrl
+          pictureURL
           position
           description
           name
@@ -2520,7 +2520,7 @@ const SEARCH_LOSTS = `
             grade
             gender
             username
-            pictureUrl
+            pictureURL
             userId
           }
           id
@@ -2611,7 +2611,7 @@ const PERSON_INFO = `
         grade
         gender
         username
-        pictureUrl
+        pictureURL
         userId
       }
       ... on Error {
@@ -2767,7 +2767,7 @@ const CREATE_SCHOOL_HEAT = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 author {
@@ -2777,7 +2777,7 @@ const CREATE_SCHOOL_HEAT = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -2801,7 +2801,7 @@ const CREATE_SCHOOL_HEAT = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -2828,7 +2828,7 @@ const CREATE_SCHOOL_HEAT = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         author {
@@ -2838,7 +2838,7 @@ const CREATE_SCHOOL_HEAT = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         content {
@@ -2889,7 +2889,7 @@ const CREATE_SCHOOL_HEAT_COMMENT = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             author {
@@ -2899,7 +2899,7 @@ const CREATE_SCHOOL_HEAT_COMMENT = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -2923,7 +2923,7 @@ const CREATE_SCHOOL_HEAT_COMMENT = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         content {
@@ -2971,7 +2971,7 @@ const CREATE_SCHOOL_HEAT_COMMENT_REPLY = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         author {
@@ -2981,7 +2981,7 @@ const CREATE_SCHOOL_HEAT_COMMENT_REPLY = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         content {
@@ -3033,7 +3033,7 @@ const CREATE_ENTERTAINMENT = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 author {
@@ -3043,7 +3043,7 @@ const CREATE_ENTERTAINMENT = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -3067,7 +3067,7 @@ const CREATE_ENTERTAINMENT = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -3094,7 +3094,7 @@ const CREATE_ENTERTAINMENT = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         author {
@@ -3104,7 +3104,7 @@ const CREATE_ENTERTAINMENT = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         content {
@@ -3155,7 +3155,7 @@ const CREATE_ENTERTAINMENT_COMMENT = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             author {
@@ -3165,7 +3165,7 @@ const CREATE_ENTERTAINMENT_COMMENT = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -3189,7 +3189,7 @@ const CREATE_ENTERTAINMENT_COMMENT = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         content {
@@ -3237,7 +3237,7 @@ const CREATE_ENTERTAINMENT_COMMENT_REPLY = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         author {
@@ -3247,7 +3247,7 @@ const CREATE_ENTERTAINMENT_COMMENT_REPLY = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         content {
@@ -3299,7 +3299,7 @@ const CREATE_LEARNING_RESOURCE = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 author {
@@ -3309,7 +3309,7 @@ const CREATE_LEARNING_RESOURCE = `
                   grade
                   gender
                   username
-                  pictureUrl
+                  pictureURL
                   userId
                 }
                 content {
@@ -3333,7 +3333,7 @@ const CREATE_LEARNING_RESOURCE = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -3359,7 +3359,7 @@ const CREATE_LEARNING_RESOURCE = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         attachedFileURL
@@ -3382,7 +3382,7 @@ const CREATE_LEARNING_RESOURCE = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         id
@@ -3422,7 +3422,7 @@ const CREATE_LEARNING_RESOURCE_COMMENT = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             author {
@@ -3432,7 +3432,7 @@ const CREATE_LEARNING_RESOURCE_COMMENT = `
               grade
               gender
               username
-              pictureUrl
+              pictureURL
               userId
             }
             content {
@@ -3456,7 +3456,7 @@ const CREATE_LEARNING_RESOURCE_COMMENT = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         content {
@@ -3504,7 +3504,7 @@ const CREATE_LEARNING_RESOURCE_COMMENT_REPLY = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         author {
@@ -3514,7 +3514,7 @@ const CREATE_LEARNING_RESOURCE_COMMENT_REPLY = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         content {
@@ -3562,7 +3562,7 @@ const CREATE_FOUND = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         foundTime
@@ -3579,7 +3579,7 @@ const CREATE_FOUND = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         id
@@ -3645,13 +3645,13 @@ const CREATE_LOST = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         lostTime
         contact
         createTime
-        pictureUrl
+        pictureURL
         position
         description
         name
@@ -3662,7 +3662,7 @@ const CREATE_LOST = `
           grade
           gender
           username
-          pictureUrl
+          pictureURL
           userId
         }
         id
@@ -3690,8 +3690,8 @@ const DELETE_LOST = `
 `;
 
 const CLAIM_LOST = `
-  mutation ClaimLost($userId: ID!, $lostId: ID!) {
-    claimLost(userId: $userId, lostId: $lostId) {
+  mutation ClaimLost($lostId: ID!) {
+    claimLost(lostId: $lostId) {
       ... on Ok {
         ok
       }
@@ -3781,7 +3781,7 @@ const EDIT_PERSON_INFO = `
         grade
         gender
         username
-        pictureUrl
+        pictureURL
         userId
       }
       ... on Error {

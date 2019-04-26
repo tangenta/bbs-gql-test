@@ -497,10 +497,9 @@ const deleteLost = (id, auth) => sendGQL({
   auth: auth
 });
 
-const claimLost = (userId, lostId, auth) => sendGQL({
+const claimLost = (lostId, auth) => sendGQL({
   query: CLAIM_LOST,
   variables: {
-    userId: userId,
     lostId: lostId
   },
   auth: auth

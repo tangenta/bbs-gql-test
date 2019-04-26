@@ -320,7 +320,7 @@ union SearchFoundsResult = Error | MultiFoundInfos
 @query searchLosts(object: String!): SearchLostsResult!
 +@mutation createLost(lostInput: LostInput!): CreateLostResult!
 +@mutation deleteLost(id: ID!): DeleteLostResult!
-+@mutation claimLost(lostId: ID!, userId: ID!): ClaimLostResult!
++@mutation claimLost(lostId: ID!): ClaimLostResult!
 +@mutation cancelClaimLost(foundId: ID!): CancelClaimLostResult!
 
 type LostInfo {
@@ -329,7 +329,7 @@ type LostInfo {
     name: String!
     description: String!
     position: String
-    pictureUrl: String
+    pictureURL: String
     createTime: Long!
     contact: String
     lostTime: Long
@@ -429,7 +429,7 @@ input PersonInfoInput {
 
 type PersonalInfo {
     userId: String!
-    pictureUrl: String
+    pictureURL: String
     username: String!
     gender: String
     grade: String
