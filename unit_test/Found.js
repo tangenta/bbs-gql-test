@@ -14,10 +14,11 @@ unit_test("createFound", () =>
 );
 
 unit_test("allFounds", () =>
-    after_n_lost_or_found_publish("found", 5, () =>
-        allFounds(10, 2).then(res =>
-            assertEq(res.totalCount, 5)
-        )
+    after_n_lost_or_found_publish("found", 5, (_, __, ids) =>
+        allFounds(0, 10).then(res => {
+            assert(eqSet(new Set(res.founds.map(i => i.id)), new Set(ids)));
+            assertEq(res.totalCount, 5);
+        })
     )
 )
 

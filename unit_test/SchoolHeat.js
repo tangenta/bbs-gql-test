@@ -12,7 +12,7 @@ unit_test("CreateSchoolHeat", () =>
         }
       };
       return createSchoolHeat(schoolHeat, auth).then(res => {
-        console.log(res);
+        // console.log(res);
         assertEq(res.title, schoolHeat.title);
         assertEq(res.content.items.length, 4);
       })
@@ -20,7 +20,12 @@ unit_test("CreateSchoolHeat", () =>
 );
 
 unit_test("AllSchoolHeats", () =>
-  allSchoolHeats().then(res =>
-    console.log(res)
+  after_n_schoolheat_publisth(10, (_, __, ids) =>
+    allSchoolHeats().then(res => {
+        assert(eqSet(new Set(ids), new Set(res.schoolHeats.map(i => i.id))));
+        assert(res.totalCount, 5);
+      }
+    )
   )
 );
+

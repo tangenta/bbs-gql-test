@@ -119,13 +119,41 @@ const after_n_lost_or_found_publish = (foundOrLostStr, nTimes, func) => {
 			else item.lostTime = Date.now();
 
 			pubItems.push(item);
-			chain = chain.then(() => isFound ? createFound(item, auth) : createLost(item, auth)
-				.then(result => pubItemIds.push(result.itemId)));
+			chain = chain.then(() => isFound ? createFound(item, auth) : createLost(item, auth))
+				.then(result => {
+					pubItemIds.push(result.id);
+				});
 		}
 
 		return chain.then(() => func(auth, pubItems, pubItemIds));
 	})
 };
+
+const after_n_schoolheat_publisth = (nTimes, func) => {
+	return after_signUp(auth => {
+		let chain = Promise.resolve();
+		let pubItems = [];
+		let pubItemIds = [];
+		for (let i = 0; i < nTimes; i++) {
+			const item = {
+				title: "ttttz" + i,
+				content: {
+					elems: [
+						{type: "Picture", str: "aGVsbG93b3JsZCE="},
+						{type: "Text", str: "I close my eyes, Oh God I think I'm falling" + i},
+						{type: "Text", str: "When you call my name it's like a little prayer" + i},
+					]
+				}
+			};
+			pubItems.push(item);
+			chain = chain.then(() => createSchoolHeat(item, auth))
+				.then(result => {
+					pubItemIds.push(result.id)
+				})
+		}
+		return chain.then(() => func(auth, pubItems, pubItemIds))
+	})
+}
 
 // [dependencies: signup, createPosts, deletePosts]
 const after_n_post_create = (nTimes, func) => {
@@ -305,4 +333,10 @@ behav_test_only("upload user profile image and then get url", () =>
 		});
 	})
 );
+
+const eqSet = (as, bs) => {
+	if (as.size !== bs.size) return false;
+	for (const a of as) if (!bs.has(a)) return false;
+	return true;
+};
 
