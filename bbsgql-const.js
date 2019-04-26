@@ -27,7 +27,7 @@ const HOTS = `
           ... on LearningResourceInfo {
             allComments(first: first, skip: skip) {
               comments {
-                allReplies {
+                allReplies(first: first, skip: skip) {
                   replies {
                     replyTo {
                       introduction
@@ -127,7 +127,7 @@ const HOTS = `
           ... on EntertainmentInfo {
             allComments(first: first, skip: skip) {
               comments {
-                allReplies {
+                allReplies(first: first, skip: skip) {
                   replies {
                     replyTo {
                       introduction
@@ -226,7 +226,7 @@ const HOTS = `
           ... on SchoolHeatInfo {
             allComments(first: first, skip: skip) {
               comments {
-                allReplies {
+                allReplies(first: first, skip: skip) {
                   replies {
                     replyTo {
                       introduction
@@ -340,7 +340,7 @@ const LATESTS = `
           ... on LearningResourceInfo {
             allComments(first: first, skip: skip) {
               comments {
-                allReplies {
+                allReplies(first: first, skip: skip) {
                   replies {
                     replyTo {
                       introduction
@@ -440,7 +440,7 @@ const LATESTS = `
           ... on EntertainmentInfo {
             allComments(first: first, skip: skip) {
               comments {
-                allReplies {
+                allReplies(first: first, skip: skip) {
                   replies {
                     replyTo {
                       introduction
@@ -539,7 +539,7 @@ const LATESTS = `
           ... on SchoolHeatInfo {
             allComments(first: first, skip: skip) {
               comments {
-                allReplies {
+                allReplies(first: first, skip: skip) {
                   replies {
                     replyTo {
                       introduction
@@ -715,7 +715,7 @@ const SEARCH = `
           ... on EntertainmentInfo {
             allComments(first: first, skip: skip) {
               comments {
-                allReplies {
+                allReplies(first: first, skip: skip) {
                   replies {
                     replyTo {
                       introduction
@@ -814,7 +814,7 @@ const SEARCH = `
           ... on SchoolHeatInfo {
             allComments(first: first, skip: skip) {
               comments {
-                allReplies {
+                allReplies(first: first, skip: skip) {
                   replies {
                     replyTo {
                       introduction
@@ -927,7 +927,7 @@ const ALL_SCHOOL_HEATS = `
         schoolHeats {
           allComments(first: first, skip: skip) {
             comments {
-              allReplies {
+              allReplies(first: first, skip: skip) {
                 replies {
                   replyTo {
                     introduction
@@ -1039,7 +1039,7 @@ const SCHOOL_HEAT_INFO = `
       ... on SchoolHeatInfo {
         allComments(first: first, skip: skip) {
           comments {
-            allReplies {
+            allReplies(first: first, skip: skip) {
               replies {
                 replyTo {
                   introduction
@@ -1150,7 +1150,7 @@ const SCHOOL_HEATS_OF_AUTHOR = `
         schoolHeats {
           allComments(first: first, skip: skip) {
             comments {
-              allReplies {
+              allReplies(first: first, skip: skip) {
                 replies {
                   replyTo {
                     introduction
@@ -1263,7 +1263,7 @@ const SEARCH_SCHOOL_HEATS = `
         schoolHeats {
           allComments(first: first, skip: skip) {
             comments {
-              allReplies {
+              allReplies(first: first, skip: skip) {
                 replies {
                   replyTo {
                     introduction
@@ -1376,7 +1376,7 @@ const ALL_ENTERTAINMENTS = `
         Entertainments {
           allComments(first: first, skip: skip) {
             comments {
-              allReplies {
+              allReplies(first: first, skip: skip) {
                 replies {
                   replyTo {
                     introduction
@@ -1488,7 +1488,7 @@ const ENTERTAINMENT_INFO = `
       ... on EntertainmentInfo {
         allComments(first: first, skip: skip) {
           comments {
-            allReplies {
+            allReplies(first: first, skip: skip) {
               replies {
                 replyTo {
                   introduction
@@ -1599,7 +1599,7 @@ const ENTERTAINMENTS_OF_AUTHOR = `
         Entertainments {
           allComments(first: first, skip: skip) {
             comments {
-              allReplies {
+              allReplies(first: first, skip: skip) {
                 replies {
                   replyTo {
                     introduction
@@ -1712,7 +1712,7 @@ const SEARCH_ENTERTAINMENTS = `
         Entertainments {
           allComments(first: first, skip: skip) {
             comments {
-              allReplies {
+              allReplies(first: first, skip: skip) {
                 replies {
                   replyTo {
                     introduction
@@ -1825,7 +1825,7 @@ const ALL_LEARNING_RESOURCE = `
         learningResources {
           allComments(first: first, skip: skip) {
             comments {
-              allReplies {
+              allReplies(first: first, skip: skip) {
                 replies {
                   replyTo {
                     introduction
@@ -1944,7 +1944,7 @@ const LEARNING_RESOURCE_INFO = `
       ... on LearningResourceInfo {
         allComments(first: first, skip: skip) {
           comments {
-            allReplies {
+            allReplies(first: first, skip: skip) {
               replies {
                 replyTo {
                   introduction
@@ -2056,7 +2056,7 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
         learningResources {
           allComments(first: first, skip: skip) {
             comments {
-              allReplies {
+              allReplies(first: first, skip: skip) {
                 replies {
                   replyTo {
                     introduction
@@ -2170,7 +2170,7 @@ const SEARCH_LEARNING_RESOURCES = `
         learningResources {
           allComments(first: first, skip: skip) {
             comments {
-              allReplies {
+              allReplies(first: first, skip: skip) {
                 replies {
                   replyTo {
                     introduction
@@ -2785,7 +2785,7 @@ const CREATE_SCHOOL_HEAT = `
       ... on SchoolHeatInfo {
         allComments(first: first, skip: skip) {
           comments {
-            allReplies {
+            allReplies(first: first, skip: skip) {
               replies {
                 replyTo {
                   introduction
@@ -2904,10 +2904,10 @@ const DELETE_SCHOOL_HEAT = `
 `;
 
 const CREATE_SCHOOL_HEAT_COMMENT = `
-  mutation CreateSchoolHeatComment($schoolHeatCommentInput: SchoolHeatCommentInput!) {
+  mutation CreateSchoolHeatComment($schoolHeatCommentInput: SchoolHeatCommentInput!, $first: Long, $skip: Long) {
     createSchoolHeatComment(schoolHeatCommentInput: $schoolHeatCommentInput) {
       ... on CommentInfo {
-        allReplies {
+        allReplies(first: first, skip: skip) {
           replies {
             replyTo {
               introduction
@@ -3051,7 +3051,7 @@ const CREATE_ENTERTAINMENT = `
       ... on EntertainmentInfo {
         allComments(first: first, skip: skip) {
           comments {
-            allReplies {
+            allReplies(first: first, skip: skip) {
               replies {
                 replyTo {
                   introduction
@@ -3170,10 +3170,10 @@ const DELETE_ENTERTAINMENT = `
 `;
 
 const CREATE_ENTERTAINMENT_COMMENT = `
-  mutation CreateEntertainmentComment($entertainmentCommentInput: EntertainmentCommentInput!) {
+  mutation CreateEntertainmentComment($entertainmentCommentInput: EntertainmentCommentInput!, $first: Long, $skip: Long) {
     createEntertainmentComment(entertainmentCommentInput: $entertainmentCommentInput) {
       ... on CommentInfo {
-        allReplies {
+        allReplies(first: first, skip: skip) {
           replies {
             replyTo {
               introduction
@@ -3317,7 +3317,7 @@ const CREATE_LEARNING_RESOURCE = `
       ... on LearningResourceInfo {
         allComments(first: first, skip: skip) {
           comments {
-            allReplies {
+            allReplies(first: first, skip: skip) {
               replies {
                 replyTo {
                   introduction
@@ -3437,10 +3437,10 @@ const DELETE_LEARNING_RESOURCE = `
 `;
 
 const CREATE_LEARNING_RESOURCE_COMMENT = `
-  mutation CreateLearningResourceComment($learningResourceCommentInput: LearningResourceCommentInput!) {
+  mutation CreateLearningResourceComment($learningResourceCommentInput: LearningResourceCommentInput!, $first: Long, $skip: Long) {
     createLearningResourceComment(learningResourceCommentInput: $learningResourceCommentInput) {
       ... on CommentInfo {
-        allReplies {
+        allReplies(first: first, skip: skip) {
           replies {
             replyTo {
               introduction

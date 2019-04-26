@@ -311,7 +311,9 @@ const deleteSchoolHeat = (id, auth) => sendGQL({
 const createSchoolHeatComment = (schoolHeatCommentInput, auth) => sendGQL({
   query: CREATE_SCHOOL_HEAT_COMMENT,
   variables: {
-    schoolHeatCommentInput: schoolHeatCommentInput
+    schoolHeatCommentInput: schoolHeatCommentInput,
+    first: first,
+    skip: skip
   },
   auth: auth
 });
@@ -364,7 +366,9 @@ const deleteEntertainment = (id, auth) => sendGQL({
 const createEntertainmentComment = (entertainmentCommentInput, auth) => sendGQL({
   query: CREATE_ENTERTAINMENT_COMMENT,
   variables: {
-    entertainmentCommentInput: entertainmentCommentInput
+    entertainmentCommentInput: entertainmentCommentInput,
+    first: first,
+    skip: skip
   },
   auth: auth
 });
@@ -417,7 +421,9 @@ const deleteLearningResource = (id, auth) => sendGQL({
 const createLearningResourceComment = (learningResourceCommentInput, auth) => sendGQL({
   query: CREATE_LEARNING_RESOURCE_COMMENT,
   variables: {
-    learningResourceCommentInput: learningResourceCommentInput
+    learningResourceCommentInput: learningResourceCommentInput,
+    first: first,
+    skip: skip
   },
   auth: auth
 });

@@ -252,7 +252,7 @@ type CommentInfo {
     id: ID!
     content: Content!
     author: PersonalInfo!
-    allReplies: AllReplies!
+    allReplies(skip: Long, first: Long): AllReplies!
 }
 type AllReplies {
     totalCount: Long!
@@ -476,10 +476,10 @@ type Ok {
 }
 
 input ContentInput {
-    elems: [ContentItem!]!
+    elems: [ContentItemInput!]!
 }
 
-input ContentElem {
+input ContentItemInput {
     type: ElemType!
     str: String!
 }
