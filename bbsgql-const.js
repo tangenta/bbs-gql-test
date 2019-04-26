@@ -20,14 +20,14 @@ const CURRENT_USER = `
 `;
 
 const HOTS = `
-  query Hots($first: Long, $skip: Long) {
+  query Hots($skip: Long, $first: Long) {
     hots {
       ... on Hots {
         hots {
           ... on LearningResourceInfo {
-            allComments(first: first, skip: skip) {
+            allComments(skip: $skip, first: $first) {
               comments {
-                allReplies(first: first, skip: skip) {
+                allReplies(skip: $skip, first: $first) {
                   replies {
                     replyTo {
                       introduction
@@ -125,9 +125,9 @@ const HOTS = `
             id
           }
           ... on EntertainmentInfo {
-            allComments(first: first, skip: skip) {
+            allComments(skip: $skip, first: $first) {
               comments {
-                allReplies(first: first, skip: skip) {
+                allReplies(skip: $skip, first: $first) {
                   replies {
                     replyTo {
                       introduction
@@ -224,9 +224,9 @@ const HOTS = `
             id
           }
           ... on SchoolHeatInfo {
-            allComments(first: first, skip: skip) {
+            allComments(skip: $skip, first: $first) {
               comments {
-                allReplies(first: first, skip: skip) {
+                allReplies(skip: $skip, first: $first) {
                   replies {
                     replyTo {
                       introduction
@@ -333,14 +333,14 @@ const HOTS = `
 `;
 
 const LATESTS = `
-  query Latests($first: Long, $skip: Long) {
+  query Latests($skip: Long, $first: Long) {
     latests {
       ... on Latests {
         latests {
           ... on LearningResourceInfo {
-            allComments(first: first, skip: skip) {
+            allComments(skip: $skip, first: $first) {
               comments {
-                allReplies(first: first, skip: skip) {
+                allReplies(skip: $skip, first: $first) {
                   replies {
                     replyTo {
                       introduction
@@ -438,9 +438,9 @@ const LATESTS = `
             id
           }
           ... on EntertainmentInfo {
-            allComments(first: first, skip: skip) {
+            allComments(skip: $skip, first: $first) {
               comments {
-                allReplies(first: first, skip: skip) {
+                allReplies(skip: $skip, first: $first) {
                   replies {
                     replyTo {
                       introduction
@@ -537,9 +537,9 @@ const LATESTS = `
             id
           }
           ... on SchoolHeatInfo {
-            allComments(first: first, skip: skip) {
+            allComments(skip: $skip, first: $first) {
               comments {
-                allReplies(first: first, skip: skip) {
+                allReplies(skip: $skip, first: $first) {
                   replies {
                     replyTo {
                       introduction
@@ -698,8 +698,8 @@ const NEWS_INFO = `
 `;
 
 const SEARCH = `
-  query Search($first: Long, $skip: Long, $content: String!) {
-    search(first: $first, skip: $skip, content: $content) {
+  query Search($content: String!, $skip: Long, $first: Long) {
+    search(content: $content, skip: $skip, first: $first) {
       ... on Searchs {
         searchs {
           ... on PersonalInfo {
@@ -713,9 +713,9 @@ const SEARCH = `
             userId
           }
           ... on EntertainmentInfo {
-            allComments(first: first, skip: skip) {
+            allComments(skip: $skip, first: $first) {
               comments {
-                allReplies(first: first, skip: skip) {
+                allReplies(skip: $skip, first: $first) {
                   replies {
                     replyTo {
                       introduction
@@ -812,9 +812,9 @@ const SEARCH = `
             id
           }
           ... on SchoolHeatInfo {
-            allComments(first: first, skip: skip) {
+            allComments(skip: $skip, first: $first) {
               comments {
-                allReplies(first: first, skip: skip) {
+                allReplies(skip: $skip, first: $first) {
                   replies {
                     replyTo {
                       introduction
@@ -921,13 +921,13 @@ const SEARCH = `
 `;
 
 const ALL_SCHOOL_HEATS = `
-  query AllSchoolHeats($sortedBy: SortedBy, $first: Long, $skip: Long) {
-    allSchoolHeats(sortedBy: $sortedBy, first: $first, skip: $skip) {
+  query AllSchoolHeats($skip: Long, $first: Long, $sortedBy: SortedBy) {
+    allSchoolHeats(skip: $skip, first: $first, sortedBy: $sortedBy) {
       ... on MultiSchoolHeats {
         schoolHeats {
-          allComments(first: first, skip: skip) {
+          allComments(skip: $skip, first: $first) {
             comments {
-              allReplies(first: first, skip: skip) {
+              allReplies(skip: $skip, first: $first) {
                 replies {
                   replyTo {
                     introduction
@@ -1034,12 +1034,12 @@ const ALL_SCHOOL_HEATS = `
 `;
 
 const SCHOOL_HEAT_INFO = `
-  query SchoolHeatInfo($id: ID!, $first: Long, $skip: Long) {
+  query SchoolHeatInfo($id: ID!, $skip: Long, $first: Long) {
     schoolHeatInfo(id: $id) {
       ... on SchoolHeatInfo {
-        allComments(first: first, skip: skip) {
+        allComments(skip: $skip, first: $first) {
           comments {
-            allReplies(first: first, skip: skip) {
+            allReplies(skip: $skip, first: $first) {
               replies {
                 replyTo {
                   introduction
@@ -1144,13 +1144,13 @@ const SCHOOL_HEAT_INFO = `
 `;
 
 const SCHOOL_HEATS_OF_AUTHOR = `
-  query SchoolHeatsOfAuthor($first: Long, $skip: Long, $authorId: ID!) {
-    schoolHeatsOfAuthor(first: $first, skip: $skip, authorId: $authorId) {
+  query SchoolHeatsOfAuthor($authorId: ID!, $skip: Long, $first: Long) {
+    schoolHeatsOfAuthor(authorId: $authorId, skip: $skip, first: $first) {
       ... on MultiSchoolHeats {
         schoolHeats {
-          allComments(first: first, skip: skip) {
+          allComments(skip: $skip, first: $first) {
             comments {
-              allReplies(first: first, skip: skip) {
+              allReplies(skip: $skip, first: $first) {
                 replies {
                   replyTo {
                     introduction
@@ -1257,13 +1257,13 @@ const SCHOOL_HEATS_OF_AUTHOR = `
 `;
 
 const SEARCH_SCHOOL_HEATS = `
-  query SearchSchoolHeats($title: String!, $first: Long, $skip: Long) {
+  query SearchSchoolHeats($title: String!, $skip: Long, $first: Long) {
     searchSchoolHeats(title: $title) {
       ... on MultiSchoolHeats {
         schoolHeats {
-          allComments(first: first, skip: skip) {
+          allComments(skip: $skip, first: $first) {
             comments {
-              allReplies(first: first, skip: skip) {
+              allReplies(skip: $skip, first: $first) {
                 replies {
                   replyTo {
                     introduction
@@ -1370,13 +1370,13 @@ const SEARCH_SCHOOL_HEATS = `
 `;
 
 const ALL_ENTERTAINMENTS = `
-  query AllEntertainments($sortedBy: SortedBy, $first: Long, $skip: Long) {
-    allEntertainments(sortedBy: $sortedBy, first: $first, skip: $skip) {
+  query AllEntertainments($skip: Long, $first: Long, $sortedBy: SortedBy) {
+    allEntertainments(skip: $skip, first: $first, sortedBy: $sortedBy) {
       ... on MultiEntertainments {
         Entertainments {
-          allComments(first: first, skip: skip) {
+          allComments(skip: $skip, first: $first) {
             comments {
-              allReplies(first: first, skip: skip) {
+              allReplies(skip: $skip, first: $first) {
                 replies {
                   replyTo {
                     introduction
@@ -1483,12 +1483,12 @@ const ALL_ENTERTAINMENTS = `
 `;
 
 const ENTERTAINMENT_INFO = `
-  query EntertainmentInfo($id: ID!, $first: Long, $skip: Long) {
+  query EntertainmentInfo($id: ID!, $skip: Long, $first: Long) {
     entertainmentInfo(id: $id) {
       ... on EntertainmentInfo {
-        allComments(first: first, skip: skip) {
+        allComments(skip: $skip, first: $first) {
           comments {
-            allReplies(first: first, skip: skip) {
+            allReplies(skip: $skip, first: $first) {
               replies {
                 replyTo {
                   introduction
@@ -1593,13 +1593,13 @@ const ENTERTAINMENT_INFO = `
 `;
 
 const ENTERTAINMENTS_OF_AUTHOR = `
-  query EntertainmentsOfAuthor($first: Long, $skip: Long, $authorId: ID!) {
-    entertainmentsOfAuthor(first: $first, skip: $skip, authorId: $authorId) {
+  query EntertainmentsOfAuthor($authorId: ID!, $skip: Long, $first: Long) {
+    entertainmentsOfAuthor(authorId: $authorId, skip: $skip, first: $first) {
       ... on MultiEntertainments {
         Entertainments {
-          allComments(first: first, skip: skip) {
+          allComments(skip: $skip, first: $first) {
             comments {
-              allReplies(first: first, skip: skip) {
+              allReplies(skip: $skip, first: $first) {
                 replies {
                   replyTo {
                     introduction
@@ -1706,13 +1706,13 @@ const ENTERTAINMENTS_OF_AUTHOR = `
 `;
 
 const SEARCH_ENTERTAINMENTS = `
-  query SearchEntertainments($title: String!, $first: Long, $skip: Long) {
+  query SearchEntertainments($title: String!, $skip: Long, $first: Long) {
     searchEntertainments(title: $title) {
       ... on MultiEntertainments {
         Entertainments {
-          allComments(first: first, skip: skip) {
+          allComments(skip: $skip, first: $first) {
             comments {
-              allReplies(first: first, skip: skip) {
+              allReplies(skip: $skip, first: $first) {
                 replies {
                   replyTo {
                     introduction
@@ -1819,13 +1819,13 @@ const SEARCH_ENTERTAINMENTS = `
 `;
 
 const ALL_LEARNING_RESOURCE = `
-  query AllLearningResource($sortedBy: SortedBy, $course: String, $first: Long, $skip: Long) {
-    allLearningResource(sortedBy: $sortedBy, course: $course, first: $first, skip: $skip) {
+  query AllLearningResource($skip: Long, $first: Long, $course: String, $sortedBy: SortedBy) {
+    allLearningResource(skip: $skip, first: $first, course: $course, sortedBy: $sortedBy) {
       ... on MultiLearningResources {
         learningResources {
-          allComments(first: first, skip: skip) {
+          allComments(skip: $skip, first: $first) {
             comments {
-              allReplies(first: first, skip: skip) {
+              allReplies(skip: $skip, first: $first) {
                 replies {
                   replyTo {
                     introduction
@@ -1939,12 +1939,12 @@ const ALL_COURSES = `
 `;
 
 const LEARNING_RESOURCE_INFO = `
-  query LearningResourceInfo($id: ID!, $first: Long, $skip: Long) {
+  query LearningResourceInfo($id: ID!, $skip: Long, $first: Long) {
     learningResourceInfo(id: $id) {
       ... on LearningResourceInfo {
-        allComments(first: first, skip: skip) {
+        allComments(skip: $skip, first: $first) {
           comments {
-            allReplies(first: first, skip: skip) {
+            allReplies(skip: $skip, first: $first) {
               replies {
                 replyTo {
                   introduction
@@ -2050,13 +2050,13 @@ const LEARNING_RESOURCE_INFO = `
 `;
 
 const LEARNING_RESOURCES_OF_AUTHOR = `
-  query LearningResourcesOfAuthor($first: Long, $skip: Long, $authorId: ID!) {
-    learningResourcesOfAuthor(first: $first, skip: $skip, authorId: $authorId) {
+  query LearningResourcesOfAuthor($authorId: ID!, $skip: Long, $first: Long) {
+    learningResourcesOfAuthor(authorId: $authorId, skip: $skip, first: $first) {
       ... on MultiLearningResources {
         learningResources {
-          allComments(first: first, skip: skip) {
+          allComments(skip: $skip, first: $first) {
             comments {
-              allReplies(first: first, skip: skip) {
+              allReplies(skip: $skip, first: $first) {
                 replies {
                   replyTo {
                     introduction
@@ -2164,13 +2164,13 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
 `;
 
 const SEARCH_LEARNING_RESOURCES = `
-  query SearchLearningResources($title: String!, $first: Long, $skip: Long) {
+  query SearchLearningResources($title: String!, $skip: Long, $first: Long) {
     searchLearningResources(title: $title) {
       ... on MultiLearningResources {
         learningResources {
-          allComments(first: first, skip: skip) {
+          allComments(skip: $skip, first: $first) {
             comments {
-              allReplies(first: first, skip: skip) {
+              allReplies(skip: $skip, first: $first) {
                 replies {
                   replyTo {
                     introduction
@@ -2278,8 +2278,8 @@ const SEARCH_LEARNING_RESOURCES = `
 `;
 
 const ALL_FOUNDS = `
-  query AllFounds($first: Long, $skip: Long) {
-    allFounds(first: $first, skip: $skip) {
+  query AllFounds($skip: Long, $first: Long) {
+    allFounds(skip: $skip, first: $first) {
       ... on MultiFoundInfos {
         founds {
           claimer {
@@ -2407,8 +2407,8 @@ const SEARCH_FOUNDS = `
 `;
 
 const ALL_LOSTS = `
-  query AllLosts($first: Long, $skip: Long) {
-    allLosts(first: $first, skip: $skip) {
+  query AllLosts($skip: Long, $first: Long) {
+    allLosts(skip: $skip, first: $first) {
       ... on MultiLostInfos {
         losts {
           claimer {
@@ -2536,8 +2536,8 @@ const SEARCH_LOSTS = `
 `;
 
 const ALL_LECTURES = `
-  query AllLectures($first: Long, $skip: Long) {
-    allLectures(first: $first, skip: $skip) {
+  query AllLectures($skip: Long, $first: Long) {
+    allLectures(skip: $skip, first: $first) {
       ... on MultiLectures {
         lectures {
           note
@@ -2597,8 +2597,8 @@ const LECTURE_INFO = `
 `;
 
 const SEARCH_LECTURES = `
-  query SearchLectures($first: Long, $skip: Long, $title: String!) {
-    searchLectures(first: $first, skip: $skip, title: $title) {
+  query SearchLectures($title: String!, $skip: Long, $first: Long) {
+    searchLectures(title: $title, skip: $skip, first: $first) {
       ... on MultiLectures {
         lectures {
           note
@@ -2752,8 +2752,8 @@ const DELETE_NEWS = `
 `;
 
 const EDIT_NEWS = `
-  mutation EditNews($newsInput: NewsInput!, $newsId: String!) {
-    editNews(newsInput: $newsInput, newsId: $newsId) {
+  mutation EditNews($newsId: String!, $newsInput: NewsInput!) {
+    editNews(newsId: $newsId, newsInput: $newsInput) {
       ... on NewsInfo {
         pictureURL
         editTime
@@ -2780,12 +2780,12 @@ const EDIT_NEWS = `
 `;
 
 const CREATE_SCHOOL_HEAT = `
-  mutation CreateSchoolHeat($schoolHeatInput: SchoolHeatInput!, $first: Long, $skip: Long) {
+  mutation CreateSchoolHeat($schoolHeatInput: SchoolHeatInput!, $skip: Long, $first: Long) {
     createSchoolHeat(schoolHeatInput: $schoolHeatInput) {
       ... on SchoolHeatInfo {
-        allComments(first: first, skip: skip) {
+        allComments(skip: $skip, first: $first) {
           comments {
-            allReplies(first: first, skip: skip) {
+            allReplies(skip: $skip, first: $first) {
               replies {
                 replyTo {
                   introduction
@@ -2904,10 +2904,10 @@ const DELETE_SCHOOL_HEAT = `
 `;
 
 const CREATE_SCHOOL_HEAT_COMMENT = `
-  mutation CreateSchoolHeatComment($schoolHeatCommentInput: SchoolHeatCommentInput!, $first: Long, $skip: Long) {
+  mutation CreateSchoolHeatComment($schoolHeatCommentInput: SchoolHeatCommentInput!, $skip: Long, $first: Long) {
     createSchoolHeatComment(schoolHeatCommentInput: $schoolHeatCommentInput) {
       ... on CommentInfo {
-        allReplies(first: first, skip: skip) {
+        allReplies(skip: $skip, first: $first) {
           replies {
             replyTo {
               introduction
@@ -2974,8 +2974,8 @@ const CREATE_SCHOOL_HEAT_COMMENT = `
 `;
 
 const DELETE_SCHOOL_HEAT_COMMENT = `
-  mutation DeleteSchoolHeatComment($cmmtId: ID!, $shId: ID!) {
-    deleteSchoolHeatComment(cmmtId: $cmmtId, shId: $shId) {
+  mutation DeleteSchoolHeatComment($shId: ID!, $cmmtId: ID!) {
+    deleteSchoolHeatComment(shId: $shId, cmmtId: $cmmtId) {
       ... on Ok {
         ok
       }
@@ -3032,8 +3032,8 @@ const CREATE_SCHOOL_HEAT_COMMENT_REPLY = `
 `;
 
 const DELETE_SCHOOL_HEAT_COMMENT_REPLY = `
-  mutation DeleteSchoolHeatCommentReply($rpyId: ID!, $cmmtId: ID!, $shId: ID!) {
-    deleteSchoolHeatCommentReply(rpyId: $rpyId, cmmtId: $cmmtId, shId: $shId) {
+  mutation DeleteSchoolHeatCommentReply($shId: ID!, $cmmtId: ID!, $rpyId: ID!) {
+    deleteSchoolHeatCommentReply(shId: $shId, cmmtId: $cmmtId, rpyId: $rpyId) {
       ... on Ok {
         ok
       }
@@ -3046,12 +3046,12 @@ const DELETE_SCHOOL_HEAT_COMMENT_REPLY = `
 `;
 
 const CREATE_ENTERTAINMENT = `
-  mutation CreateEntertainment($entertainmentInput: EntertainmentInput!, $first: Long, $skip: Long) {
+  mutation CreateEntertainment($entertainmentInput: EntertainmentInput!, $skip: Long, $first: Long) {
     createEntertainment(entertainmentInput: $entertainmentInput) {
       ... on EntertainmentInfo {
-        allComments(first: first, skip: skip) {
+        allComments(skip: $skip, first: $first) {
           comments {
-            allReplies(first: first, skip: skip) {
+            allReplies(skip: $skip, first: $first) {
               replies {
                 replyTo {
                   introduction
@@ -3170,10 +3170,10 @@ const DELETE_ENTERTAINMENT = `
 `;
 
 const CREATE_ENTERTAINMENT_COMMENT = `
-  mutation CreateEntertainmentComment($entertainmentCommentInput: EntertainmentCommentInput!, $first: Long, $skip: Long) {
+  mutation CreateEntertainmentComment($entertainmentCommentInput: EntertainmentCommentInput!, $skip: Long, $first: Long) {
     createEntertainmentComment(entertainmentCommentInput: $entertainmentCommentInput) {
       ... on CommentInfo {
-        allReplies(first: first, skip: skip) {
+        allReplies(skip: $skip, first: $first) {
           replies {
             replyTo {
               introduction
@@ -3240,8 +3240,8 @@ const CREATE_ENTERTAINMENT_COMMENT = `
 `;
 
 const DELETE_ENTERTAINMENT_COMMENT = `
-  mutation DeleteEntertainmentComment($cmmtId: ID!, $etmtId: ID!) {
-    deleteEntertainmentComment(cmmtId: $cmmtId, etmtId: $etmtId) {
+  mutation DeleteEntertainmentComment($etmtId: ID!, $cmmtId: ID!) {
+    deleteEntertainmentComment(etmtId: $etmtId, cmmtId: $cmmtId) {
       ... on Ok {
         ok
       }
@@ -3298,8 +3298,8 @@ const CREATE_ENTERTAINMENT_COMMENT_REPLY = `
 `;
 
 const DELETE_ENTERTAINMENT_COMMENT_REPLY = `
-  mutation DeleteEntertainmentCommentReply($rpyId: ID!, $cmmtId: ID!, $etmtId: ID!) {
-    deleteEntertainmentCommentReply(rpyId: $rpyId, cmmtId: $cmmtId, etmtId: $etmtId) {
+  mutation DeleteEntertainmentCommentReply($etmtId: ID!, $cmmtId: ID!, $rpyId: ID!) {
+    deleteEntertainmentCommentReply(etmtId: $etmtId, cmmtId: $cmmtId, rpyId: $rpyId) {
       ... on Ok {
         ok
       }
@@ -3312,12 +3312,12 @@ const DELETE_ENTERTAINMENT_COMMENT_REPLY = `
 `;
 
 const CREATE_LEARNING_RESOURCE = `
-  mutation CreateLearningResource($learningResourceInput: LearningResourceInput, $first: Long, $skip: Long) {
+  mutation CreateLearningResource($learningResourceInput: LearningResourceInput, $skip: Long, $first: Long) {
     createLearningResource(learningResourceInput: $learningResourceInput) {
       ... on LearningResourceInfo {
-        allComments(first: first, skip: skip) {
+        allComments(skip: $skip, first: $first) {
           comments {
-            allReplies(first: first, skip: skip) {
+            allReplies(skip: $skip, first: $first) {
               replies {
                 replyTo {
                   introduction
@@ -3437,10 +3437,10 @@ const DELETE_LEARNING_RESOURCE = `
 `;
 
 const CREATE_LEARNING_RESOURCE_COMMENT = `
-  mutation CreateLearningResourceComment($learningResourceCommentInput: LearningResourceCommentInput!, $first: Long, $skip: Long) {
+  mutation CreateLearningResourceComment($learningResourceCommentInput: LearningResourceCommentInput!, $skip: Long, $first: Long) {
     createLearningResourceComment(learningResourceCommentInput: $learningResourceCommentInput) {
       ... on CommentInfo {
-        allReplies(first: first, skip: skip) {
+        allReplies(skip: $skip, first: $first) {
           replies {
             replyTo {
               introduction
@@ -3507,8 +3507,8 @@ const CREATE_LEARNING_RESOURCE_COMMENT = `
 `;
 
 const DELETE_LEARNING_RESOURCE_COMMENT = `
-  mutation DeleteLearningResourceComment($cmmtId: ID!, $lrId: ID!) {
-    deleteLearningResourceComment(cmmtId: $cmmtId, lrId: $lrId) {
+  mutation DeleteLearningResourceComment($lrId: ID!, $cmmtId: ID!) {
+    deleteLearningResourceComment(lrId: $lrId, cmmtId: $cmmtId) {
       ... on Ok {
         ok
       }
@@ -3565,8 +3565,8 @@ const CREATE_LEARNING_RESOURCE_COMMENT_REPLY = `
 `;
 
 const DELETE_LEARNING_RESOURCE_COMMENT_REPLY = `
-  mutation DeleteLearningResourceCommentReply($rpyId: ID!, $cmmtId: ID!, $lrId: ID!) {
-    deleteLearningResourceCommentReply(rpyId: $rpyId, cmmtId: $cmmtId, lrId: $lrId) {
+  mutation DeleteLearningResourceCommentReply($lrId: ID!, $cmmtId: ID!, $rpyId: ID!) {
+    deleteLearningResourceCommentReply(lrId: $lrId, cmmtId: $cmmtId, rpyId: $rpyId) {
       ... on Ok {
         ok
       }
@@ -3774,8 +3774,8 @@ const CREATE_LECTURE = `
 `;
 
 const EDIT_LECTURE = `
-  mutation EditLecture($lectureInput: LectureInput!, $id: ID!) {
-    editLecture(lectureInput: $lectureInput, id: $id) {
+  mutation EditLecture($id: ID!, $lectureInput: LectureInput!) {
+    editLecture(id: $id, lectureInput: $lectureInput) {
       ... on LectureInfo {
         note
         lecturer
@@ -3852,8 +3852,8 @@ const CONFIRM_PASSWORD = `
 `;
 
 const CHANGE_PASSWORD = `
-  mutation ChangePassword($newPassword: String!, $resetToken: String!) {
-    changePassword(newPassword: $newPassword, resetToken: $resetToken) {
+  mutation ChangePassword($resetToken: String!, $newPassword: String!) {
+    changePassword(resetToken: $resetToken, newPassword: $newPassword) {
       ... on Ok {
         ok
       }

@@ -6,16 +6,16 @@ const currentUser = (auth) => sendGQL({
 const hots = () => sendGQL({
   query: HOTS,
   variables: {
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   }
 });
 
 const latests = () => sendGQL({
   query: LATESTS,
   variables: {
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   }
 });
 
@@ -31,21 +31,21 @@ const newsInfo = (newsId) => sendGQL({
   }
 });
 
-const search = (first, skip, content) => sendGQL({
+const search = (content, skip, first) => sendGQL({
   query: SEARCH,
   variables: {
-    first: first,
+    content: content,
     skip: skip,
-    content: content
+    first: first
   }
 });
 
-const allSchoolHeats = (sortedBy, first, skip) => sendGQL({
+const allSchoolHeats = (skip, first, sortedBy) => sendGQL({
   query: ALL_SCHOOL_HEATS,
   variables: {
-    sortedBy: sortedBy,
+    skip: skip,
     first: first,
-    skip: skip
+    sortedBy: sortedBy
   }
 });
 
@@ -53,17 +53,17 @@ const schoolHeatInfo = (id) => sendGQL({
   query: SCHOOL_HEAT_INFO,
   variables: {
     id: id,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   }
 });
 
-const schoolHeatsOfAuthor = (first, skip, authorId) => sendGQL({
+const schoolHeatsOfAuthor = (authorId, skip, first) => sendGQL({
   query: SCHOOL_HEATS_OF_AUTHOR,
   variables: {
-    first: first,
+    authorId: authorId,
     skip: skip,
-    authorId: authorId
+    first: first
   }
 });
 
@@ -71,17 +71,17 @@ const searchSchoolHeats = (title) => sendGQL({
   query: SEARCH_SCHOOL_HEATS,
   variables: {
     title: title,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   }
 });
 
-const allEntertainments = (sortedBy, first, skip) => sendGQL({
+const allEntertainments = (skip, first, sortedBy) => sendGQL({
   query: ALL_ENTERTAINMENTS,
   variables: {
-    sortedBy: sortedBy,
+    skip: skip,
     first: first,
-    skip: skip
+    sortedBy: sortedBy
   }
 });
 
@@ -89,17 +89,17 @@ const entertainmentInfo = (id) => sendGQL({
   query: ENTERTAINMENT_INFO,
   variables: {
     id: id,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   }
 });
 
-const entertainmentsOfAuthor = (first, skip, authorId) => sendGQL({
+const entertainmentsOfAuthor = (authorId, skip, first) => sendGQL({
   query: ENTERTAINMENTS_OF_AUTHOR,
   variables: {
-    first: first,
+    authorId: authorId,
     skip: skip,
-    authorId: authorId
+    first: first
   }
 });
 
@@ -107,18 +107,18 @@ const searchEntertainments = (title) => sendGQL({
   query: SEARCH_ENTERTAINMENTS,
   variables: {
     title: title,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   }
 });
 
-const allLearningResource = (sortedBy, course, first, skip) => sendGQL({
+const allLearningResource = (skip, first, course, sortedBy) => sendGQL({
   query: ALL_LEARNING_RESOURCE,
   variables: {
-    sortedBy: sortedBy,
-    course: course,
+    skip: skip,
     first: first,
-    skip: skip
+    course: course,
+    sortedBy: sortedBy
   }
 });
 
@@ -131,17 +131,17 @@ const learningResourceInfo = (id) => sendGQL({
   query: LEARNING_RESOURCE_INFO,
   variables: {
     id: id,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   }
 });
 
-const learningResourcesOfAuthor = (first, skip, authorId) => sendGQL({
+const learningResourcesOfAuthor = (authorId, skip, first) => sendGQL({
   query: LEARNING_RESOURCES_OF_AUTHOR,
   variables: {
-    first: first,
+    authorId: authorId,
     skip: skip,
-    authorId: authorId
+    first: first
   }
 });
 
@@ -149,16 +149,16 @@ const searchLearningResources = (title) => sendGQL({
   query: SEARCH_LEARNING_RESOURCES,
   variables: {
     title: title,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   }
 });
 
-const allFounds = (first, skip) => sendGQL({
+const allFounds = (skip, first) => sendGQL({
   query: ALL_FOUNDS,
   variables: {
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   }
 });
 
@@ -176,11 +176,11 @@ const searchFounds = (object) => sendGQL({
   }
 });
 
-const allLosts = (first, skip) => sendGQL({
+const allLosts = (skip, first) => sendGQL({
   query: ALL_LOSTS,
   variables: {
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   }
 });
 
@@ -198,11 +198,11 @@ const searchLosts = (object) => sendGQL({
   }
 });
 
-const allLectures = (first, skip) => sendGQL({
+const allLectures = (skip, first) => sendGQL({
   query: ALL_LECTURES,
   variables: {
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   }
 });
 
@@ -213,12 +213,12 @@ const lectureInfo = (id) => sendGQL({
   }
 });
 
-const searchLectures = (first, skip, title) => sendGQL({
+const searchLectures = (title, skip, first) => sendGQL({
   query: SEARCH_LECTURES,
   variables: {
-    first: first,
+    title: title,
     skip: skip,
-    title: title
+    first: first
   }
 });
 
@@ -281,11 +281,11 @@ const deleteNews = (newsId, auth) => sendGQL({
   auth: auth
 });
 
-const editNews = (newsInput, newsId, auth) => sendGQL({
+const editNews = (newsId, newsInput, auth) => sendGQL({
   query: EDIT_NEWS,
   variables: {
-    newsInput: newsInput,
-    newsId: newsId
+    newsId: newsId,
+    newsInput: newsInput
   },
   auth: auth
 });
@@ -294,8 +294,8 @@ const createSchoolHeat = (schoolHeatInput, auth) => sendGQL({
   query: CREATE_SCHOOL_HEAT,
   variables: {
     schoolHeatInput: schoolHeatInput,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   },
   auth: auth
 });
@@ -312,17 +312,17 @@ const createSchoolHeatComment = (schoolHeatCommentInput, auth) => sendGQL({
   query: CREATE_SCHOOL_HEAT_COMMENT,
   variables: {
     schoolHeatCommentInput: schoolHeatCommentInput,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   },
   auth: auth
 });
 
-const deleteSchoolHeatComment = (cmmtId, shId, auth) => sendGQL({
+const deleteSchoolHeatComment = (shId, cmmtId, auth) => sendGQL({
   query: DELETE_SCHOOL_HEAT_COMMENT,
   variables: {
-    cmmtId: cmmtId,
-    shId: shId
+    shId: shId,
+    cmmtId: cmmtId
   },
   auth: auth
 });
@@ -335,12 +335,12 @@ const createSchoolHeatCommentReply = (schoolHeatReplyInput, auth) => sendGQL({
   auth: auth
 });
 
-const deleteSchoolHeatCommentReply = (rpyId, cmmtId, shId, auth) => sendGQL({
+const deleteSchoolHeatCommentReply = (shId, cmmtId, rpyId, auth) => sendGQL({
   query: DELETE_SCHOOL_HEAT_COMMENT_REPLY,
   variables: {
-    rpyId: rpyId,
+    shId: shId,
     cmmtId: cmmtId,
-    shId: shId
+    rpyId: rpyId
   },
   auth: auth
 });
@@ -349,8 +349,8 @@ const createEntertainment = (entertainmentInput, auth) => sendGQL({
   query: CREATE_ENTERTAINMENT,
   variables: {
     entertainmentInput: entertainmentInput,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   },
   auth: auth
 });
@@ -367,17 +367,17 @@ const createEntertainmentComment = (entertainmentCommentInput, auth) => sendGQL(
   query: CREATE_ENTERTAINMENT_COMMENT,
   variables: {
     entertainmentCommentInput: entertainmentCommentInput,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   },
   auth: auth
 });
 
-const deleteEntertainmentComment = (cmmtId, etmtId, auth) => sendGQL({
+const deleteEntertainmentComment = (etmtId, cmmtId, auth) => sendGQL({
   query: DELETE_ENTERTAINMENT_COMMENT,
   variables: {
-    cmmtId: cmmtId,
-    etmtId: etmtId
+    etmtId: etmtId,
+    cmmtId: cmmtId
   },
   auth: auth
 });
@@ -390,12 +390,12 @@ const createEntertainmentCommentReply = (entertainmentReplyInput, auth) => sendG
   auth: auth
 });
 
-const deleteEntertainmentCommentReply = (rpyId, cmmtId, etmtId, auth) => sendGQL({
+const deleteEntertainmentCommentReply = (etmtId, cmmtId, rpyId, auth) => sendGQL({
   query: DELETE_ENTERTAINMENT_COMMENT_REPLY,
   variables: {
-    rpyId: rpyId,
+    etmtId: etmtId,
     cmmtId: cmmtId,
-    etmtId: etmtId
+    rpyId: rpyId
   },
   auth: auth
 });
@@ -404,8 +404,8 @@ const createLearningResource = (learningResourceInput, auth) => sendGQL({
   query: CREATE_LEARNING_RESOURCE,
   variables: {
     learningResourceInput: learningResourceInput,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   },
   auth: auth
 });
@@ -422,17 +422,17 @@ const createLearningResourceComment = (learningResourceCommentInput, auth) => se
   query: CREATE_LEARNING_RESOURCE_COMMENT,
   variables: {
     learningResourceCommentInput: learningResourceCommentInput,
-    first: first,
-    skip: skip
+    skip: skip,
+    first: first
   },
   auth: auth
 });
 
-const deleteLearningResourceComment = (cmmtId, lrId, auth) => sendGQL({
+const deleteLearningResourceComment = (lrId, cmmtId, auth) => sendGQL({
   query: DELETE_LEARNING_RESOURCE_COMMENT,
   variables: {
-    cmmtId: cmmtId,
-    lrId: lrId
+    lrId: lrId,
+    cmmtId: cmmtId
   },
   auth: auth
 });
@@ -445,12 +445,12 @@ const createLearningResourceCommentReply = (learningResourceReplyInput, auth) =>
   auth: auth
 });
 
-const deleteLearningResourceCommentReply = (rpyId, cmmtId, lrId, auth) => sendGQL({
+const deleteLearningResourceCommentReply = (lrId, cmmtId, rpyId, auth) => sendGQL({
   query: DELETE_LEARNING_RESOURCE_COMMENT_REPLY,
   variables: {
-    rpyId: rpyId,
+    lrId: lrId,
     cmmtId: cmmtId,
-    lrId: lrId
+    rpyId: rpyId
   },
   auth: auth
 });
@@ -527,11 +527,11 @@ const createLecture = (lectureInput, auth) => sendGQL({
   auth: auth
 });
 
-const editLecture = (lectureInput, id, auth) => sendGQL({
+const editLecture = (id, lectureInput, auth) => sendGQL({
   query: EDIT_LECTURE,
   variables: {
-    lectureInput: lectureInput,
-    id: id
+    id: id,
+    lectureInput: lectureInput
   },
   auth: auth
 });
@@ -560,11 +560,11 @@ const confirmPassword = (comfirmInput, auth) => sendGQL({
   auth: auth
 });
 
-const changePassword = (newPassword, resetToken, auth) => sendGQL({
+const changePassword = (resetToken, newPassword, auth) => sendGQL({
   query: CHANGE_PASSWORD,
   variables: {
-    newPassword: newPassword,
-    resetToken: resetToken
+    resetToken: resetToken,
+    newPassword: newPassword
   },
   auth: auth
 });
