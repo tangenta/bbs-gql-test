@@ -2544,7 +2544,16 @@ const ALL_LECTURES = `
           lecturer
           time
           position
-          content
+          content {
+            items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
+            }
+          }
           title
           id
         }
@@ -2566,7 +2575,16 @@ const LECTURE_INFO = `
         lecturer
         time
         position
-        content
+        content {
+          items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
+          }
+        }
         title
         id
       }
@@ -2587,7 +2605,16 @@ const SEARCH_LECTURES = `
           lecturer
           time
           position
-          content
+          content {
+            items {
+              ... on Paragraph {
+                text
+              }
+              ... on Picture {
+                url
+              }
+            }
+          }
           title
           id
         }
@@ -3725,7 +3752,16 @@ const CREATE_LECTURE = `
         lecturer
         time
         position
-        content
+        content {
+          items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
+          }
+        }
         title
         id
       }
@@ -3745,7 +3781,16 @@ const EDIT_LECTURE = `
         lecturer
         time
         position
-        content
+        content {
+          items {
+            ... on Paragraph {
+              text
+            }
+            ... on Picture {
+              url
+            }
+          }
+        }
         title
         id
       }

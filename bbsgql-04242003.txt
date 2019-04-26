@@ -381,7 +381,7 @@ input LostInput {
 type LectureInfo {
     id: ID!
     title: String!
-    content: String!
+    content: Content!
     position: String!
     time: Long!
     lecturer: String!
