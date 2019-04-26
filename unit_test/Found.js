@@ -20,3 +20,24 @@ unit_test("allFounds" , () =>
         )
     )
 )
+
+unit_test("deleteFound", () => 
+    after_publishFound((auth, foundId) => 
+        deleteFound(foundId, auth).then(res => 
+            assert(res.ok)
+        )
+    )
+);
+
+unit_test("claimFound", () =>
+    after_publishFound((auth, foundId, foundObj) =>
+        after_signUp((auth, uname, pass, nick) => 
+            claimFound(foundId, auth).then(res => {
+                assert(res.ok);
+                return foundInfo(foundId).then(res => 
+                    assertEq(res.claimer.username, nick)
+                )
+            })
+        )
+    )
+)

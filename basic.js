@@ -72,8 +72,8 @@ const after_publishFound = (func) =>
 			description: "qwerty",
 			position: "qwertyu",
 			contact: "1121234567",
-			imageBase64: "aGVsbG93b3JsZCE=",
-			time: Date.now(),
+			pictureBase64: "aGVsbG93b3JsZCE=",
+			foundTime: Date.now(),
 		};
 		return createFound(testObj, auth).then(result =>
 			func(auth, result.id, testObj)
@@ -88,8 +88,8 @@ const after_publishLost = (func) =>
 			description: "qwerty",
 			position: "qwertyu",
 			contact: "1121234567",
-			imageBase64: "aGVsbG93b3JsZCE=",
-			time: Date.now(),
+			pictureBase64: "aGVsbG93b3JsZCE=",
+			lostTime: Date.now(),
 		};
 		return createLost(testObj, auth).then(result =>
 			func(auth, result.id, testObj)
