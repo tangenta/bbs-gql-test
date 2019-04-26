@@ -23,7 +23,7 @@ unit_test("AllSchoolHeats", () =>
   after_n_schoolheat_publisth(10, (_, __, ids) =>
     allSchoolHeats().then(res => {
         assert(eqSet(new Set(ids), new Set(res.schoolHeats.map(i => i.id))));
-        assert(res.totalCount, 5);
+        assertEq(res.totalCount, 10);
       }
     )
   )
@@ -37,6 +37,18 @@ unit_test("SchoolHeatInfo", () =>
       })
     })
   })
+);
+
+unit_test("SchoolHeatsOfAuthor", () =>
+  after_n_schoolheat_publisth(10, (auth, __, ids) =>
+    currentUser(auth).then(userid =>
+      schoolHeatsOfAuthor(userid.userId).then(res => {
+          assert(eqSet(new Set(ids), new Set(res.schoolHeats.map(i => i.id))));
+          assertEq(res.totalCount, 10);
+        }
+      )
+    )
+  )
 );
 
 unit_test("DeleteSchoolHeat", () =>
