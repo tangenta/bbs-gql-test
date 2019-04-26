@@ -1,18 +1,18 @@
+const schoolHeat = {
+  title: "A Title",
+  content: {
+    elems: [
+      {type: "Picture", str: "aGVsbG93b3JsZCE="},
+      {type: "Text", str: "I close my eyes, Oh God I think I'm falling"},
+      {type: "Picture", str: "aGVsbG93b3JsZCE="},
+      {type: "Text", str: "When you call my name it's like a little prayer"},
+    ]
+  }
+};
+
 unit_test("CreateSchoolHeat", () =>
     after_signUp(auth => {
-      const schoolHeat = {
-        title: "A Title",
-        content: {
-          elems: [
-            {type: "Picture", str: "aGVsbG93b3JsZCE="},
-            {type: "Text", str: "I close my eyes, Oh God I think I'm falling"},
-            {type: "Picture", str: "aGVsbG93b3JsZCE="},
-            {type: "Text", str: "When you call my name it's like a little prayer"},
-          ]
-        }
-      };
       return createSchoolHeat(schoolHeat, auth).then(res => {
-        // console.log(res);
         assertEq(res.title, schoolHeat.title);
         assertEq(res.content.items.length, 4);
       })
@@ -28,4 +28,25 @@ unit_test("AllSchoolHeats", () =>
     )
   )
 );
+
+unit_test("SchoolHeatInfo", () =>
+  after_signUp(auth => {
+    return createSchoolHeat(schoolHeat, auth).then(res => {
+      schoolHeatInfo(res.id).then(res => {
+        assertEq(res.title, schoolHeat.title)
+      })
+    })
+  })
+);
+
+unit_test("DeleteSchoolHeat", () =>
+  after_signUp(auth => {
+    return createSchoolHeat(schoolHeat, auth).then(res => {
+      deleteSchoolHeat(res.id, auth).then(res => {
+        assert(res.ok)
+      })
+    })
+  })
+);
+
 
