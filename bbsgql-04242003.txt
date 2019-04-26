@@ -67,7 +67,7 @@ type NewsInfo {
 }
 input NewsInput {
     title: String
-    content: Content
+    content: ContentInput
     pictureBase64: String
 }
 union NewsInfoResult   = Error | NewsInfo
@@ -125,15 +125,15 @@ union SchoolHeatsOfAuthorResult = Error | MultiSchoolHeats
 
 input SchoolHeatInput {
     title: String!
-    content: Content!
+    content: ContentInput!
 }
 input SchoolHeatCommentInput {
     postIdCommenting: ID!
-    content: Content!
+    content: ContentInput!
 }
 input SchoolHeatReplyInput {
     commentIdReplying: ID!
-    content: Content!
+    content: ContentInput!
     replyTo: ID
 }
 
@@ -175,15 +175,15 @@ union EntertainmentsOfAuthorResult = Error | MultiEntertainments
 
 input EntertainmentInput {
     title: String!
-    content: Content!
+    content: ContentInput!
 }
 input EntertainmentCommentInput {
     postIdCommenting: ID!
-    content: Content!
+    content: ContentInput!
 }
 input EntertainmentReplyInput {
     commentIdReplying: ID!
-    content: Content!
+    content: ContentInput!
     replyTo: ID
 }
 
@@ -227,17 +227,17 @@ union SearchLearningResourcesResult = Error | MultiLearningResources
 
 input LearningResourceInput {
     title: String!
-    content: Content!
+    content: ContentInput!
     course: String!
     base64AttachedFile: String!
 }
 input LearningResourceCommentInput {
     postIdCommenting: ID!
-    content: Content!
+    content: ContentInput!
 }
 input LearningResourceReplyInput {
     commentIdReplying: ID!
-    content: Content!
+    content: ContentInput!
     replyTo: ID
 }
 
@@ -401,7 +401,7 @@ union SearchLecturesResult = Error | MultiLectures
 
 input LectureInput {
     title: String!
-    content: Content!
+    content: ContentInput!
     position: String!
     time: Long!
     lecturer: String!
@@ -458,10 +458,12 @@ union ChangePasswordResult = Error | Ok
 
 # 杂项
 enum SortedBy {
-    TimeAsc
-    TimeDes
+    ActiveTimeAsc
+    ActiveTimeDes
     HeatAsc
     HeatDes
+    NatureAsc
+    NatureDes
 }
 
 type Error {
@@ -473,11 +475,26 @@ type Ok {
     ok: Boolean!
 }
 
+input ContentInput {
+    elems: [ContentItem!]!
+}
+
+input ContentElem {
+    type: ElemType!
+    str: String!
+}
+
+enum ElemType {
+    Picture
+    Text
+}
+
 type Content {
     items: [ContentItem!]!
 }
 
 union ContentItem = Picture | Paragraph
+
 type Picture {
     url: String!
 }
