@@ -3774,7 +3774,7 @@ const CREATE_LECTURE = `
 `;
 
 const EDIT_LECTURE = `
-  mutation EditLecture($id: ID!, $lectureInput: LectureInput!) {
+  mutation EditLecture($id: ID!, $lectureInput: LectureOptionalInput!) {
     editLecture(id: $id, lectureInput: $lectureInput) {
       ... on LectureInfo {
         note

@@ -155,26 +155,6 @@ const after_n_schoolheat_publisth = (nTimes, func) => {
 	})
 }
 
-// [dependencies: signup, createPosts, deletePosts]
-const after_n_post_create = (nTimes, func) => {
-	return after_signUp(auth => {
-		let chain = Promise.resolve();
-		let pubPosts = [];
-		let pubPostIds = [];
-		for (let i = 0; i < nTimes; ++i) {
-			const post = {
-				title: "title" + i,
-				content: "content" + i
-			}
-			pubPosts.push(post);
-			chain = chain.then(() => createPost(post, auth))
-				.then(result => pubPostIds.push(result.postId));
-		}
-
-		return chain.then(() => func(auth, pubPosts, pubPostIds));
-	});
-}
-
 //---------unit test---------
 
 let unitTests = [];
