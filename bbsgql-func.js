@@ -98,8 +98,8 @@ const searchEntertainments = (title) => sendGQL({
   }
 });
 
-const allLearningResource = (skip, first, course, sortedBy) => sendGQL({
-  query: ALL_LEARNING_RESOURCE,
+const allLearningResources = (skip, first, course, sortedBy) => sendGQL({
+  query: ALL_LEARNING_RESOURCES,
   variables: {
     skip: skip,
     first: first,

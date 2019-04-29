@@ -190,7 +190,7 @@ input EntertainmentReplyInput {
 
 
 # 学习资料
-@query allLearningResource(skip: Long, first: Long, course: String, sortedBy: SortedBy): AllLearningResourceResult!
+@query allLearningResources(skip: Long, first: Long, course: String, sortedBy: SortedBy): AllLearningResourceResult!
 @query allCourses: [String!]! # course还需要去找
 @query learningResourceInfo(id: ID!): LearningResourceInfoResult!
 @query learningResourcesOfAuthor(authorId: ID!, skip: Long, first: Long): LearningResourcesOfAuthorResult!
@@ -208,7 +208,7 @@ type LearningResourceInfo {
     title: String!
     content: Content!
     course: String!
-    attachedFileURL: String!
+    attachedFileURL: String
     latestCommenter: PersonalInfo
     latestActiveTime: Long!
     createTime: Long!
@@ -229,7 +229,7 @@ input LearningResourceInput {
     title: String!
     content: ContentInput!
     course: String!
-    base64AttachedFile: String!
+    base64AttachedFile: String
 }
 input LearningResourceCommentInput {
     postIdCommenting: ID!
@@ -253,6 +253,7 @@ type CommentInfo {
     content: Content!
     author: PersonalInfo!
     allReplies(skip: Long, first: Long): AllReplies!
+    creationTime: Long!
 }
 type AllReplies {
     totalCount: Long!
@@ -263,6 +264,7 @@ type ReplyInfo {
     content: Content!
     author: PersonalInfo!
     replyTo: PersonalInfo
+    creationTime: Long!
 }
 
 union CreateSchoolHeatCommentResult = Error | CommentInfo

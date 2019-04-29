@@ -27,8 +27,10 @@ const HOTS = `
           ... on LearningResourceInfo {
             allComments(skip: $skip, first: $first) {
               comments {
+                creationTime
                 allReplies(skip: $skip, first: $first) {
                   replies {
+                    creationTime
                     replyTo {
                       introduction
                       major
@@ -127,8 +129,10 @@ const HOTS = `
           ... on EntertainmentInfo {
             allComments(skip: $skip, first: $first) {
               comments {
+                creationTime
                 allReplies(skip: $skip, first: $first) {
                   replies {
+                    creationTime
                     replyTo {
                       introduction
                       major
@@ -226,8 +230,10 @@ const HOTS = `
           ... on SchoolHeatInfo {
             allComments(skip: $skip, first: $first) {
               comments {
+                creationTime
                 allReplies(skip: $skip, first: $first) {
                   replies {
+                    creationTime
                     replyTo {
                       introduction
                       major
@@ -340,8 +346,10 @@ const LATESTS = `
           ... on LearningResourceInfo {
             allComments(skip: $skip, first: $first) {
               comments {
+                creationTime
                 allReplies(skip: $skip, first: $first) {
                   replies {
+                    creationTime
                     replyTo {
                       introduction
                       major
@@ -440,8 +448,10 @@ const LATESTS = `
           ... on EntertainmentInfo {
             allComments(skip: $skip, first: $first) {
               comments {
+                creationTime
                 allReplies(skip: $skip, first: $first) {
                   replies {
+                    creationTime
                     replyTo {
                       introduction
                       major
@@ -539,8 +549,10 @@ const LATESTS = `
           ... on SchoolHeatInfo {
             allComments(skip: $skip, first: $first) {
               comments {
+                creationTime
                 allReplies(skip: $skip, first: $first) {
                   replies {
+                    creationTime
                     replyTo {
                       introduction
                       major
@@ -715,8 +727,10 @@ const SEARCH = `
           ... on EntertainmentInfo {
             allComments(skip: $skip, first: $first) {
               comments {
+                creationTime
                 allReplies(skip: $skip, first: $first) {
                   replies {
+                    creationTime
                     replyTo {
                       introduction
                       major
@@ -814,8 +828,10 @@ const SEARCH = `
           ... on SchoolHeatInfo {
             allComments(skip: $skip, first: $first) {
               comments {
+                creationTime
                 allReplies(skip: $skip, first: $first) {
                   replies {
+                    creationTime
                     replyTo {
                       introduction
                       major
@@ -927,8 +943,10 @@ const ALL_SCHOOL_HEATS = `
         schoolHeats {
           allComments(skip: $skip, first: $first) {
             comments {
+              creationTime
               allReplies(skip: $skip, first: $first) {
                 replies {
+                  creationTime
                   replyTo {
                     introduction
                     major
@@ -1039,8 +1057,10 @@ const SCHOOL_HEAT_INFO = `
       ... on SchoolHeatInfo {
         allComments(skip: $skip, first: $first) {
           comments {
+            creationTime
             allReplies(skip: $skip, first: $first) {
               replies {
+                creationTime
                 replyTo {
                   introduction
                   major
@@ -1150,8 +1170,10 @@ const SCHOOL_HEATS_OF_AUTHOR = `
         schoolHeats {
           allComments(skip: $skip, first: $first) {
             comments {
+              creationTime
               allReplies(skip: $skip, first: $first) {
                 replies {
+                  creationTime
                   replyTo {
                     introduction
                     major
@@ -1263,8 +1285,10 @@ const SEARCH_SCHOOL_HEATS = `
         schoolHeats {
           allComments(skip: $skip, first: $first) {
             comments {
+              creationTime
               allReplies(skip: $skip, first: $first) {
                 replies {
+                  creationTime
                   replyTo {
                     introduction
                     major
@@ -1376,8 +1400,10 @@ const ALL_ENTERTAINMENTS = `
         Entertainments {
           allComments(skip: $skip, first: $first) {
             comments {
+              creationTime
               allReplies(skip: $skip, first: $first) {
                 replies {
+                  creationTime
                   replyTo {
                     introduction
                     major
@@ -1488,8 +1514,10 @@ const ENTERTAINMENT_INFO = `
       ... on EntertainmentInfo {
         allComments(skip: $skip, first: $first) {
           comments {
+            creationTime
             allReplies(skip: $skip, first: $first) {
               replies {
+                creationTime
                 replyTo {
                   introduction
                   major
@@ -1599,8 +1627,10 @@ const ENTERTAINMENTS_OF_AUTHOR = `
         Entertainments {
           allComments(skip: $skip, first: $first) {
             comments {
+              creationTime
               allReplies(skip: $skip, first: $first) {
                 replies {
+                  creationTime
                   replyTo {
                     introduction
                     major
@@ -1712,8 +1742,10 @@ const SEARCH_ENTERTAINMENTS = `
         Entertainments {
           allComments(skip: $skip, first: $first) {
             comments {
+              creationTime
               allReplies(skip: $skip, first: $first) {
                 replies {
+                  creationTime
                   replyTo {
                     introduction
                     major
@@ -1818,15 +1850,17 @@ const SEARCH_ENTERTAINMENTS = `
   }
 `;
 
-const ALL_LEARNING_RESOURCE = `
-  query AllLearningResource($skip: Long, $first: Long, $course: String, $sortedBy: SortedBy) {
-    allLearningResource(skip: $skip, first: $first, course: $course, sortedBy: $sortedBy) {
+const ALL_LEARNING_RESOURCES = `
+  query AllLearningResources($skip: Long, $first: Long, $course: String, $sortedBy: SortedBy) {
+    allLearningResources(skip: $skip, first: $first, course: $course, sortedBy: $sortedBy) {
       ... on MultiLearningResources {
         learningResources {
           allComments(skip: $skip, first: $first) {
             comments {
+              creationTime
               allReplies(skip: $skip, first: $first) {
                 replies {
+                  creationTime
                   replyTo {
                     introduction
                     major
@@ -1944,8 +1978,10 @@ const LEARNING_RESOURCE_INFO = `
       ... on LearningResourceInfo {
         allComments(skip: $skip, first: $first) {
           comments {
+            creationTime
             allReplies(skip: $skip, first: $first) {
               replies {
+                creationTime
                 replyTo {
                   introduction
                   major
@@ -2056,8 +2092,10 @@ const LEARNING_RESOURCES_OF_AUTHOR = `
         learningResources {
           allComments(skip: $skip, first: $first) {
             comments {
+              creationTime
               allReplies(skip: $skip, first: $first) {
                 replies {
+                  creationTime
                   replyTo {
                     introduction
                     major
@@ -2170,8 +2208,10 @@ const SEARCH_LEARNING_RESOURCES = `
         learningResources {
           allComments(skip: $skip, first: $first) {
             comments {
+              creationTime
               allReplies(skip: $skip, first: $first) {
                 replies {
+                  creationTime
                   replyTo {
                     introduction
                     major
@@ -2785,8 +2825,10 @@ const CREATE_SCHOOL_HEAT = `
       ... on SchoolHeatInfo {
         allComments(skip: $skip, first: $first) {
           comments {
+            creationTime
             allReplies(skip: $skip, first: $first) {
               replies {
+                creationTime
                 replyTo {
                   introduction
                   major
@@ -2907,8 +2949,10 @@ const CREATE_SCHOOL_HEAT_COMMENT = `
   mutation CreateSchoolHeatComment($schoolHeatCommentInput: SchoolHeatCommentInput!, $skip: Long, $first: Long) {
     createSchoolHeatComment(schoolHeatCommentInput: $schoolHeatCommentInput) {
       ... on CommentInfo {
+        creationTime
         allReplies(skip: $skip, first: $first) {
           replies {
+            creationTime
             replyTo {
               introduction
               major
@@ -2991,6 +3035,7 @@ const CREATE_SCHOOL_HEAT_COMMENT_REPLY = `
   mutation CreateSchoolHeatCommentReply($schoolHeatReplyInput: SchoolHeatReplyInput) {
     createSchoolHeatCommentReply(schoolHeatReplyInput: $schoolHeatReplyInput) {
       ... on ReplyInfo {
+        creationTime
         replyTo {
           introduction
           major
@@ -3051,8 +3096,10 @@ const CREATE_ENTERTAINMENT = `
       ... on EntertainmentInfo {
         allComments(skip: $skip, first: $first) {
           comments {
+            creationTime
             allReplies(skip: $skip, first: $first) {
               replies {
+                creationTime
                 replyTo {
                   introduction
                   major
@@ -3173,8 +3220,10 @@ const CREATE_ENTERTAINMENT_COMMENT = `
   mutation CreateEntertainmentComment($entertainmentCommentInput: EntertainmentCommentInput!, $skip: Long, $first: Long) {
     createEntertainmentComment(entertainmentCommentInput: $entertainmentCommentInput) {
       ... on CommentInfo {
+        creationTime
         allReplies(skip: $skip, first: $first) {
           replies {
+            creationTime
             replyTo {
               introduction
               major
@@ -3257,6 +3306,7 @@ const CREATE_ENTERTAINMENT_COMMENT_REPLY = `
   mutation CreateEntertainmentCommentReply($entertainmentReplyInput: EntertainmentReplyInput) {
     createEntertainmentCommentReply(entertainmentReplyInput: $entertainmentReplyInput) {
       ... on ReplyInfo {
+        creationTime
         replyTo {
           introduction
           major
@@ -3317,8 +3367,10 @@ const CREATE_LEARNING_RESOURCE = `
       ... on LearningResourceInfo {
         allComments(skip: $skip, first: $first) {
           comments {
+            creationTime
             allReplies(skip: $skip, first: $first) {
               replies {
+                creationTime
                 replyTo {
                   introduction
                   major
@@ -3440,8 +3492,10 @@ const CREATE_LEARNING_RESOURCE_COMMENT = `
   mutation CreateLearningResourceComment($learningResourceCommentInput: LearningResourceCommentInput!, $skip: Long, $first: Long) {
     createLearningResourceComment(learningResourceCommentInput: $learningResourceCommentInput) {
       ... on CommentInfo {
+        creationTime
         allReplies(skip: $skip, first: $first) {
           replies {
+            creationTime
             replyTo {
               introduction
               major
@@ -3524,6 +3578,7 @@ const CREATE_LEARNING_RESOURCE_COMMENT_REPLY = `
   mutation CreateLearningResourceCommentReply($learningResourceReplyInput: LearningResourceReplyInput) {
     createLearningResourceCommentReply(learningResourceReplyInput: $learningResourceReplyInput) {
       ... on ReplyInfo {
+        creationTime
         replyTo {
           introduction
           major
