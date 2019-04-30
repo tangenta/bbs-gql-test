@@ -1397,7 +1397,7 @@ const ALL_ENTERTAINMENTS = `
   query AllEntertainments($skip: Long, $first: Long, $sortedBy: SortedBy) {
     allEntertainments(skip: $skip, first: $first, sortedBy: $sortedBy) {
       ... on MultiEntertainments {
-        Entertainments {
+        entertainments {
           allComments(skip: $skip, first: $first) {
             comments {
               creationTime
@@ -1624,7 +1624,7 @@ const ENTERTAINMENTS_OF_AUTHOR = `
   query EntertainmentsOfAuthor($authorId: ID!, $skip: Long, $first: Long) {
     entertainmentsOfAuthor(authorId: $authorId, skip: $skip, first: $first) {
       ... on MultiEntertainments {
-        Entertainments {
+        entertainments {
           allComments(skip: $skip, first: $first) {
             comments {
               creationTime
@@ -1739,7 +1739,7 @@ const SEARCH_ENTERTAINMENTS = `
   query SearchEntertainments($title: String!, $skip: Long, $first: Long) {
     searchEntertainments(title: $title) {
       ... on MultiEntertainments {
-        Entertainments {
+        entertainments {
           allComments(skip: $skip, first: $first) {
             comments {
               creationTime
