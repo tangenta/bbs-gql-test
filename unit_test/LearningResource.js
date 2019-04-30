@@ -1,28 +1,17 @@
 const after_create_n_learningResource = (nTimes, func) => {
-    return after_signUp(auth => {
-		let chain = Promise.resolve();
-		let pubItems = [];
-		let pubItemIds = [];
-		for (let i = 0; i < nTimes; i++) {
-			const item = {
-				title: "ttttz" + i,
-				content: {
-					elems: [
-						{type: "Picture", str: "aGVsbG93b3JsZCE="},
-						{type: "Text", str: "I close my eyes, Oh God I think I'm falling" + i},
-						{type: "Text", str: "When you call my name it's like a little prayer" + i},
-					]
-                },
-                course: "数学分析"
-			};
-			pubItems.push(item);
-			chain = chain.then(() => createLearningResource(item, auth))
-				.then(result => {
-					pubItemIds.push(result.id)
-				})
-		}
-		return chain.then(() => func(auth, pubItems, pubItemIds))
-	})
+    const mockObj = {
+        title: "ttttz",
+        content: {
+            elems: [
+                {type: "Picture", str: "aGVsbG93b3JsZCE="},
+                {type: "Text", str: "I close my eyes, Oh God I think I'm falling"},
+                {type: "Text", str: "When you call my name it's like a little prayer"},
+            ]
+        },
+        const_course: "数学分析"
+    };
+    return after_n_things_created(nTimes, mockObj, 
+        (auth, item) => createLearningResource(item, auth), res => res.id, func);
 };
 
 let lrInput = {
@@ -140,7 +129,7 @@ unit_test("create/delete LearningResourceComment", () =>
     })
 );
 
-unit_test("create LearningResourceReply", () =>
+unit_test("create/delete LearningResourceReply", () =>
     after_create_n_learningResource(1, (auth1, items, ids) => {
         const postId = ids[0];
         const commentInput = {

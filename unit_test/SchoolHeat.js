@@ -1,3 +1,18 @@
+const after_n_schoolheat_publisth = (nTimes, func) => {
+	const mockObj = {
+		title: "ttttz",
+		content: {
+			elems: [
+				{type: "Picture", str: "aGVsbG93b3JsZCE="},
+				{type: "Text", str: "I close my eyes, Oh God I think I'm falling"},
+				{type: "Text", str: "When you call my name it's like a little prayer"},
+			]
+		}
+	};
+	return after_n_things_created(nTimes, mockObj, 
+		(auth, item) => createSchoolHeat(item, auth), res => res.id, func);
+}
+
 const schoolHeat = {
   title: "A Title",
   content: {

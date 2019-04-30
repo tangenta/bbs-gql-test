@@ -1,3 +1,18 @@
+const after_publishFound = (func) =>
+	after_signUp(auth => {
+		const testObj = {
+			itemName: "qwert",
+			description: "qwerty",
+			position: "qwertyu",
+			contact: "1121234567",
+			pictureBase64: "aGVsbG93b3JsZCE=",
+			foundTime: Date.now(),
+		};
+		return createFound(testObj, auth).then(result =>
+			func(auth, result.id, testObj)
+		)
+	});
+
 unit_test("createFound", () =>
     after_signUp(auth => {
         const foundItem = {

@@ -46,7 +46,6 @@ const generateEmailPassAndNickname = () => {
 
 // ---------convenient func---------
 
-// [dependencies: signup]
 const after_signUp = (func) => {
 	[username, password, nickname] = generateEmailPassAndNickname();
 	return signup({username, password, nickname})
@@ -56,7 +55,6 @@ const after_signUp = (func) => {
 		});
 };
 
-// [dependencies: signup, loggedId]
 const provided_userId = (func) =>
 	after_signUp((auth, username, password, nickname) =>
 		loggedId(auth).then(result =>
@@ -64,96 +62,29 @@ const provided_userId = (func) =>
 		)
 	);
 
-// [dependencies: signup, publishFound]
-const after_publishFound = (func) =>
+const after_n_things_created = (nTimes, mockObj, creatorFunc, resultIdExtractor, callback) => 
 	after_signUp(auth => {
-		const testObj = {
-			itemName: "qwert",
-			description: "qwerty",
-			position: "qwertyu",
-			contact: "1121234567",
-			pictureBase64: "aGVsbG93b3JsZCE=",
-			foundTime: Date.now(),
-		};
-		return createFound(testObj, auth).then(result =>
-			func(auth, result.id, testObj)
-		)
-	});
-
-// [dependencies: signup, publishLost]
-const after_publishLost = (func) =>
-	after_signUp(auth => {
-		const testObj = {
-			itemName: "qwert",
-			description: "qwerty",
-			position: "qwertyu",
-			contact: "1121234567",
-			pictureBase64: "aGVsbG93b3JsZCE=",
-			lostTime: Date.now(),
-		};
-		return createLost(testObj, auth).then(result =>
-			func(auth, result.id, testObj)
-		)
-	});
-
-// [dependencies: signup, publishLost | publishFound]
-const after_n_lost_or_found_publish = (foundOrLostStr, nTimes, func) => {
-	let isFound = false;
-	if (foundOrLostStr === "lost") isFound = false;
-	else if (foundOrLostStr === "found") isFound = true;
-	else throw new Error("not found or lost");
-
-	return after_signUp(auth => {
 		let chain = Promise.resolve();
 		let pubItems = [];
 		let pubItemIds = [];
+
 		for (let i = 0; i < nTimes; ++i) {
-			const item = {
-				itemName: "qwert" + i,
-				description: "qwerty" + i,
-				position: "qwertyu" + i,
-				contact: "1121234567" + i,
-				pictureBase64: "aGVsbG93b3JsZCE=",
-			};
-			if (isFound) item.foundTime = Date.now();
-			else item.lostTime = Date.now();
-
-			pubItems.push(item);
-			chain = chain.then(() => isFound ? createFound(item, auth) : createLost(item, auth))
-				.then(result => {
-					pubItemIds.push(result.id);
-				});
-		}
-
-		return chain.then(() => func(auth, pubItems, pubItemIds));
-	})
-};
-
-const after_n_schoolheat_publisth = (nTimes, func) => {
-	return after_signUp(auth => {
-		let chain = Promise.resolve();
-		let pubItems = [];
-		let pubItemIds = [];
-		for (let i = 0; i < nTimes; i++) {
-			const item = {
-				title: "ttttz" + i,
-				content: {
-					elems: [
-						{type: "Picture", str: "aGVsbG93b3JsZCE="},
-						{type: "Text", str: "I close my eyes, Oh God I think I'm falling" + i},
-						{type: "Text", str: "When you call my name it's like a little prayer" + i},
-					]
+			let item = {};
+			for (let j in mockObj) {
+				if (j.includes("const_")) {
+					const realIndex = j.replace("const_", "");
+					item[realIndex] = mockObj[j];
+				} else if (typeof mockObj[j] === "string"){
+					item[j] = mockObj[j] + i;
+				} else {
+					item[j] = mockObj[j];
 				}
-			};
+			}
 			pubItems.push(item);
-			chain = chain.then(() => createSchoolHeat(item, auth))
-				.then(result => {
-					pubItemIds.push(result.id)
-				})
+			chain = chain.then(() => creatorFunc(auth, item)).then(res => pubItemIds.push(resultIdExtractor(res)))
 		}
-		return chain.then(() => func(auth, pubItems, pubItemIds))
-	})
-}
+		return chain.then(() => callback(auth, pubItems, pubItemIds));
+	});
 
 //---------unit test---------
 
