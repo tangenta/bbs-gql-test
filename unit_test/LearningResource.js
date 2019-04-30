@@ -184,3 +184,17 @@ unit_test("create LearningResourceReply", () =>
         });  
     })
 );
+
+unit_test("learningResourcesOfAuthor", () =>
+    after_create_n_learningResource(3, (auth1, items1, ids1) => 
+        after_create_n_learningResource(4, (auth2, items2, ids2) => 
+            currentUser(auth1).then(res => {
+                const user1Id = res.userId;
+                return learningResourcesOfAuthor(user1Id).then(res => {
+                    assertEq(res.totalCount, 3);
+                    assertEq(res.learningResources.filter(x => x.author.userId === user1Id).length, 3);
+                });
+            })
+        )
+    )
+);
