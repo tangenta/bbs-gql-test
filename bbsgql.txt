@@ -236,6 +236,7 @@ input LearningResourceCommentInput {
     content: ContentInput!
 }
 input LearningResourceReplyInput {
+    postIdReplying: ID!
     commentIdReplying: ID!
     content: ContentInput!
     replyTo: ID

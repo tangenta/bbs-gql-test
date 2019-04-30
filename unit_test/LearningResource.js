@@ -41,7 +41,6 @@ let lrInput = {
 
 unit_test("createLearningResource", () => 
     after_signUp(auth => {
-        
         return createLearningResource(lrInput, auth).then(res => {
             assertEq(res.content.items[1].text, "helloworld");
         });
@@ -55,7 +54,7 @@ unit_test("createLearningResource - incorrect course", () =>
             course: "INCORRECT"
         };
         return createLearningResource(wrongLrInput, auth).then(res => 
-            assertEq(res.errCode, 43)
+            assertEq(res.errCode, 43)   // cannot parse course str
         );
     })
 );
@@ -72,13 +71,32 @@ unit_test("createLearningResource with file", () =>
     })
 );
 
-unit_test("allLearningResources", () => 
+unit_test("allLearningResources - without course", () => 
     after_create_n_learningResource(5, (auth, items, ids) => 
         allLearningResources(1, 3, null, "ActiveTimeAsc").then(res => {
             assertEq(res.totalCount, 5);
             const originIds = ids.slice(1, 4);
             const resIds = res.learningResources.map(x => x.id);
             assertEq(JSON.stringify(originIds), JSON.stringify(resIds));
+        })
+    )
+);
+
+unit_test("allLearningResources - with course1", () => 
+    after_create_n_learningResource(5, (auth, items, ids) => 
+        allLearningResources(1, 3, "数学分析", "ActiveTimeAsc").then(res => {
+            assertEq(res.totalCount, 5);
+            const originIds = ids.slice(1, 4);
+            const resIds = res.learningResources.map(x => x.id);
+            assertEq(JSON.stringify(originIds), JSON.stringify(resIds));
+        })
+    )
+);
+
+unit_test("allLearningResources - with course2", () => 
+    after_create_n_learningResource(5, (auth, items, ids) => 
+        allLearningResources(1, 3, "数据结构", "ActiveTimeAsc").then(res => {
+            assertEq(res.totalCount, 0);
         })
     )
 );
@@ -119,5 +137,50 @@ unit_test("create/delete LearningResourceComment", () =>
                 });
             })
         );
+    })
+);
+
+unit_test("create LearningResourceReply", () =>
+    after_create_n_learningResource(1, (auth1, items, ids) => {
+        const postId = ids[0];
+        const commentInput = {
+            postIdCommenting: postId,
+            content: {
+                elems: [{
+                    type: "Text",
+                    str: "Awesome!"
+                }]
+            }
+        };
+        return createLearningResourceComment(commentInput, auth1).then(res => {
+            const commentId = res.id;
+            const commenter = res.author.userId;
+
+            return after_signUp((auth2, uaname, pass, nickname) => {
+                const replyInput = {
+                    postIdReplying: postId,
+                    commentIdReplying: commentId,
+                    content: {
+                        elems: [{
+                            type: "Text",
+                            str: "Awesome 2!"
+                        }]
+                    },
+                    replyTo: commenter
+                };
+                return createLearningResourceCommentReply(replyInput, auth2).then(res => {
+                    const replyId = res.id;
+                    assertNonEmpty(replyId);
+                    assertEq(res.content.items[0].text, replyInput.content.elems[0].str);
+                    assertEq(res.replyTo.userId, commenter);
+                    return deleteLearningResourceCommentReply(postId, commentId, replyId, auth2).then(res => {
+                        assert(res.ok);
+                        return learningResourceInfo(postId).then(res => 
+                            assertEq(res.allComments.comments[0].allReplies.totalCount, 0)
+                        );
+                    });
+                });
+            });
+        });  
     })
 );
