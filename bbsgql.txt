@@ -182,6 +182,7 @@ input EntertainmentCommentInput {
     content: ContentInput!
 }
 input EntertainmentReplyInput {
+    postIdReplying: ID!
     commentIdReplying: ID!
     content: ContentInput!
     replyTo: ID
