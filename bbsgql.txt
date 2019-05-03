@@ -132,6 +132,7 @@ input SchoolHeatCommentInput {
     content: ContentInput!
 }
 input SchoolHeatReplyInput {
+    postIdReplying: ID!
     commentIdReplying: ID!
     content: ContentInput!
     replyTo: ID
