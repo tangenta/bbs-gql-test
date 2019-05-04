@@ -57,7 +57,7 @@ unit_test("createSchoolHeat", () =>
 unit_test("schoolHeatInfo", () =>
   after_signUp(auth => {
     return createSchoolHeat(schoolHeat, auth).then(res => {
-      schoolHeatInfo(res.id).then(res => {
+      return schoolHeatInfo(res.id).then(res => {
         assertEq(res.title, schoolHeat.title)
       })
     })

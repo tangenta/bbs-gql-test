@@ -134,6 +134,7 @@ const fire_tests = async (kind, tests) => {
 			.catch(error => {
 				console.error("=== (" + f.name + ") " + kind + " FAILED ===");
 				console.error(error);
+				cleanUpRoutine();
 			});
 	}
 	console.log(kind + " pass/run: " + passTestCounter + "/" + testsToRun.length);
