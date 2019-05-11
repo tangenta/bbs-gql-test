@@ -3,7 +3,7 @@ const after_create_n_learningResource = (nTimes, func) => {
         title: "ttttz",
         content: {
             elems: [
-                {type: "Picture", str: "aGVsbG93b3JsZCE="},
+                {type: "Picture", str: PICTURE_BASE64},
                 {type: "Text", str: "I close my eyes, Oh God I think I'm falling"},
                 {type: "Text", str: "When you call my name it's like a little prayer"},
             ]
@@ -19,7 +19,7 @@ let lrInput = {
     content: {
         elems: [{
             type: "Picture",
-            str: "aGVsbG93b3JsZCE="
+            str: PICTURE_BASE64
         }, {
             type: "Text",
             str: "helloworld"
@@ -52,7 +52,7 @@ unit_test("createLearningResource with file", () =>
     after_signUp(auth => {
         const inputWithFile = {
             ...lrInput,
-            base64AttachedFile: "aGVsbG93b3JsZCE="
+            base64AttachedFile: PICTURE_BASE64
         };
         return createLearningResource(inputWithFile, auth).then(res => 
             assertNonEmpty(res.attachedFileURL)

@@ -4,10 +4,10 @@ const anews = {
     elems: [
       {type: "Text", str: "So needless to say"},
       {type: "Text", str: "It's no better to be safe than sorry"},
-      {type: "Picture", str: "aGVsbG93b3JsZCE="},
+      {type: "Picture", str: PICTURE_BASE64},
     ]
   },
-  pictureBase64: "aGVsbG93b3JsZCE="
+  pictureBase64: PICTURE_BASE64
 };
 
 const admin = {username: "admin", password: "letmein"};

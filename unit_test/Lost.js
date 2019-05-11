@@ -14,7 +14,7 @@ const after_n_lost_or_found_publish = (foundOrLostStr, nTimes, func) => {
 				description: "qwerty" + i,
 				position: "qwertyu" + i,
 				contact: "1121234567" + i,
-				pictureBase64: "aGVsbG93b3JsZCE=",
+				pictureBase64: PICTURE_BASE64,
 			};
 			if (isFound) item.foundTime = Date.now();
 			else item.lostTime = Date.now();
@@ -37,7 +37,7 @@ const after_publishLost = (func) =>
 			description: "qwerty",
 			position: "qwertyu",
 			contact: "1121234567",
-			pictureBase64: "aGVsbG93b3JsZCE=",
+			pictureBase64: PICTURE_BASE64,
 			lostTime: Date.now(),
 		};
 		return createLost(testObj, auth).then(result =>
@@ -51,7 +51,7 @@ unit_test("createLost", () =>
             itemName: "testItem",
             description: "this is description",
             position: "position",
-            pictureBase64: "aGVsbG93b3JsZCE=",
+            pictureBase64: PICTURE_BASE64,
             contact: "12345678"
         };
         return createLost(lostItem, auth).then(res =>

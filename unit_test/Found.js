@@ -5,7 +5,7 @@ const after_publishFound = (func) =>
 			description: "qwerty",
 			position: "qwertyu",
 			contact: "1121234567",
-			pictureBase64: "aGVsbG93b3JsZCE=",
+			pictureBase64: PICTURE_BASE64,
 			foundTime: Date.now(),
 		};
 		return createFound(testObj, auth).then(result =>
@@ -19,7 +19,7 @@ unit_test("createFound", () =>
             itemName: "testItem",
             description: "this is description",
             position: "position",
-            pictureBase64: "aGVsbG93b3JsZCE=",
+            pictureBase64: PICTURE_BASE64,
             contact: "12345678"
         };
         return createFound(foundItem, auth).then(res =>

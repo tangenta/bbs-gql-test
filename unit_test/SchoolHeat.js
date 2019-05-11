@@ -3,7 +3,7 @@ const after_n_schoolheat_publisth = (nTimes, func) => {
     title: "ttttz",
     content: {
       elems: [
-        {type: "Picture", str: "aGVsbG93b3JsZCE="},
+        {type: "Picture", str: PICTURE_BASE64},
         {type: "Text", str: "I close my eyes, Oh God I think I'm falling"},
         {type: "Text", str: "When you call my name it's like a little prayer"},
       ]
@@ -17,9 +17,9 @@ const schoolHeat = {
   title: "A Title",
   content: {
     elems: [
-      {type: "Picture", str: "aGVsbG93b3JsZCE="},
+      {type: "Picture", str: PICTURE_BASE64},
       {type: "Text", str: "I close my eyes, Oh God I think I'm falling"},
-      {type: "Picture", str: "aGVsbG93b3JsZCE="},
+      {type: "Picture", str: PICTURE_BASE64},
       {type: "Text", str: "When you call my name it's like a little prayer"},
     ]
   }
